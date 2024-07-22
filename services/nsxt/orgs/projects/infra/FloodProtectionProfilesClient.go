@@ -23,9 +23,9 @@ type FloodProtectionProfilesClient interface {
 
 	// API will delete Flood Protection Profile
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param floodProtectionProfileIdParam Flood Protection Profile ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -33,13 +33,13 @@ type FloodProtectionProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string, overrideParam *bool) error
+	Delete(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string, overrideParam *bool) error
 
 	// API will get Flood Protection Profile
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param floodProtectionProfileIdParam Flood Protection Profile ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.FloodProtectionProfile
 	// The return value will contain all the properties defined in nsx_policyModel.FloodProtectionProfile.
 	//
@@ -48,12 +48,12 @@ type FloodProtectionProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string) (*vapiData_.StructValue, error)
+	Get(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string) (*vapiData_.StructValue, error)
 
 	// API will list all Flood Protection Profiles
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
@@ -71,9 +71,9 @@ type FloodProtectionProfilesClient interface {
 
 	// API will create/update Flood Protection Profile
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param floodProtectionProfileIdParam Firewall Flood Protection Profile ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param floodProtectionProfileParam (required)
 	// The parameter must contain all the properties defined in nsx_policyModel.FloodProtectionProfile.
 	// @param overrideParam Locally override the global object (optional, default to false)
@@ -83,13 +83,13 @@ type FloodProtectionProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) error
+	Patch(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) error
 
 	// API will update Firewall Flood Protection Profile
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param floodProtectionProfileIdParam Flood Protection Profile ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param floodProtectionProfileParam (required)
 	// The parameter must contain all the properties defined in nsx_policyModel.FloodProtectionProfile.
 	// @param overrideParam Locally override the global object (optional, default to false)
@@ -101,7 +101,7 @@ type FloodProtectionProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) (*vapiData_.StructValue, error)
+	Update(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) (*vapiData_.StructValue, error)
 }
 
 type floodProtectionProfilesClient struct {
@@ -133,7 +133,7 @@ func (fIface *floodProtectionProfilesClient) GetErrorBindingType(errorName strin
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (fIface *floodProtectionProfilesClient) Delete(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string, overrideParam *bool) error {
+func (fIface *floodProtectionProfilesClient) Delete(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string, overrideParam *bool) error {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := floodProtectionProfilesDeleteRestMetadata()
@@ -141,9 +141,9 @@ func (fIface *floodProtectionProfilesClient) Delete(orgIdParam string, projectId
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(floodProtectionProfilesDeleteInputType(), typeConverter)
+	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
@@ -162,7 +162,7 @@ func (fIface *floodProtectionProfilesClient) Delete(orgIdParam string, projectId
 	}
 }
 
-func (fIface *floodProtectionProfilesClient) Get(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string) (*vapiData_.StructValue, error) {
+func (fIface *floodProtectionProfilesClient) Get(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string) (*vapiData_.StructValue, error) {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := floodProtectionProfilesGetRestMetadata()
@@ -170,9 +170,9 @@ func (fIface *floodProtectionProfilesClient) Get(orgIdParam string, projectIdPar
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(floodProtectionProfilesGetInputType(), typeConverter)
+	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput *vapiData_.StructValue
@@ -235,7 +235,7 @@ func (fIface *floodProtectionProfilesClient) List(orgIdParam string, projectIdPa
 	}
 }
 
-func (fIface *floodProtectionProfilesClient) Patch(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) error {
+func (fIface *floodProtectionProfilesClient) Patch(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) error {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := floodProtectionProfilesPatchRestMetadata()
@@ -243,9 +243,9 @@ func (fIface *floodProtectionProfilesClient) Patch(orgIdParam string, projectIdP
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(floodProtectionProfilesPatchInputType(), typeConverter)
+	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	sv.AddStructField("FloodProtectionProfile", floodProtectionProfileParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()
@@ -265,7 +265,7 @@ func (fIface *floodProtectionProfilesClient) Patch(orgIdParam string, projectIdP
 	}
 }
 
-func (fIface *floodProtectionProfilesClient) Update(orgIdParam string, projectIdParam string, floodProtectionProfileIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) (*vapiData_.StructValue, error) {
+func (fIface *floodProtectionProfilesClient) Update(floodProtectionProfileIdParam string, orgIdParam string, projectIdParam string, floodProtectionProfileParam *vapiData_.StructValue, overrideParam *bool) (*vapiData_.StructValue, error) {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := floodProtectionProfilesUpdateRestMetadata()
@@ -273,9 +273,9 @@ func (fIface *floodProtectionProfilesClient) Update(orgIdParam string, projectId
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(floodProtectionProfilesUpdateInputType(), typeConverter)
+	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("FloodProtectionProfileId", floodProtectionProfileIdParam)
 	sv.AddStructField("FloodProtectionProfile", floodProtectionProfileParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()

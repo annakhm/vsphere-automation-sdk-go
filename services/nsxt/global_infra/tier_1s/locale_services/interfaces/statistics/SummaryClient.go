@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SummaryClient interface {
 
-	// Get tier-1 interface statistics information.
+	// Get tier-1 interface statistics summary information.
 	//
 	// @param tier1IdParam (required)
 	// @param localeServiceIdParam (required)

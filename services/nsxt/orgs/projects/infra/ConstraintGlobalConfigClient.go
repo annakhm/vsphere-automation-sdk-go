@@ -22,8 +22,8 @@ type ConstraintGlobalConfigClient interface {
 
 	// Read the constraint global configuration
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.ConstraintGlobalConfig
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -35,8 +35,8 @@ type ConstraintGlobalConfigClient interface {
 
 	// Update the constraint global configuration
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param constraintGlobalConfigParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -48,8 +48,8 @@ type ConstraintGlobalConfigClient interface {
 
 	// Update the constraint global configuration
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param constraintGlobalConfigParam (required)
 	// @return com.vmware.nsx_policy.model.ConstraintGlobalConfig
 	//

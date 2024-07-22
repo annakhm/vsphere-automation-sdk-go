@@ -22,7 +22,9 @@ func exportCreateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
 	fields["ids_pcap_export"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsPcapExportBindingType)
+	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["ids_pcap_export"] = "IdsPcapExport"
+	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -41,8 +43,12 @@ func exportCreateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
 	fields["ids_pcap_export"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsPcapExportBindingType)
+	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["ids_pcap_export"] = "IdsPcapExport"
+	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
 	paramsTypeMap["ids_pcap_export"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsPcapExportBindingType)
+	paramsTypeMap["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	queryParams["enforcement_point_path"] = "enforcement_point_path"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

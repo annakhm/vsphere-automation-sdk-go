@@ -32,7 +32,7 @@ type DynamicPluginsClient interface {
 	// @throws NotFound  Not Found
 	Get(pluginIdParam string) (nsx_policyModel.ShaDynamicPlugin, error)
 
-	// API will provide list of Sha dynamic plugins.
+	// API will provide list of Sha Dynamic plugins.
 	//
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)

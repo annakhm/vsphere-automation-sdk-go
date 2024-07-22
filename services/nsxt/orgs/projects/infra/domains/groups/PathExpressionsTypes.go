@@ -116,16 +116,16 @@ func pathExpressionsCreateRestMetadata() vapiProtocol_.OperationRestMetadata {
 func pathExpressionsDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -143,19 +143,19 @@ func pathExpressionsDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["expression_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -166,8 +166,8 @@ func pathExpressionsDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["expression_id"] = "expressionId"
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -194,17 +194,17 @@ func pathExpressionsDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 func pathExpressionsPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["path_expression"] = vapiBindings_.NewReferenceType(nsx_policyModel.PathExpressionBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["path_expression"] = "PathExpression"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -223,21 +223,21 @@ func pathExpressionsPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["path_expression"] = vapiBindings_.NewReferenceType(nsx_policyModel.PathExpressionBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["path_expression"] = "PathExpression"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["path_expression"] = vapiBindings_.NewReferenceType(nsx_policyModel.PathExpressionBindingType)
 	paramsTypeMap["expression_id"] = vapiBindings_.NewStringType()
@@ -249,8 +249,8 @@ func pathExpressionsPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["expression_id"] = "expressionId"
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

@@ -22,8 +22,6 @@ type DetailedStatusClient interface {
 
 	// - no enforcement point path specified: detailed status is evaluated on each enforcement point. - an enforcement point path is specified: detailed status is evaluated only on the given enforcement point. - source=realtime: detailed status is fetched realtime from the enforcement point. - source=cached: cached detailed status from enforcement point is returned.
 	//
-	// Deprecated: This API element is deprecated.
-	//
 	// @param tier0IdParam (required)
 	// @param serviceIdParam (required)
 	// @param sessionIdParam (required)

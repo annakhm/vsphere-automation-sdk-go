@@ -22,16 +22,17 @@ type ExportClient interface {
 
 	// Trigger the process to collect all pcap files of all the pcap_ids mentioned in request payload.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param idsPcapExportParam (required)
+	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Create(orgIdParam string, projectIdParam string, idsPcapExportParam nsx_policyModel.IdsPcapExport) error
+	Create(orgIdParam string, projectIdParam string, idsPcapExportParam nsx_policyModel.IdsPcapExport, enforcementPointPathParam *string) error
 }
 
 type exportClient struct {
@@ -59,7 +60,7 @@ func (eIface *exportClient) GetErrorBindingType(errorName string) vapiBindings_.
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (eIface *exportClient) Create(orgIdParam string, projectIdParam string, idsPcapExportParam nsx_policyModel.IdsPcapExport) error {
+func (eIface *exportClient) Create(orgIdParam string, projectIdParam string, idsPcapExportParam nsx_policyModel.IdsPcapExport, enforcementPointPathParam *string) error {
 	typeConverter := eIface.connector.TypeConverter()
 	executionContext := eIface.connector.NewExecutionContext()
 	operationRestMetaData := exportCreateRestMetadata()
@@ -70,6 +71,7 @@ func (eIface *exportClient) Create(orgIdParam string, projectIdParam string, ids
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("IdsPcapExport", idsPcapExportParam)
+	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)

@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type CheckPasswordClient interface {
 
-	// Use this API to validate admin password in ALB Controller.
+	// Use this API to validate admin password in ALB Controller. This API is for VCF deployments only.
 	//
 	// @param aLBControllerAdminCredentialParam (required)
 	//

@@ -22,6 +22,8 @@ type StatisticsClient interface {
 
 	// Get aggregated stattistics of Forwarding Policy. Stats include total number of packets and total number of bytes for all Forwarding rules in a given Forwarding Policy. - no enforcement point path specified: Stats will be evaluated on each enforcement point. - {enforcement_point_path}: Stats are evaluated only on the given enforcement point.
 	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding policy id (required)
 	// @param containerClusterPathParam String Path of the Container Cluster entity (optional)

@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type PreDefinedPluginsClient interface {
 
-	// Read SHA dynamic plugin.
+	// Read SHA pre-defined plugin.
 	//
 	// @param pluginIdParam Sha pre-defined plugin (required)
 	// @return com.vmware.nsx_policy.model.ShaPredefinedPlugin
@@ -32,7 +32,7 @@ type PreDefinedPluginsClient interface {
 	// @throws NotFound  Not Found
 	Get(pluginIdParam string) (nsx_policyModel.ShaPredefinedPlugin, error)
 
-	// API will provide list of Sha dynamic plugins.
+	// API will provide list of Sha pre-defined plugins.
 	//
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)

@@ -21,12 +21,12 @@ import (
 func servicesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -44,12 +44,12 @@ func servicesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["service_id"] = vapiBindings_.NewStringType()
@@ -85,12 +85,12 @@ func servicesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 func servicesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -108,12 +108,12 @@ func servicesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["service_id"] = vapiBindings_.NewStringType()
@@ -248,13 +248,13 @@ func servicesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 func servicesPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["service"] = vapiBindings_.NewReferenceType(nsx_policyModel.ServiceBindingType)
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["service"] = "Service"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -273,13 +273,13 @@ func servicesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["service"] = vapiBindings_.NewReferenceType(nsx_policyModel.ServiceBindingType)
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["service"] = "Service"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
@@ -317,13 +317,13 @@ func servicesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 func servicesUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["service"] = vapiBindings_.NewReferenceType(nsx_policyModel.ServiceBindingType)
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["service"] = "Service"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -342,13 +342,13 @@ func servicesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["service_id"] = vapiBindings_.NewStringType()
 	fields["service"] = vapiBindings_.NewReferenceType(nsx_policyModel.ServiceBindingType)
+	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["service_id"] = "ServiceId"
 	fieldNameMap["service"] = "Service"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()

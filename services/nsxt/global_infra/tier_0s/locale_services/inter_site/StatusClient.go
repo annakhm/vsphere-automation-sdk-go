@@ -20,7 +20,9 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type StatusClient interface {
 
-	// Get RTEP mesh connectivity status.
+	//
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param tier0IdParam (required)
 	// @param localeServicesIdParam (required)

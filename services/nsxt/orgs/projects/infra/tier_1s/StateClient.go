@@ -32,6 +32,7 @@ type StateClient interface {
 	// @param pageSizeParam Maximum number of results to return in this page (server may return fewer) (optional, default to 1000)
 	// @param sortAscendingParam (optional)
 	// @param sortByParam Field by which records are sorted (optional)
+	// @param sourceParam Data source type. (optional)
 	// @param type_Param Returns specific information based on the value specified. (optional)
 	// @return com.vmware.nsx_policy.model.Tier1GatewayState
 	//
@@ -40,7 +41,7 @@ type StateClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(orgIdParam string, projectIdParam string, tier1IdParam string, cursorParam *string, enforcementPointPathParam *string, includedFieldsParam *string, interfacePathParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, type_Param *string) (nsx_policyModel.Tier1GatewayState, error)
+	Get(orgIdParam string, projectIdParam string, tier1IdParam string, cursorParam *string, enforcementPointPathParam *string, includedFieldsParam *string, interfacePathParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, type_Param *string) (nsx_policyModel.Tier1GatewayState, error)
 }
 
 type stateClient struct {
@@ -68,7 +69,7 @@ func (sIface *stateClient) GetErrorBindingType(errorName string) vapiBindings_.B
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, tier1IdParam string, cursorParam *string, enforcementPointPathParam *string, includedFieldsParam *string, interfacePathParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, type_Param *string) (nsx_policyModel.Tier1GatewayState, error) {
+func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, tier1IdParam string, cursorParam *string, enforcementPointPathParam *string, includedFieldsParam *string, interfacePathParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, type_Param *string) (nsx_policyModel.Tier1GatewayState, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := stateGetRestMetadata()
@@ -86,6 +87,7 @@ func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, tier1Id
 	sv.AddStructField("PageSize", pageSizeParam)
 	sv.AddStructField("SortAscending", sortAscendingParam)
 	sv.AddStructField("SortBy", sortByParam)
+	sv.AddStructField("Source", sourceParam)
 	sv.AddStructField("Type_", type_Param)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

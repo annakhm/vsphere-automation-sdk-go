@@ -23,13 +23,14 @@ type ExportClient interface {
 	// Trigger the process to collect all pcap files of all the pcap_ids mentioned in request payload.
 	//
 	// @param idsPcapExportParam (required)
+	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Create(idsPcapExportParam nsx_policyModel.IdsPcapExport) error
+	Create(idsPcapExportParam nsx_policyModel.IdsPcapExport, enforcementPointPathParam *string) error
 }
 
 type exportClient struct {
@@ -57,7 +58,7 @@ func (eIface *exportClient) GetErrorBindingType(errorName string) vapiBindings_.
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (eIface *exportClient) Create(idsPcapExportParam nsx_policyModel.IdsPcapExport) error {
+func (eIface *exportClient) Create(idsPcapExportParam nsx_policyModel.IdsPcapExport, enforcementPointPathParam *string) error {
 	typeConverter := eIface.connector.TypeConverter()
 	executionContext := eIface.connector.NewExecutionContext()
 	operationRestMetaData := exportCreateRestMetadata()
@@ -66,6 +67,7 @@ func (eIface *exportClient) Create(idsPcapExportParam nsx_policyModel.IdsPcapExp
 
 	sv := vapiBindings_.NewStructValueBuilder(exportCreateInputType(), typeConverter)
 	sv.AddStructField("IdsPcapExport", idsPcapExportParam)
+	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)

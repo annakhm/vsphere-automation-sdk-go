@@ -22,8 +22,8 @@ type AggregatedClient interface {
 
 	// Get an aggregated configuration that will get applied onto current configuration during publish of this draft. The response is a hierarchical payload containing the aggregated configuration differences from the latest auto draft till the specified draft.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param draftIdParam (required)
 	// @return com.vmware.nsx_policy.model.Infra
 	//

@@ -27,6 +27,7 @@ type RemoteTransportNodeStatusClient interface {
 	// @param nodeIdParam ID of transport node (required)
 	// @param bfdDiagnosticCodeParam BFD diagnostic code of Tunnel (optional)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
+	// @param includeDfwHeapStatsParam Include DFW Heap stats information (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
 	// @param pageSizeParam Maximum number of results to return in this page (server may return fewer) (optional, default to 1000)
 	// @param sortAscendingParam (optional)
@@ -40,7 +41,7 @@ type RemoteTransportNodeStatusClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(siteIdParam string, enforcementPointIdParam string, nodeIdParam string, bfdDiagnosticCodeParam *string, cursorParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, tunnelStatusParam *string) (nsx_policyModel.TransportNodeStatusListResult, error)
+	List(siteIdParam string, enforcementPointIdParam string, nodeIdParam string, bfdDiagnosticCodeParam *string, cursorParam *string, includeDfwHeapStatsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, tunnelStatusParam *string) (nsx_policyModel.TransportNodeStatusListResult, error)
 }
 
 type remoteTransportNodeStatusClient struct {
@@ -68,7 +69,7 @@ func (rIface *remoteTransportNodeStatusClient) GetErrorBindingType(errorName str
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (rIface *remoteTransportNodeStatusClient) List(siteIdParam string, enforcementPointIdParam string, nodeIdParam string, bfdDiagnosticCodeParam *string, cursorParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, tunnelStatusParam *string) (nsx_policyModel.TransportNodeStatusListResult, error) {
+func (rIface *remoteTransportNodeStatusClient) List(siteIdParam string, enforcementPointIdParam string, nodeIdParam string, bfdDiagnosticCodeParam *string, cursorParam *string, includeDfwHeapStatsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, tunnelStatusParam *string) (nsx_policyModel.TransportNodeStatusListResult, error) {
 	typeConverter := rIface.connector.TypeConverter()
 	executionContext := rIface.connector.NewExecutionContext()
 	operationRestMetaData := remoteTransportNodeStatusListRestMetadata()
@@ -81,6 +82,7 @@ func (rIface *remoteTransportNodeStatusClient) List(siteIdParam string, enforcem
 	sv.AddStructField("NodeId", nodeIdParam)
 	sv.AddStructField("BfdDiagnosticCode", bfdDiagnosticCodeParam)
 	sv.AddStructField("Cursor", cursorParam)
+	sv.AddStructField("IncludeDfwHeapStats", includeDfwHeapStatsParam)
 	sv.AddStructField("IncludedFields", includedFieldsParam)
 	sv.AddStructField("PageSize", pageSizeParam)
 	sv.AddStructField("SortAscending", sortAscendingParam)

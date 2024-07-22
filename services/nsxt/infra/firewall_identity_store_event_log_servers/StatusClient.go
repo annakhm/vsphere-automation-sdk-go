@@ -20,9 +20,10 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type StatusClient interface {
 
-	// This API tests a event log server connectivity before the actual domain or event log server is configured. If the connectivity is good, the response will be HTTP status 200. Otherwise the response will be HTTP status 200 and a corresponding error message will be returned.
+	// This API tests a event log server connectivity before the actual domain or event log server is configured. If the connectivity is good, the response will be HTTP status 200. Otherwise the response will be HTTP status 200 and a corresponding error message will be returned. Note - Query param 'enforcement_point_path' would be honoured only in case of Global manager.
 	//
 	// @param directoryEventLogServerParam (required)
+	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	// @return com.vmware.nsx_policy.model.DirectoryEventLogServerStatus
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -30,7 +31,7 @@ type StatusClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Create(directoryEventLogServerParam nsx_policyModel.DirectoryEventLogServer) (nsx_policyModel.DirectoryEventLogServerStatus, error)
+	Create(directoryEventLogServerParam nsx_policyModel.DirectoryEventLogServer, enforcementPointPathParam *string) (nsx_policyModel.DirectoryEventLogServerStatus, error)
 }
 
 type statusClient struct {
@@ -58,7 +59,7 @@ func (sIface *statusClient) GetErrorBindingType(errorName string) vapiBindings_.
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *statusClient) Create(directoryEventLogServerParam nsx_policyModel.DirectoryEventLogServer) (nsx_policyModel.DirectoryEventLogServerStatus, error) {
+func (sIface *statusClient) Create(directoryEventLogServerParam nsx_policyModel.DirectoryEventLogServer, enforcementPointPathParam *string) (nsx_policyModel.DirectoryEventLogServerStatus, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := statusCreateRestMetadata()
@@ -67,6 +68,7 @@ func (sIface *statusClient) Create(directoryEventLogServerParam nsx_policyModel.
 
 	sv := vapiBindings_.NewStructValueBuilder(statusCreateInputType(), typeConverter)
 	sv.AddStructField("DirectoryEventLogServer", directoryEventLogServerParam)
+	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.DirectoryEventLogServerStatus

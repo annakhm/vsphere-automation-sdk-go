@@ -22,6 +22,8 @@ type ForwardingPoliciesClient interface {
 
 	// Read forwarding policy.
 	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding map id (required)
 	// @return com.vmware.nsx_policy.model.ForwardingPolicy
@@ -34,6 +36,8 @@ type ForwardingPoliciesClient interface {
 	Get(domainIdParam string, forwardingPolicyIdParam string) (nsx_policyModel.ForwardingPolicy, error)
 
 	// List all forwarding policies for the given domain ordered by precedence.
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param domainIdParam Domain id (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)

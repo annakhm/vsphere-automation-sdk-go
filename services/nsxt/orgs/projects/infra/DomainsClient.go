@@ -22,9 +22,9 @@ type DomainsClient interface {
 
 	// Read a domain.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.Domain
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -32,12 +32,12 @@ type DomainsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(orgIdParam string, projectIdParam string, domainIdParam string) (nsx_policyModel.Domain, error)
+	Get(domainIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.Domain, error)
 
 	// Paginated list of all domains for infra.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
@@ -80,7 +80,7 @@ func (dIface *domainsClient) GetErrorBindingType(errorName string) vapiBindings_
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (dIface *domainsClient) Get(orgIdParam string, projectIdParam string, domainIdParam string) (nsx_policyModel.Domain, error) {
+func (dIface *domainsClient) Get(domainIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.Domain, error) {
 	typeConverter := dIface.connector.TypeConverter()
 	executionContext := dIface.connector.NewExecutionContext()
 	operationRestMetaData := domainsGetRestMetadata()
@@ -88,9 +88,9 @@ func (dIface *domainsClient) Get(orgIdParam string, projectIdParam string, domai
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(domainsGetInputType(), typeConverter)
+	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("DomainId", domainIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.Domain

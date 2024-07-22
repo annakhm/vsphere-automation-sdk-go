@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type MaintenanceClient interface {
 
-	// Activate/deactivate maintenance mode for Analytics agents
+	// Get current status of maintenance mode for Analytics agents
 	// @return com.vmware.nsx_policy.model.AnalyticsMaintenanceMode
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed

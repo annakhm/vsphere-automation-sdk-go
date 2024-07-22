@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SummaryClient interface {
 
-	// Get tier-1 interface statistics summary information.
+	// Get tier-1 router link statistics summary information.
 	//
 	// @param orgIdParam The organization ID (required)
 	// @param projectIdParam The project ID (required)

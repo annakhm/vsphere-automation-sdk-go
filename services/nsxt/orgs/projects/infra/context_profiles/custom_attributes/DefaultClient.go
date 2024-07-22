@@ -20,10 +20,10 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type DefaultClient interface {
 
-	// This API adds/removes custom attribute values from list for a given attribute key.
+	// This API adds/removes custom attribute values from list for a given attribute key. The values in the request will be added or removed from the existing list.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param policyCustomAttributesParam (required)
 	// @param actionParam Add or Remove Custom Context Profile Attribute values. (required)
 	//
@@ -34,10 +34,10 @@ type DefaultClient interface {
 	// @throws NotFound  Not Found
 	Create(orgIdParam string, projectIdParam string, policyCustomAttributesParam nsx_policyModel.PolicyCustomAttributes, actionParam string) error
 
-	// This API updates custom attribute value list for given key.
+	// This API lists all the custom attribute values defined in the system for the attribute_key mentioned as part of the url.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param attributeKeyParam Fetch attributes and sub-attributes for the given attribute key (optional)
 	// @param attributeSourceParam Source of the attribute, System Defined or custom (optional, default to SYSTEM)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
@@ -55,10 +55,10 @@ type DefaultClient interface {
 	// @throws NotFound  Not Found
 	List(orgIdParam string, projectIdParam string, attributeKeyParam *string, attributeSourceParam *string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.PolicyContextProfileListResult, error)
 
-	// This API updates custom attribute value list for given key.
+	// This API updates custom attribute value list for given key in the request. This replaces the existing list with the list provided in the request
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param policyCustomAttributesParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed

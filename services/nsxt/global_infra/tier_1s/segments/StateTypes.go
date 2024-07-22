@@ -18,6 +18,12 @@ import (
 	"reflect"
 )
 
+// Possible value for ``bgpNeighborType`` of method State#get.
+const State_GET_BGP_NEIGHBOR_TYPE_INTER_SR = "INTER_SR"
+
+// Possible value for ``bgpNeighborType`` of method State#get.
+const State_GET_BGP_NEIGHBOR_TYPE_USER = "USER"
+
 // Possible value for ``source`` of method State#get.
 const State_GET_SOURCE_REALTIME = "realtime"
 
@@ -59,6 +65,7 @@ func stateGetInputType() vapiBindings_.StructType {
 	fieldNameMap := make(map[string]string)
 	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["segments_id"] = vapiBindings_.NewStringType()
+	fields["bgp_neighbor_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["edge_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -72,6 +79,7 @@ func stateGetInputType() vapiBindings_.StructType {
 	fields["transport_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["segments_id"] = "SegmentsId"
+	fieldNameMap["bgp_neighbor_type"] = "BgpNeighborType"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["edge_path"] = "EdgePath"
 	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
@@ -102,6 +110,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	bodyFieldsMap := map[string]string{}
 	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["segments_id"] = vapiBindings_.NewStringType()
+	fields["bgp_neighbor_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["edge_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -115,6 +124,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["transport_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["segments_id"] = "SegmentsId"
+	fieldNameMap["bgp_neighbor_type"] = "BgpNeighborType"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["edge_path"] = "EdgePath"
 	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
@@ -138,6 +148,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	paramsTypeMap["edge_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["segments_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	paramsTypeMap["bgp_neighbor_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	paramsTypeMap["tier1Id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["segmentsId"] = vapiBindings_.NewStringType()
@@ -153,6 +164,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	queryParams["source"] = "source"
 	queryParams["transport_node_id"] = "transport_node_id"
 	queryParams["include_mark_for_delete_objects"] = "include_mark_for_delete_objects"
+	queryParams["bgp_neighbor_type"] = "bgp_neighbor_type"
 	queryParams["page_size"] = "page_size"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}

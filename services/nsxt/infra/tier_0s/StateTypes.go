@@ -18,6 +18,12 @@ import (
 	"reflect"
 )
 
+// Possible value for ``source`` of method State#get.
+const State_GET_SOURCE_REALTIME = "realtime"
+
+// Possible value for ``source`` of method State#get.
+const State_GET_SOURCE_CACHED = "cached"
+
 // Possible value for ``type`` of method State#get.
 const State_GET_TYPE_GATEWAY_STATE = "GATEWAY_STATE"
 
@@ -26,6 +32,9 @@ const State_GET_TYPE_GATEWAY_STATUS = "GATEWAY_STATUS"
 
 // Possible value for ``type`` of method State#get.
 const State_GET_TYPE_IPV6_STATUS = "IPV6_STATUS"
+
+// Possible value for ``type`` of method State#get.
+const State_GET_TYPE_RD_PER_EDGE_MAPPING = "RD_PER_EDGE_MAPPING"
 
 func stateGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
@@ -38,6 +47,7 @@ func stateGetInputType() vapiBindings_.StructType {
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["source"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["tier0_id"] = "Tier0Id"
 	fieldNameMap["cursor"] = "Cursor"
@@ -47,6 +57,7 @@ func stateGetInputType() vapiBindings_.StructType {
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
 	fieldNameMap["sort_by"] = "SortBy"
+	fieldNameMap["source"] = "Source"
 	fieldNameMap["type"] = "Type_"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -73,6 +84,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["source"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["tier0_id"] = "Tier0Id"
 	fieldNameMap["cursor"] = "Cursor"
@@ -82,6 +94,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
 	fieldNameMap["sort_by"] = "SortBy"
+	fieldNameMap["source"] = "Source"
 	fieldNameMap["type"] = "Type_"
 	paramsTypeMap["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["tier0_id"] = vapiBindings_.NewStringType()
@@ -90,6 +103,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	paramsTypeMap["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["source"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	paramsTypeMap["tier0Id"] = vapiBindings_.NewStringType()
@@ -100,6 +114,7 @@ func stateGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	queryParams["included_fields"] = "included_fields"
 	queryParams["enforcement_point_path"] = "enforcement_point_path"
 	queryParams["sort_by"] = "sort_by"
+	queryParams["source"] = "source"
 	queryParams["type"] = "type"
 	queryParams["page_size"] = "page_size"
 	resultHeaders := map[string]string{}

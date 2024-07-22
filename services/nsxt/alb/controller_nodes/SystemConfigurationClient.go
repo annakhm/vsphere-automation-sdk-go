@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SystemConfigurationClient interface {
 
-	// Use this API to update DNS, NTP and Backup server config in ALB controller.
+	// Use this API to update DNS, NTP and Backup server config in ALB controller. This API is for VCF deployments only.
 	//
 	// @param aLBControllerSystemConfigurationParam (required)
 	// @param runningConfigParam Update Advanced Load Balancer Controller runtime config as well (optional)

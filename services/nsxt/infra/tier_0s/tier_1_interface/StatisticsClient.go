@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type StatisticsClient interface {
 
-	// Get tier-0 interface statistics information.
+	// Get tier-0 router link statistics information for a given linked tier-1 interface.
 	//
 	// @param tier0IdParam (required)
 	// @param tier1PathParam Policy path of tier1 (required)

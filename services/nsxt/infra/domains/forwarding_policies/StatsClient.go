@@ -21,6 +21,8 @@ type StatsClient interface {
 
 	// Sets Forwarding Policy rule statistics counter to zero. - no enforcement point path specified: Reset of stats will be executed for each enforcement point. - {enforcement_point_path}: Reset of stats will be executed only for the given enforcement point.
 	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param domainIdParam (required)
 	// @param containerClusterPathParam String Path of the Container Cluster entity (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)

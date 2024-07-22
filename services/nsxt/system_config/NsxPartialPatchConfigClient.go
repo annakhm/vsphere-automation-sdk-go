@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type NsxPartialPatchConfigClient interface {
 
-	// Get Configuration values for nsx-partial-patch. By default partial patch is deactivated (i.e false).
+	// Read Configuration values for nsx-partial-patch. By default partial patch is deactivated (i.e false). Please refer to the description of PartialPatchConfig for more information.
 	// @return com.vmware.nsx_policy.model.PartialPatchConfig
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -30,7 +30,7 @@ type NsxPartialPatchConfigClient interface {
 	// @throws NotFound  Not Found
 	Get() (nsx_policyModel.PartialPatchConfig, error)
 
-	// Update partial patch configuration values. Only boolean value is allowed for enable_partial_patch
+	// Update partial patch configuration values. Only boolean value is allowed for enable_partial_patch. Please refer to the description of PartialPatchConfig for more information.
 	//
 	// @param partialPatchConfigParam (required)
 	//

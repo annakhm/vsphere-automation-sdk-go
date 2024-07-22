@@ -21,12 +21,12 @@ import (
 func domainsGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["domain_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["domain_id"] = "DomainId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -44,12 +44,12 @@ func domainsGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["domain_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["domain_id"] = "DomainId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
@@ -57,8 +57,8 @@ func domainsGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["domainId"] = vapiBindings_.NewStringType()
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

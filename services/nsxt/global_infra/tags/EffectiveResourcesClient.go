@@ -24,6 +24,7 @@ type EffectiveResourcesClient interface {
 	//
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
+	// @param filterByParam Comma-separated list of field names to filter tagged objects. (optional)
 	// @param filterTextParam Filter text to restrict tagged objects list with matching filter text. (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
@@ -39,7 +40,7 @@ type EffectiveResourcesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(cursorParam *string, enforcementPointPathParam *string, filterTextParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, scopeParam *string, sortAscendingParam *bool, sortByParam *string, tagParam *string) (nsx_policyModel.PolicyResourceReferenceListResult, error)
+	List(cursorParam *string, enforcementPointPathParam *string, filterByParam *string, filterTextParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, scopeParam *string, sortAscendingParam *bool, sortByParam *string, tagParam *string) (nsx_policyModel.PolicyResourceReferenceListResult, error)
 }
 
 type effectiveResourcesClient struct {
@@ -67,7 +68,7 @@ func (eIface *effectiveResourcesClient) GetErrorBindingType(errorName string) va
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (eIface *effectiveResourcesClient) List(cursorParam *string, enforcementPointPathParam *string, filterTextParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, scopeParam *string, sortAscendingParam *bool, sortByParam *string, tagParam *string) (nsx_policyModel.PolicyResourceReferenceListResult, error) {
+func (eIface *effectiveResourcesClient) List(cursorParam *string, enforcementPointPathParam *string, filterByParam *string, filterTextParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, scopeParam *string, sortAscendingParam *bool, sortByParam *string, tagParam *string) (nsx_policyModel.PolicyResourceReferenceListResult, error) {
 	typeConverter := eIface.connector.TypeConverter()
 	executionContext := eIface.connector.NewExecutionContext()
 	operationRestMetaData := effectiveResourcesListRestMetadata()
@@ -77,6 +78,7 @@ func (eIface *effectiveResourcesClient) List(cursorParam *string, enforcementPoi
 	sv := vapiBindings_.NewStructValueBuilder(effectiveResourcesListInputType(), typeConverter)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
+	sv.AddStructField("FilterBy", filterByParam)
 	sv.AddStructField("FilterText", filterTextParam)
 	sv.AddStructField("IncludeMarkForDeleteObjects", includeMarkForDeleteObjectsParam)
 	sv.AddStructField("IncludedFields", includedFieldsParam)

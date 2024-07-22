@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SummaryClient interface {
 
-	// Get tier-1 interface statistics summary information.
+	// Get tier-1 router link statistics summary information.
 	//
 	// @param tier1IdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)

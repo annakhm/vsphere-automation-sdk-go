@@ -25,8 +25,8 @@ type CustomAttributesClient interface {
 	//
 	// Deprecated: This API element is deprecated.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param policyAttributesParam (required)
 	// @param actionParam Add or Remove Custom Context Profile Attribute values. (required)
 	//
@@ -42,8 +42,8 @@ type CustomAttributesClient interface {
 	//
 	// Deprecated: This API element is deprecated.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param policyAttributesParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed

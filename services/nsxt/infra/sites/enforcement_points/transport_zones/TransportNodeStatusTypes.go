@@ -43,6 +43,7 @@ func transportNodeStatusListInputType() vapiBindings_.StructType {
 	fields["enforcement_point_id"] = vapiBindings_.NewStringType()
 	fields["zone_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_dfw_heap_stats"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
@@ -53,6 +54,7 @@ func transportNodeStatusListInputType() vapiBindings_.StructType {
 	fieldNameMap["enforcement_point_id"] = "EnforcementPointId"
 	fieldNameMap["zone_id"] = "ZoneId"
 	fieldNameMap["cursor"] = "Cursor"
+	fieldNameMap["include_dfw_heap_stats"] = "IncludeDfwHeapStats"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
@@ -80,6 +82,7 @@ func transportNodeStatusListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["enforcement_point_id"] = vapiBindings_.NewStringType()
 	fields["zone_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_dfw_heap_stats"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
@@ -90,6 +93,7 @@ func transportNodeStatusListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fieldNameMap["enforcement_point_id"] = "EnforcementPointId"
 	fieldNameMap["zone_id"] = "ZoneId"
 	fieldNameMap["cursor"] = "Cursor"
+	fieldNameMap["include_dfw_heap_stats"] = "IncludeDfwHeapStats"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
@@ -98,6 +102,7 @@ func transportNodeStatusListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fieldNameMap["status"] = "Status"
 	paramsTypeMap["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["zone_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["include_dfw_heap_stats"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["site_id"] = vapiBindings_.NewStringType()
@@ -113,6 +118,7 @@ func transportNodeStatusListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["zone_id"] = "zoneId"
 	pathParams["enforcement_point_id"] = "enforcementPointId"
 	queryParams["cursor"] = "cursor"
+	queryParams["include_dfw_heap_stats"] = "include_dfw_heap_stats"
 	queryParams["sort_ascending"] = "sort_ascending"
 	queryParams["included_fields"] = "included_fields"
 	queryParams["sort_by"] = "sort_by"

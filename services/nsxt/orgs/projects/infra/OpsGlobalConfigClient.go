@@ -22,8 +22,8 @@ type OpsGlobalConfigClient interface {
 
 	// Read global Operations Configuration
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	// @return com.vmware.nsx_policy.model.OpsGlobalConfig
 	//
@@ -36,8 +36,8 @@ type OpsGlobalConfigClient interface {
 
 	// Update the global Operationconfiguration
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param opsGlobalConfigParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	//
@@ -50,8 +50,8 @@ type OpsGlobalConfigClient interface {
 
 	// Update the global Operations Configuration
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param opsGlobalConfigParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	// @return com.vmware.nsx_policy.model.OpsGlobalConfig

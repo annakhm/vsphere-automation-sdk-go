@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SummaryClient interface {
 
-	// Get policy Tunnel statistics summary for given tunnel-id
+	// Get policy Tunnel(GRE as of now) statistics summary for given tunnel-id
 	//
 	// @param tier0IdParam (required)
 	// @param localeSvcIdParam (required)

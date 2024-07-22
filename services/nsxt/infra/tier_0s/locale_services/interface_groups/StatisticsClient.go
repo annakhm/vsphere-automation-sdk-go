@@ -25,6 +25,7 @@ type StatisticsClient interface {
 	// @param tier0IdParam (required)
 	// @param localeServiceIdParam (required)
 	// @param interfaceGroupIdParam (required)
+	// @param bgpNeighborTypeParam Bgp neighbor type (optional)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param edgePathParam Policy path of edge node (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
@@ -43,7 +44,7 @@ type StatisticsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(tier0IdParam string, localeServiceIdParam string, interfaceGroupIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyInterfaceGroupStatistics, error)
+	Get(tier0IdParam string, localeServiceIdParam string, interfaceGroupIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyInterfaceGroupStatistics, error)
 }
 
 type statisticsClient struct {
@@ -71,7 +72,7 @@ func (sIface *statisticsClient) GetErrorBindingType(errorName string) vapiBindin
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *statisticsClient) Get(tier0IdParam string, localeServiceIdParam string, interfaceGroupIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyInterfaceGroupStatistics, error) {
+func (sIface *statisticsClient) Get(tier0IdParam string, localeServiceIdParam string, interfaceGroupIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyInterfaceGroupStatistics, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := statisticsGetRestMetadata()
@@ -82,6 +83,7 @@ func (sIface *statisticsClient) Get(tier0IdParam string, localeServiceIdParam st
 	sv.AddStructField("Tier0Id", tier0IdParam)
 	sv.AddStructField("LocaleServiceId", localeServiceIdParam)
 	sv.AddStructField("InterfaceGroupId", interfaceGroupIdParam)
+	sv.AddStructField("BgpNeighborType", bgpNeighborTypeParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("EdgePath", edgePathParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)

@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type ReportClient interface {
 
-	// Read the report of an Online Diagnostic System runbook invocation.
+	// Read the report of an Online Diagnostic System Runbook invocation.
 	//
 	// @param invocationIdParam (required)
 	// @return com.vmware.nsx_policy.model.OdsRunbookInvocationReport

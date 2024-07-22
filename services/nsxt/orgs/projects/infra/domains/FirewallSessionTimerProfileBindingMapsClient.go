@@ -22,8 +22,8 @@ type FirewallSessionTimerProfileBindingMapsClient interface {
 
 	// API will list all Firewall Session Timer Profile Binding Maps across all domains. This API returns the binding maps order by the sequence number.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)

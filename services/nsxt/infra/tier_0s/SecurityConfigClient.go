@@ -20,7 +20,9 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SecurityConfigClient interface {
 
-	// Delete security config
+	//
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param tier0IdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)

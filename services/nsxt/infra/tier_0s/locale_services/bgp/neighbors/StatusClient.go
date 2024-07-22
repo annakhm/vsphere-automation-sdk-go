@@ -24,6 +24,7 @@ type StatusClient interface {
 	//
 	// @param tier0IdParam (required)
 	// @param localeServiceIdParam (required)
+	// @param bgpNeighborTypeParam Bgp neighbor type (optional)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param edgePathParam Policy path of edge node (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
@@ -42,7 +43,7 @@ type StatusClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(tier0IdParam string, localeServiceIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyBgpNeighborsStatusListResult, error)
+	List(tier0IdParam string, localeServiceIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyBgpNeighborsStatusListResult, error)
 }
 
 type statusClient struct {
@@ -70,7 +71,7 @@ func (sIface *statusClient) GetErrorBindingType(errorName string) vapiBindings_.
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *statusClient) List(tier0IdParam string, localeServiceIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyBgpNeighborsStatusListResult, error) {
+func (sIface *statusClient) List(tier0IdParam string, localeServiceIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.PolicyBgpNeighborsStatusListResult, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := statusListRestMetadata()
@@ -80,6 +81,7 @@ func (sIface *statusClient) List(tier0IdParam string, localeServiceIdParam strin
 	sv := vapiBindings_.NewStructValueBuilder(statusListInputType(), typeConverter)
 	sv.AddStructField("Tier0Id", tier0IdParam)
 	sv.AddStructField("LocaleServiceId", localeServiceIdParam)
+	sv.AddStructField("BgpNeighborType", bgpNeighborTypeParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("EdgePath", edgePathParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)

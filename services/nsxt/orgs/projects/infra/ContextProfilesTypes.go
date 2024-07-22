@@ -21,14 +21,14 @@ import (
 func contextProfilesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["force"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["force"] = "Force"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
@@ -48,14 +48,14 @@ func contextProfilesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["force"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["force"] = "Force"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()

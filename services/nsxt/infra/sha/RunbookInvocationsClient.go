@@ -32,7 +32,7 @@ type RunbookInvocationsClient interface {
 	// @throws NotFound  Not Found
 	Create(invocationIdParam string, odsRunbookInvocationParam nsx_policyModel.OdsRunbookInvocation) error
 
-	// Delete an Online Diagnostic System runbook invocation with the specified identifier.
+	// Delete an Online Diagnostic System Runbook invocation with the specified identifier.
 	//
 	// @param invocationIdParam (required)
 	//
@@ -43,7 +43,7 @@ type RunbookInvocationsClient interface {
 	// @throws NotFound  Not Found
 	Delete(invocationIdParam string) error
 
-	// Read an Online Diagnostic System runbook invocation with the specified identifier.
+	// Read an Online Diagnostic System Runbook invocation with the specified identifier.
 	//
 	// @param invocationIdParam (required)
 	// @return com.vmware.nsx_policy.model.OdsRunbookInvocation
@@ -55,7 +55,7 @@ type RunbookInvocationsClient interface {
 	// @throws NotFound  Not Found
 	Get(invocationIdParam string) (nsx_policyModel.OdsRunbookInvocation, error)
 
-	// Get a paginated list of Online Diagnostic System runbook invocation entities.
+	// Get a paginated list of Online Diagnostic System Runbook invocation entities.
 	//
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)

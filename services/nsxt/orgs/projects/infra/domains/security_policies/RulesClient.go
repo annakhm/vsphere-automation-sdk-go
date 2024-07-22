@@ -22,8 +22,8 @@ type RulesClient interface {
 
 	// Delete rule
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param securityPolicyIdParam (required)
 	// @param ruleIdParam (required)
@@ -37,8 +37,8 @@ type RulesClient interface {
 
 	// Read rule
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param securityPolicyIdParam (required)
 	// @param ruleIdParam (required)
@@ -53,8 +53,8 @@ type RulesClient interface {
 
 	// List rules
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param securityPolicyIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
@@ -74,8 +74,8 @@ type RulesClient interface {
 
 	// Patch the rule. If Rule corresponding to the the given rule-id is not present, the object will get created and if it is present it will be updated. This is a full replace. Performance Note: If you want to edit several rules in a security policy, prefer below mentioned API for optimal performance. Pass all the rules which you wish to edit as embedded rules to it. Use this API - PATCH (or PUT) /infra/domains/<domain-id>/security-policies/<security-policy-id>
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param securityPolicyIdParam (required)
 	// @param ruleIdParam (required)
@@ -90,8 +90,8 @@ type RulesClient interface {
 
 	// This is used to re-order a rule within a security policy.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param securityPolicyIdParam (required)
 	// @param ruleIdParam (required)
@@ -109,8 +109,8 @@ type RulesClient interface {
 
 	// Update the rule. Create new rule if a rule with the rule-id is not already present. Performance Note: If you wish to edit several rules in a security policy, prefer below mentioned API for optimal performance. Pass all the rules which you wish to edit as embedded rules to it. Use this API - PATCH (or PUT) /infra/domains/<domain-id>/security-policies/<security-policy-id>
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param securityPolicyIdParam (required)
 	// @param ruleIdParam (required)

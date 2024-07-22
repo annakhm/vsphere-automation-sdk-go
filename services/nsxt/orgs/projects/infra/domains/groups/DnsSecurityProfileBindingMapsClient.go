@@ -22,26 +22,26 @@ type DnsSecurityProfileBindingMapsClient interface {
 
 	// API will delete DNS security profile binding map
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param dnsSecurityProfileBindingMapIdParam DNS security profile binding map ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string) error
+	Delete(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string) error
 
 	// API will get DNS security profile binding map
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param dnsSecurityProfileBindingMapIdParam DNS security profile binding map ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.DnsSecurityProfileBindingMap
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -49,12 +49,12 @@ type DnsSecurityProfileBindingMapsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string) (nsx_policyModel.DnsSecurityProfileBindingMap, error)
+	Get(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.DnsSecurityProfileBindingMap, error)
 
 	// API will get DNS security profile binding map
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param groupIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
@@ -74,11 +74,11 @@ type DnsSecurityProfileBindingMapsClient interface {
 
 	// API will create or update DNS security profile binding map
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param dnsSecurityProfileBindingMapIdParam DNS security profile binding map ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param dnsSecurityProfileBindingMapParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -86,15 +86,15 @@ type DnsSecurityProfileBindingMapsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) error
+	Patch(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) error
 
 	// API will update DNS security profile binding map
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param dnsSecurityProfileBindingMapIdParam DNS security profile binding map ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param dnsSecurityProfileBindingMapParam (required)
 	// @return com.vmware.nsx_policy.model.DnsSecurityProfileBindingMap
 	//
@@ -103,7 +103,7 @@ type DnsSecurityProfileBindingMapsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) (nsx_policyModel.DnsSecurityProfileBindingMap, error)
+	Update(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) (nsx_policyModel.DnsSecurityProfileBindingMap, error)
 }
 
 type dnsSecurityProfileBindingMapsClient struct {
@@ -135,7 +135,7 @@ func (dIface *dnsSecurityProfileBindingMapsClient) GetErrorBindingType(errorName
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (dIface *dnsSecurityProfileBindingMapsClient) Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string) error {
+func (dIface *dnsSecurityProfileBindingMapsClient) Delete(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string) error {
 	typeConverter := dIface.connector.TypeConverter()
 	executionContext := dIface.connector.NewExecutionContext()
 	operationRestMetaData := dnsSecurityProfileBindingMapsDeleteRestMetadata()
@@ -143,11 +143,11 @@ func (dIface *dnsSecurityProfileBindingMapsClient) Delete(orgIdParam string, pro
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(dnsSecurityProfileBindingMapsDeleteInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("DnsSecurityProfileBindingMapId", dnsSecurityProfileBindingMapIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -165,7 +165,7 @@ func (dIface *dnsSecurityProfileBindingMapsClient) Delete(orgIdParam string, pro
 	}
 }
 
-func (dIface *dnsSecurityProfileBindingMapsClient) Get(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string) (nsx_policyModel.DnsSecurityProfileBindingMap, error) {
+func (dIface *dnsSecurityProfileBindingMapsClient) Get(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.DnsSecurityProfileBindingMap, error) {
 	typeConverter := dIface.connector.TypeConverter()
 	executionContext := dIface.connector.NewExecutionContext()
 	operationRestMetaData := dnsSecurityProfileBindingMapsGetRestMetadata()
@@ -173,11 +173,11 @@ func (dIface *dnsSecurityProfileBindingMapsClient) Get(orgIdParam string, projec
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(dnsSecurityProfileBindingMapsGetInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("DnsSecurityProfileBindingMapId", dnsSecurityProfileBindingMapIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.DnsSecurityProfileBindingMap
@@ -242,7 +242,7 @@ func (dIface *dnsSecurityProfileBindingMapsClient) List(orgIdParam string, proje
 	}
 }
 
-func (dIface *dnsSecurityProfileBindingMapsClient) Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) error {
+func (dIface *dnsSecurityProfileBindingMapsClient) Patch(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) error {
 	typeConverter := dIface.connector.TypeConverter()
 	executionContext := dIface.connector.NewExecutionContext()
 	operationRestMetaData := dnsSecurityProfileBindingMapsPatchRestMetadata()
@@ -250,11 +250,11 @@ func (dIface *dnsSecurityProfileBindingMapsClient) Patch(orgIdParam string, proj
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(dnsSecurityProfileBindingMapsPatchInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("DnsSecurityProfileBindingMapId", dnsSecurityProfileBindingMapIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DnsSecurityProfileBindingMap", dnsSecurityProfileBindingMapParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
@@ -273,7 +273,7 @@ func (dIface *dnsSecurityProfileBindingMapsClient) Patch(orgIdParam string, proj
 	}
 }
 
-func (dIface *dnsSecurityProfileBindingMapsClient) Update(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) (nsx_policyModel.DnsSecurityProfileBindingMap, error) {
+func (dIface *dnsSecurityProfileBindingMapsClient) Update(domainIdParam string, groupIdParam string, dnsSecurityProfileBindingMapIdParam string, orgIdParam string, projectIdParam string, dnsSecurityProfileBindingMapParam nsx_policyModel.DnsSecurityProfileBindingMap) (nsx_policyModel.DnsSecurityProfileBindingMap, error) {
 	typeConverter := dIface.connector.TypeConverter()
 	executionContext := dIface.connector.NewExecutionContext()
 	operationRestMetaData := dnsSecurityProfileBindingMapsUpdateRestMetadata()
@@ -281,11 +281,11 @@ func (dIface *dnsSecurityProfileBindingMapsClient) Update(orgIdParam string, pro
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(dnsSecurityProfileBindingMapsUpdateInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("DnsSecurityProfileBindingMapId", dnsSecurityProfileBindingMapIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DnsSecurityProfileBindingMap", dnsSecurityProfileBindingMapParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

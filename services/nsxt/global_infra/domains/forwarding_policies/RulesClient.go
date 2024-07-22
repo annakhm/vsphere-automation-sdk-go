@@ -22,6 +22,8 @@ type RulesClient interface {
 
 	// Read rule
 	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding map id (required)
 	// @param ruleIdParam Rule id (required)
@@ -35,6 +37,8 @@ type RulesClient interface {
 	Get(domainIdParam string, forwardingPolicyIdParam string, ruleIdParam string) (nsx_policyModel.ForwardingRule, error)
 
 	// List rules
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding map id (required)

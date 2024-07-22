@@ -35,7 +35,7 @@ type StatisticsClient interface {
 	// @throws NotFound  Not Found
 	Create(tier0IdParam string, serviceIdParam string, sessionIdParam string, actionParam string, enforcementPointPathParam *string) error
 
-	// - no enforcement point path specified: statistics are evaluated on each enforcement point. - an enforcement point path is specified: statistics are evaluated only on the given enforcement point. - source=realtime: statistics are fetched realtime from the enforcement point. - source=cached: cached statistics from enforcement point are returned. Please note that cache synchronization is based on triggering this API with source=realtime or empty source and not polling based.
+	// - no enforcement point path specified: statistics are evaluated on each enforcement point. - an enforcement point path is specified: statistics are evaluated only on the given enforcement point. - source=realtime: statistics are fetched realtime from the enforcement point. - source=cached: cached statistics are not supported for IPSec VPN session statistics. Statistics will always be fetched realtime even if source=cached.
 	//
 	// @param tier0IdParam (required)
 	// @param serviceIdParam (required)

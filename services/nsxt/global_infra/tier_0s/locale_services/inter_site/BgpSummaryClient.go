@@ -20,7 +20,9 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type BgpSummaryClient interface {
 
-	// Get RTEP span and mac address-table.
+	//
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param tier0IdParam (required)
 	// @param localeServicesIdParam (required)

@@ -22,10 +22,10 @@ type StatisticsClient interface {
 
 	// Get statistics of a IDS security policy. - no enforcement point path specified: Stats will be evaluated on each enforcement point. - {enforcement_point_path}: Stats are evaluated only on the given enforcement point.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain id (required)
 	// @param idsPolicyIdParam IDS Security policy id (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param containerClusterPathParam String Path of the Container Cluster entity (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	// @return com.vmware.nsx_policy.model.IdsSecurityPolicyStatisticsListResult
@@ -35,7 +35,7 @@ type StatisticsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(orgIdParam string, projectIdParam string, domainIdParam string, idsPolicyIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsSecurityPolicyStatisticsListResult, error)
+	List(domainIdParam string, idsPolicyIdParam string, orgIdParam string, projectIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsSecurityPolicyStatisticsListResult, error)
 }
 
 type statisticsClient struct {
@@ -63,7 +63,7 @@ func (sIface *statisticsClient) GetErrorBindingType(errorName string) vapiBindin
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *statisticsClient) List(orgIdParam string, projectIdParam string, domainIdParam string, idsPolicyIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsSecurityPolicyStatisticsListResult, error) {
+func (sIface *statisticsClient) List(domainIdParam string, idsPolicyIdParam string, orgIdParam string, projectIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsSecurityPolicyStatisticsListResult, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := statisticsListRestMetadata()
@@ -71,10 +71,10 @@ func (sIface *statisticsClient) List(orgIdParam string, projectIdParam string, d
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(statisticsListInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("IdsPolicyId", idsPolicyIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("ContainerClusterPath", containerClusterPathParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()

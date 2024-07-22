@@ -28,10 +28,12 @@ func idsEventsCreateInputType() vapiBindings_.StructType {
 	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["policy_ids_event_data_request"] = vapiBindings_.NewReferenceType(nsx_policyModel.PolicyIdsEventDataRequestBindingType)
 	fields["context"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["policy_ids_event_data_request"] = "PolicyIdsEventDataRequest"
 	fieldNameMap["context"] = "Context"
+	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -53,19 +55,23 @@ func idsEventsCreateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["policy_ids_event_data_request"] = vapiBindings_.NewReferenceType(nsx_policyModel.PolicyIdsEventDataRequestBindingType)
 	fields["context"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["policy_ids_event_data_request"] = "PolicyIdsEventDataRequest"
 	fieldNameMap["context"] = "Context"
+	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
 	paramsTypeMap["policy_ids_event_data_request"] = vapiBindings_.NewReferenceType(nsx_policyModel.PolicyIdsEventDataRequestBindingType)
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["context"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
 	pathParams["project_id"] = "projectId"
 	pathParams["org_id"] = "orgId"
 	queryParams["context"] = "context"
+	queryParams["enforcement_point_path"] = "enforcement_point_path"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

@@ -20,11 +20,12 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type StatusClient interface {
 
-	// Get policy Tunnel status for given tunnel-id
+	// Get policy Tunnel(GRE as of now) status for given tunnel-id
 	//
 	// @param tier0IdParam (required)
 	// @param localeSvcIdParam (required)
 	// @param tunnelIdParam (required)
+	// @param bgpNeighborTypeParam Bgp neighbor type (optional)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param edgePathParam Policy path of edge node (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
@@ -44,7 +45,7 @@ type StatusClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(tier0IdParam string, localeSvcIdParam string, tunnelIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (*vapiData_.StructValue, error)
+	Get(tier0IdParam string, localeSvcIdParam string, tunnelIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (*vapiData_.StructValue, error)
 }
 
 type statusClient struct {
@@ -72,7 +73,7 @@ func (sIface *statusClient) GetErrorBindingType(errorName string) vapiBindings_.
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *statusClient) Get(tier0IdParam string, localeSvcIdParam string, tunnelIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (*vapiData_.StructValue, error) {
+func (sIface *statusClient) Get(tier0IdParam string, localeSvcIdParam string, tunnelIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (*vapiData_.StructValue, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := statusGetRestMetadata()
@@ -83,6 +84,7 @@ func (sIface *statusClient) Get(tier0IdParam string, localeSvcIdParam string, tu
 	sv.AddStructField("Tier0Id", tier0IdParam)
 	sv.AddStructField("LocaleSvcId", localeSvcIdParam)
 	sv.AddStructField("TunnelId", tunnelIdParam)
+	sv.AddStructField("BgpNeighborType", bgpNeighborTypeParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("EdgePath", edgePathParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)

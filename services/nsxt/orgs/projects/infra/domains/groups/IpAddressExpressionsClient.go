@@ -22,8 +22,8 @@ type IpAddressExpressionsClient interface {
 
 	// It will add or remove the specified IP Addresses from a given expression of a group.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param groupIdParam (required)
 	// @param expressionIdParam (required)
@@ -39,26 +39,26 @@ type IpAddressExpressionsClient interface {
 
 	// Delete Group IPAddressExpression
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param expressionIdParam IPAddressExpression ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string) error
+	Delete(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string) error
 
 	// If a group IPAddressExpression with the expression-id is not already present, create a new IPAddressExpression. If it already exists, replace the existing IPAddressExpression.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param expressionIdParam IPAddressExpression ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param ipAddressExpressionParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -66,7 +66,7 @@ type IpAddressExpressionsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string, ipAddressExpressionParam nsx_policyModel.IPAddressExpression) error
+	Patch(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string, ipAddressExpressionParam nsx_policyModel.IPAddressExpression) error
 }
 
 type ipAddressExpressionsClient struct {
@@ -128,7 +128,7 @@ func (iIface *ipAddressExpressionsClient) Create(orgIdParam string, projectIdPar
 	}
 }
 
-func (iIface *ipAddressExpressionsClient) Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string) error {
+func (iIface *ipAddressExpressionsClient) Delete(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string) error {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := ipAddressExpressionsDeleteRestMetadata()
@@ -136,11 +136,11 @@ func (iIface *ipAddressExpressionsClient) Delete(orgIdParam string, projectIdPar
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(ipAddressExpressionsDeleteInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("ExpressionId", expressionIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -158,7 +158,7 @@ func (iIface *ipAddressExpressionsClient) Delete(orgIdParam string, projectIdPar
 	}
 }
 
-func (iIface *ipAddressExpressionsClient) Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string, ipAddressExpressionParam nsx_policyModel.IPAddressExpression) error {
+func (iIface *ipAddressExpressionsClient) Patch(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string, ipAddressExpressionParam nsx_policyModel.IPAddressExpression) error {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := ipAddressExpressionsPatchRestMetadata()
@@ -166,11 +166,11 @@ func (iIface *ipAddressExpressionsClient) Patch(orgIdParam string, projectIdPara
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(ipAddressExpressionsPatchInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("ExpressionId", expressionIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("IpAddressExpression", ipAddressExpressionParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

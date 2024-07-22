@@ -24,6 +24,7 @@ type SiteSpanInfoClient interface {
 	//
 	// @param tier1IdParam (required)
 	// @param segmentIdParam (required)
+	// @param bgpNeighborTypeParam Bgp neighbor type (optional)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param edgePathParam Policy path of edge node (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
@@ -42,7 +43,7 @@ type SiteSpanInfoClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(tier1IdParam string, segmentIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentL2ForwarderSiteSpanInfo, error)
+	Get(tier1IdParam string, segmentIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentL2ForwarderSiteSpanInfo, error)
 }
 
 type siteSpanInfoClient struct {
@@ -70,7 +71,7 @@ func (sIface *siteSpanInfoClient) GetErrorBindingType(errorName string) vapiBind
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *siteSpanInfoClient) Get(tier1IdParam string, segmentIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentL2ForwarderSiteSpanInfo, error) {
+func (sIface *siteSpanInfoClient) Get(tier1IdParam string, segmentIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentL2ForwarderSiteSpanInfo, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := siteSpanInfoGetRestMetadata()
@@ -80,6 +81,7 @@ func (sIface *siteSpanInfoClient) Get(tier1IdParam string, segmentIdParam string
 	sv := vapiBindings_.NewStructValueBuilder(siteSpanInfoGetInputType(), typeConverter)
 	sv.AddStructField("Tier1Id", tier1IdParam)
 	sv.AddStructField("SegmentId", segmentIdParam)
+	sv.AddStructField("BgpNeighborType", bgpNeighborTypeParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("EdgePath", edgePathParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)

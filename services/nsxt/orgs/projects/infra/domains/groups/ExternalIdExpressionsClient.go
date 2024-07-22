@@ -22,8 +22,8 @@ type ExternalIdExpressionsClient interface {
 
 	// It will add or remove the specified members having external ID for a given expression of a group.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param groupIdParam (required)
 	// @param expressionIdParam (required)
@@ -39,26 +39,26 @@ type ExternalIdExpressionsClient interface {
 
 	// Delete Group External ID Expression
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param expressionIdParam ExternalIDExpression ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string) error
+	Delete(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string) error
 
 	// If a group ExternalIDexpression with the expression-id is not already present, create a new ExternalIDexpresison. If it already exists, replace the existing ExternalIDexpression.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param expressionIdParam ExternalIDExpression ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param externalIDExpressionParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -66,7 +66,7 @@ type ExternalIdExpressionsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string, externalIDExpressionParam nsx_policyModel.ExternalIDExpression) error
+	Patch(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string, externalIDExpressionParam nsx_policyModel.ExternalIDExpression) error
 }
 
 type externalIdExpressionsClient struct {
@@ -128,7 +128,7 @@ func (eIface *externalIdExpressionsClient) Create(orgIdParam string, projectIdPa
 	}
 }
 
-func (eIface *externalIdExpressionsClient) Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string) error {
+func (eIface *externalIdExpressionsClient) Delete(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string) error {
 	typeConverter := eIface.connector.TypeConverter()
 	executionContext := eIface.connector.NewExecutionContext()
 	operationRestMetaData := externalIdExpressionsDeleteRestMetadata()
@@ -136,11 +136,11 @@ func (eIface *externalIdExpressionsClient) Delete(orgIdParam string, projectIdPa
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(externalIdExpressionsDeleteInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("ExpressionId", expressionIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -158,7 +158,7 @@ func (eIface *externalIdExpressionsClient) Delete(orgIdParam string, projectIdPa
 	}
 }
 
-func (eIface *externalIdExpressionsClient) Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string, externalIDExpressionParam nsx_policyModel.ExternalIDExpression) error {
+func (eIface *externalIdExpressionsClient) Patch(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string, externalIDExpressionParam nsx_policyModel.ExternalIDExpression) error {
 	typeConverter := eIface.connector.TypeConverter()
 	executionContext := eIface.connector.NewExecutionContext()
 	operationRestMetaData := externalIdExpressionsPatchRestMetadata()
@@ -166,11 +166,11 @@ func (eIface *externalIdExpressionsClient) Patch(orgIdParam string, projectIdPar
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(externalIdExpressionsPatchInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("ExpressionId", expressionIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("ExternalIDExpression", externalIDExpressionParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

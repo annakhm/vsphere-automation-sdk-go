@@ -18,6 +18,12 @@ import (
 	"reflect"
 )
 
+// Possible value for ``bgpNeighborType`` of method SiteSpanInfo#get.
+const SiteSpanInfo_GET_BGP_NEIGHBOR_TYPE_INTER_SR = "INTER_SR"
+
+// Possible value for ``bgpNeighborType`` of method SiteSpanInfo#get.
+const SiteSpanInfo_GET_BGP_NEIGHBOR_TYPE_USER = "USER"
+
 // Possible value for ``source`` of method SiteSpanInfo#get.
 const SiteSpanInfo_GET_SOURCE_REALTIME = "realtime"
 
@@ -32,6 +38,7 @@ func siteSpanInfoGetInputType() vapiBindings_.StructType {
 	fieldNameMap := make(map[string]string)
 	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["segment_id"] = vapiBindings_.NewStringType()
+	fields["bgp_neighbor_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["edge_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -45,6 +52,7 @@ func siteSpanInfoGetInputType() vapiBindings_.StructType {
 	fields["transport_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["segment_id"] = "SegmentId"
+	fieldNameMap["bgp_neighbor_type"] = "BgpNeighborType"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["edge_path"] = "EdgePath"
 	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
@@ -75,6 +83,7 @@ func siteSpanInfoGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	bodyFieldsMap := map[string]string{}
 	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["segment_id"] = vapiBindings_.NewStringType()
+	fields["bgp_neighbor_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["edge_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -88,6 +97,7 @@ func siteSpanInfoGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["transport_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["segment_id"] = "SegmentId"
+	fieldNameMap["bgp_neighbor_type"] = "BgpNeighborType"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["edge_path"] = "EdgePath"
 	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
@@ -111,6 +121,7 @@ func siteSpanInfoGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	paramsTypeMap["edge_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["segment_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	paramsTypeMap["bgp_neighbor_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	paramsTypeMap["tier1Id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["segmentId"] = vapiBindings_.NewStringType()
@@ -126,6 +137,7 @@ func siteSpanInfoGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	queryParams["source"] = "source"
 	queryParams["transport_node_id"] = "transport_node_id"
 	queryParams["include_mark_for_delete_objects"] = "include_mark_for_delete_objects"
+	queryParams["bgp_neighbor_type"] = "bgp_neighbor_type"
 	queryParams["page_size"] = "page_size"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}

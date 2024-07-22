@@ -22,8 +22,8 @@ type PathExpressionsClient interface {
 
 	// It will add or remove the specified members having path for a given expression of a group.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param domainIdParam (required)
 	// @param groupIdParam (required)
 	// @param expressionIdParam (required)
@@ -39,26 +39,26 @@ type PathExpressionsClient interface {
 
 	// Delete Group Path Expression
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param expressionIdParam PathExpression ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string) error
+	Delete(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string) error
 
 	// If a group path_expression with the expression-id is not already present, create a new pathexpresison. If it already exists, replace the existing pathexpression.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
 	// @param expressionIdParam PathExpression ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param pathExpressionParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -66,7 +66,7 @@ type PathExpressionsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string, pathExpressionParam nsx_policyModel.PathExpression) error
+	Patch(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string, pathExpressionParam nsx_policyModel.PathExpression) error
 }
 
 type pathExpressionsClient struct {
@@ -128,7 +128,7 @@ func (pIface *pathExpressionsClient) Create(orgIdParam string, projectIdParam st
 	}
 }
 
-func (pIface *pathExpressionsClient) Delete(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string) error {
+func (pIface *pathExpressionsClient) Delete(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string) error {
 	typeConverter := pIface.connector.TypeConverter()
 	executionContext := pIface.connector.NewExecutionContext()
 	operationRestMetaData := pathExpressionsDeleteRestMetadata()
@@ -136,11 +136,11 @@ func (pIface *pathExpressionsClient) Delete(orgIdParam string, projectIdParam st
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(pathExpressionsDeleteInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("ExpressionId", expressionIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -158,7 +158,7 @@ func (pIface *pathExpressionsClient) Delete(orgIdParam string, projectIdParam st
 	}
 }
 
-func (pIface *pathExpressionsClient) Patch(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string, expressionIdParam string, pathExpressionParam nsx_policyModel.PathExpression) error {
+func (pIface *pathExpressionsClient) Patch(domainIdParam string, groupIdParam string, expressionIdParam string, orgIdParam string, projectIdParam string, pathExpressionParam nsx_policyModel.PathExpression) error {
 	typeConverter := pIface.connector.TypeConverter()
 	executionContext := pIface.connector.NewExecutionContext()
 	operationRestMetaData := pathExpressionsPatchRestMetadata()
@@ -166,11 +166,11 @@ func (pIface *pathExpressionsClient) Patch(orgIdParam string, projectIdParam str
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(pathExpressionsPatchInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("ExpressionId", expressionIdParam)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("PathExpression", pathExpressionParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

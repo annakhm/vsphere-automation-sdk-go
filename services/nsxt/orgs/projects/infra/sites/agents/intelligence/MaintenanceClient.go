@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type MaintenanceClient interface {
 
-	// Activate/deactivate maintenance mode for Analytics agents
+	// Get current status of maintenance mode for Analytics agents
 	//
 	// @param orgIdParam The organization ID (required)
 	// @param projectIdParam The project ID (required)

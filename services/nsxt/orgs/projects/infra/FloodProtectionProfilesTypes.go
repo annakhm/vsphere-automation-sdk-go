@@ -21,13 +21,13 @@ import (
 func floodProtectionProfilesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -46,13 +46,13 @@ func floodProtectionProfilesDeleteRestMetadata() vapiProtocol_.OperationRestMeta
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
@@ -91,12 +91,12 @@ func floodProtectionProfilesDeleteRestMetadata() vapiProtocol_.OperationRestMeta
 func floodProtectionProfilesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -114,12 +114,12 @@ func floodProtectionProfilesGetRestMetadata() vapiProtocol_.OperationRestMetadat
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["flood_protection_profile_id"] = vapiBindings_.NewStringType()
@@ -248,14 +248,14 @@ func floodProtectionProfilesListRestMetadata() vapiProtocol_.OperationRestMetada
 func floodProtectionProfilesPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["flood_protection_profile"] = vapiBindings_.NewDynamicStructType([]vapiBindings_.ReferenceType{vapiBindings_.NewReferenceType(nsx_policyModel.FloodProtectionProfileBindingType)})
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["flood_protection_profile"] = "FloodProtectionProfile"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
@@ -275,14 +275,14 @@ func floodProtectionProfilesPatchRestMetadata() vapiProtocol_.OperationRestMetad
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["flood_protection_profile"] = vapiBindings_.NewDynamicStructType([]vapiBindings_.ReferenceType{vapiBindings_.NewReferenceType(nsx_policyModel.FloodProtectionProfileBindingType)})
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["flood_protection_profile"] = "FloodProtectionProfile"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["flood_protection_profile"] = vapiBindings_.NewDynamicStructType([]vapiBindings_.ReferenceType{vapiBindings_.NewReferenceType(nsx_policyModel.FloodProtectionProfileBindingType)})
@@ -323,14 +323,14 @@ func floodProtectionProfilesPatchRestMetadata() vapiProtocol_.OperationRestMetad
 func floodProtectionProfilesUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["flood_protection_profile"] = vapiBindings_.NewDynamicStructType([]vapiBindings_.ReferenceType{vapiBindings_.NewReferenceType(nsx_policyModel.FloodProtectionProfileBindingType)})
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["flood_protection_profile"] = "FloodProtectionProfile"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
@@ -350,14 +350,14 @@ func floodProtectionProfilesUpdateRestMetadata() vapiProtocol_.OperationRestMeta
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["flood_protection_profile_id"] = vapiBindings_.NewStringType()
 	fields["flood_protection_profile"] = vapiBindings_.NewDynamicStructType([]vapiBindings_.ReferenceType{vapiBindings_.NewReferenceType(nsx_policyModel.FloodProtectionProfileBindingType)})
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["flood_protection_profile_id"] = "FloodProtectionProfileId"
 	fieldNameMap["flood_protection_profile"] = "FloodProtectionProfile"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["flood_protection_profile"] = vapiBindings_.NewDynamicStructType([]vapiBindings_.ReferenceType{vapiBindings_.NewReferenceType(nsx_policyModel.FloodProtectionProfileBindingType)})

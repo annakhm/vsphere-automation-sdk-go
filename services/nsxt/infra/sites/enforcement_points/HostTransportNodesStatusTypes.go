@@ -42,6 +42,7 @@ func hostTransportNodesStatusGetallInputType() vapiBindings_.StructType {
 	fields["site_id"] = vapiBindings_.NewStringType()
 	fields["enforcement_point_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_dfw_heap_stats"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
@@ -51,6 +52,7 @@ func hostTransportNodesStatusGetallInputType() vapiBindings_.StructType {
 	fieldNameMap["site_id"] = "SiteId"
 	fieldNameMap["enforcement_point_id"] = "EnforcementPointId"
 	fieldNameMap["cursor"] = "Cursor"
+	fieldNameMap["include_dfw_heap_stats"] = "IncludeDfwHeapStats"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
@@ -77,6 +79,7 @@ func hostTransportNodesStatusGetallRestMetadata() vapiProtocol_.OperationRestMet
 	fields["site_id"] = vapiBindings_.NewStringType()
 	fields["enforcement_point_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_dfw_heap_stats"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
@@ -86,6 +89,7 @@ func hostTransportNodesStatusGetallRestMetadata() vapiProtocol_.OperationRestMet
 	fieldNameMap["site_id"] = "SiteId"
 	fieldNameMap["enforcement_point_id"] = "EnforcementPointId"
 	fieldNameMap["cursor"] = "Cursor"
+	fieldNameMap["include_dfw_heap_stats"] = "IncludeDfwHeapStats"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
@@ -93,6 +97,7 @@ func hostTransportNodesStatusGetallRestMetadata() vapiProtocol_.OperationRestMet
 	fieldNameMap["source"] = "Source"
 	fieldNameMap["status"] = "Status"
 	paramsTypeMap["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["include_dfw_heap_stats"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["site_id"] = vapiBindings_.NewStringType()
@@ -106,6 +111,7 @@ func hostTransportNodesStatusGetallRestMetadata() vapiProtocol_.OperationRestMet
 	pathParams["site_id"] = "siteId"
 	pathParams["enforcement_point_id"] = "enforcementPointId"
 	queryParams["cursor"] = "cursor"
+	queryParams["include_dfw_heap_stats"] = "include_dfw_heap_stats"
 	queryParams["sort_ascending"] = "sort_ascending"
 	queryParams["included_fields"] = "included_fields"
 	queryParams["sort_by"] = "sort_by"

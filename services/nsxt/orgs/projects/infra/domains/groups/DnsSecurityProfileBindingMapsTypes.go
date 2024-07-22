@@ -21,16 +21,16 @@ import (
 func dnsSecurityProfileBindingMapsDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -48,20 +48,20 @@ func dnsSecurityProfileBindingMapsDeleteRestMetadata() vapiProtocol_.OperationRe
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
@@ -70,9 +70,9 @@ func dnsSecurityProfileBindingMapsDeleteRestMetadata() vapiProtocol_.OperationRe
 	paramsTypeMap["dnsSecurityProfileBindingMapId"] = vapiBindings_.NewStringType()
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
 	pathParams["dns_security_profile_binding_map_id"] = "dnsSecurityProfileBindingMapId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -99,16 +99,16 @@ func dnsSecurityProfileBindingMapsDeleteRestMetadata() vapiProtocol_.OperationRe
 func dnsSecurityProfileBindingMapsGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -126,20 +126,20 @@ func dnsSecurityProfileBindingMapsGetRestMetadata() vapiProtocol_.OperationRestM
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
@@ -148,9 +148,9 @@ func dnsSecurityProfileBindingMapsGetRestMetadata() vapiProtocol_.OperationRestM
 	paramsTypeMap["dnsSecurityProfileBindingMapId"] = vapiBindings_.NewStringType()
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
 	pathParams["dns_security_profile_binding_map_id"] = "dnsSecurityProfileBindingMapId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -284,17 +284,17 @@ func dnsSecurityProfileBindingMapsListRestMetadata() vapiProtocol_.OperationRest
 func dnsSecurityProfileBindingMapsPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map"] = vapiBindings_.NewReferenceType(nsx_policyModel.DnsSecurityProfileBindingMapBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["dns_security_profile_binding_map"] = "DnsSecurityProfileBindingMap"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -313,22 +313,22 @@ func dnsSecurityProfileBindingMapsPatchRestMetadata() vapiProtocol_.OperationRes
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map"] = vapiBindings_.NewReferenceType(nsx_policyModel.DnsSecurityProfileBindingMapBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["dns_security_profile_binding_map"] = "DnsSecurityProfileBindingMap"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["dns_security_profile_binding_map"] = vapiBindings_.NewReferenceType(nsx_policyModel.DnsSecurityProfileBindingMapBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -338,9 +338,9 @@ func dnsSecurityProfileBindingMapsPatchRestMetadata() vapiProtocol_.OperationRes
 	paramsTypeMap["dnsSecurityProfileBindingMapId"] = vapiBindings_.NewStringType()
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
 	pathParams["dns_security_profile_binding_map_id"] = "dnsSecurityProfileBindingMapId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -367,17 +367,17 @@ func dnsSecurityProfileBindingMapsPatchRestMetadata() vapiProtocol_.OperationRes
 func dnsSecurityProfileBindingMapsUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map"] = vapiBindings_.NewReferenceType(nsx_policyModel.DnsSecurityProfileBindingMapBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["dns_security_profile_binding_map"] = "DnsSecurityProfileBindingMap"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -396,22 +396,22 @@ func dnsSecurityProfileBindingMapsUpdateRestMetadata() vapiProtocol_.OperationRe
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["dns_security_profile_binding_map"] = vapiBindings_.NewReferenceType(nsx_policyModel.DnsSecurityProfileBindingMapBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["dns_security_profile_binding_map_id"] = "DnsSecurityProfileBindingMapId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["dns_security_profile_binding_map"] = "DnsSecurityProfileBindingMap"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["dns_security_profile_binding_map_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["dns_security_profile_binding_map"] = vapiBindings_.NewReferenceType(nsx_policyModel.DnsSecurityProfileBindingMapBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -421,9 +421,9 @@ func dnsSecurityProfileBindingMapsUpdateRestMetadata() vapiProtocol_.OperationRe
 	paramsTypeMap["dnsSecurityProfileBindingMapId"] = vapiBindings_.NewStringType()
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
 	pathParams["dns_security_profile_binding_map_id"] = "dnsSecurityProfileBindingMapId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

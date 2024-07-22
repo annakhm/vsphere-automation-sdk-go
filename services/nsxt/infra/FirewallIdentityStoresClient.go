@@ -37,6 +37,11 @@ type FirewallIdentityStoresClient interface {
 
 	// If the firewall identity store is removed, it will stop the identity store synchronization. User will not be able to define new IDFW rules
 	//
+	//  Use the following Policy API -
+	//  DELETE /infra/identity-firewall-stores/<identity-firewall-store-id>
+	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param firewallIdentityStoreIdParam firewall identity store ID (required)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	//
@@ -48,6 +53,11 @@ type FirewallIdentityStoresClient interface {
 	Delete(firewallIdentityStoreIdParam string, enforcementPointPathParam *string) error
 
 	// Return a firewall identity store based on the store identifier
+	//
+	//  Use the following Policy API -
+	//  GET /infra/identity-firewall-stores/<identity-firewall-store-id>
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param firewallIdentityStoreIdParam firewall identity store ID (required)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
@@ -62,6 +72,11 @@ type FirewallIdentityStoresClient interface {
 	Get(firewallIdentityStoreIdParam string, enforcementPointPathParam *string) (*vapiData_.StructValue, error)
 
 	// List all firewall identity stores
+	//
+	//  Use the following Policy API -
+	//  GET /infra/identity-firewall-stores
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
@@ -80,6 +95,11 @@ type FirewallIdentityStoresClient interface {
 
 	// If a firewall identity store with the firewall-identity-store-id is not already present, create a new firewall identity store. If it already exists, update the firewall identity store with specified attributes.
 	//
+	//  Use the following Policy API -
+	//  PATCH /infra/identity-firewall-stores/<identity-firewall-store-id>
+	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param firewallIdentityStoreIdParam firewall identity store ID (required)
 	// @param directoryDomainParam (required)
 	// The parameter must contain all the properties defined in nsx_policyModel.DirectoryDomain.
@@ -93,6 +113,11 @@ type FirewallIdentityStoresClient interface {
 	Patch(firewallIdentityStoreIdParam string, directoryDomainParam *vapiData_.StructValue, enforcementPointPathParam *string) error
 
 	// If a firewall identity store with the firewall-identity-store-id is not already present, create a new firewall identity store. If it already exists, replace the firewall identity store instance with the new object.
+	//
+	//  Use the following Policy API -
+	//  PUT /infra/identity-firewall-stores/<identity-firewall-store-id>
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param firewallIdentityStoreIdParam firewall identity store ID (required)
 	// @param directoryDomainParam (required)

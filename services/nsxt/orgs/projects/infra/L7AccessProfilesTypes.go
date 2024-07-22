@@ -21,13 +21,13 @@ import (
 func l7AccessProfilesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -46,13 +46,13 @@ func l7AccessProfilesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
@@ -91,12 +91,12 @@ func l7AccessProfilesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 func l7AccessProfilesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -114,12 +114,12 @@ func l7AccessProfilesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["l7_access_profile_id"] = vapiBindings_.NewStringType()
@@ -254,14 +254,14 @@ func l7AccessProfilesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 func l7AccessProfilesPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["l7_access_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.L7AccessProfileBindingType)
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["l7_access_profile"] = "L7AccessProfile"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
@@ -281,14 +281,14 @@ func l7AccessProfilesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["l7_access_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.L7AccessProfileBindingType)
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["l7_access_profile"] = "L7AccessProfile"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
@@ -329,14 +329,14 @@ func l7AccessProfilesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 func l7AccessProfilesUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["l7_access_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.L7AccessProfileBindingType)
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["l7_access_profile"] = "L7AccessProfile"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
@@ -356,14 +356,14 @@ func l7AccessProfilesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["l7_access_profile_id"] = vapiBindings_.NewStringType()
 	fields["l7_access_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.L7AccessProfileBindingType)
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["l7_access_profile_id"] = "L7AccessProfileId"
 	fieldNameMap["l7_access_profile"] = "L7AccessProfile"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()

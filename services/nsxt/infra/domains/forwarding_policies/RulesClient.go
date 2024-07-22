@@ -22,6 +22,8 @@ type RulesClient interface {
 
 	// Delete ForwardingRule
 	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param domainIdParam Domain ID (required)
 	// @param forwardingPolicyIdParam Forwarding Map ID (required)
 	// @param ruleIdParam ForwardingRule ID (required)
@@ -34,6 +36,8 @@ type RulesClient interface {
 	Delete(domainIdParam string, forwardingPolicyIdParam string, ruleIdParam string) error
 
 	// Read rule
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding map id (required)
@@ -48,6 +52,8 @@ type RulesClient interface {
 	Get(domainIdParam string, forwardingPolicyIdParam string, ruleIdParam string) (nsx_policyModel.ForwardingRule, error)
 
 	// List rules
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding map id (required)
@@ -68,6 +74,8 @@ type RulesClient interface {
 
 	// Create a rule with the rule-id is not already present, otherwise update the rule. Performance Note: If you want to edit several rules in a forwarding policy, prefer below mentioned API for optimal performance. Pass all the rules which you wish to edit as embedded rules to it. Use this API - PATCH (or PUT) /infra/domains/<domain-id>/forwarding-policies/<forwarding-policy-id>
 	//
+	// Deprecated: This API element is deprecated.
+	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding map id (required)
 	// @param ruleIdParam Rule id (required)
@@ -81,6 +89,8 @@ type RulesClient interface {
 	Patch(domainIdParam string, forwardingPolicyIdParam string, ruleIdParam string, forwardingRuleParam nsx_policyModel.ForwardingRule) error
 
 	// Create a rule with the rule-id is not already present, otherwise update the rule. Performance Note: If you want to edit several rules in a forwarding policy, prefer below mentioned API for optimal performance. Pass all the rules which you wish to edit as embedded rules to it. Use this API - PATCH (or PUT) /infra/domains/<domain-id>/forwarding-policies/<forwarding-policy-id>
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param domainIdParam Domain id (required)
 	// @param forwardingPolicyIdParam Forwarding map id (required)

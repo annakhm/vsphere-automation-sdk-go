@@ -22,10 +22,11 @@ type AffectedUsersClient interface {
 
 	// Get the list of the users affected pertaining to a specific signature.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param policyIdsEventDataRequestParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
+	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
 	// @param pageSizeParam Maximum number of results to return in this page (server may return fewer) (optional, default to 1000)
 	// @param sortAscendingParam (optional)
@@ -37,7 +38,7 @@ type AffectedUsersClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Create(orgIdParam string, projectIdParam string, policyIdsEventDataRequestParam nsx_policyModel.PolicyIdsEventDataRequest, cursorParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.PolicyIdsUserList, error)
+	Create(orgIdParam string, projectIdParam string, policyIdsEventDataRequestParam nsx_policyModel.PolicyIdsEventDataRequest, cursorParam *string, enforcementPointPathParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.PolicyIdsUserList, error)
 }
 
 type affectedUsersClient struct {
@@ -65,7 +66,7 @@ func (aIface *affectedUsersClient) GetErrorBindingType(errorName string) vapiBin
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (aIface *affectedUsersClient) Create(orgIdParam string, projectIdParam string, policyIdsEventDataRequestParam nsx_policyModel.PolicyIdsEventDataRequest, cursorParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.PolicyIdsUserList, error) {
+func (aIface *affectedUsersClient) Create(orgIdParam string, projectIdParam string, policyIdsEventDataRequestParam nsx_policyModel.PolicyIdsEventDataRequest, cursorParam *string, enforcementPointPathParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.PolicyIdsUserList, error) {
 	typeConverter := aIface.connector.TypeConverter()
 	executionContext := aIface.connector.NewExecutionContext()
 	operationRestMetaData := affectedUsersCreateRestMetadata()
@@ -77,6 +78,7 @@ func (aIface *affectedUsersClient) Create(orgIdParam string, projectIdParam stri
 	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("PolicyIdsEventDataRequest", policyIdsEventDataRequestParam)
 	sv.AddStructField("Cursor", cursorParam)
+	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	sv.AddStructField("IncludedFields", includedFieldsParam)
 	sv.AddStructField("PageSize", pageSizeParam)
 	sv.AddStructField("SortAscending", sortAscendingParam)

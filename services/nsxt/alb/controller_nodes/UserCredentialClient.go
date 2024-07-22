@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type UserCredentialClient interface {
 
-	// Use this API to create service user object credential in ALB controller clutser
+	// Use this API to create service user object credential in ALB controller clutser. This API is for VCF deployments only.
 	//
 	// @param aLBControllerUserCredentialParam (required)
 	// @return com.vmware.nsx_policy.model.ALBControllerUserCredentialResponse
@@ -32,7 +32,7 @@ type UserCredentialClient interface {
 	// @throws NotFound  Not Found
 	Create(aLBControllerUserCredentialParam nsx_policyModel.ALBControllerUserCredential) (nsx_policyModel.ALBControllerUserCredentialResponse, error)
 
-	// Use this API to update admin user password or service user object password in ALB controller.
+	// Use this API to update admin user password or service user object password in ALB controller. This API is for VCF deployments only.
 	//
 	// @param aLBControllerUserCredentialParam (required)
 	// @param runningConfigParam Update Advanced Load Balancer Controller runtime config as well (optional)

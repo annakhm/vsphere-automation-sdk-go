@@ -25,6 +25,7 @@ type StateClient interface {
 	// @param orgIdParam The organization ID (required)
 	// @param projectIdParam The project ID (required)
 	// @param segmentsIdParam (required)
+	// @param bgpNeighborTypeParam Bgp neighbor type (optional)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param edgePathParam Policy path of edge node (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
@@ -43,7 +44,7 @@ type StateClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(orgIdParam string, projectIdParam string, segmentsIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentConfigurationState, error)
+	Get(orgIdParam string, projectIdParam string, segmentsIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentConfigurationState, error)
 
 	// Returns all infra segments with configuration state on the enforcement point specified in the request
 	//
@@ -88,7 +89,7 @@ func (sIface *stateClient) GetErrorBindingType(errorName string) vapiBindings_.B
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, segmentsIdParam string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentConfigurationState, error) {
+func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, segmentsIdParam string, bgpNeighborTypeParam *string, cursorParam *string, edgePathParam *string, enforcementPointPathParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string, sourceParam *string, statsTypeParam *string, transportNodeIdParam *string) (nsx_policyModel.SegmentConfigurationState, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := stateGetRestMetadata()
@@ -99,6 +100,7 @@ func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, segment
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("SegmentsId", segmentsIdParam)
+	sv.AddStructField("BgpNeighborType", bgpNeighborTypeParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("EdgePath", edgePathParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)

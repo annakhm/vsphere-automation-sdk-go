@@ -22,8 +22,8 @@ type SecurityClient interface {
 
 	// Get the current dfw firewall configurations.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.DfwFirewallConfiguration
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -33,10 +33,10 @@ type SecurityClient interface {
 	// @throws NotFound  Not Found
 	Get(orgIdParam string, projectIdParam string) (nsx_policyModel.DfwFirewallConfiguration, error)
 
-	// Update dfw firewall related configurations.
+	// Update dfw firewall related configurations. Turning off distributed services (\"enable_firewall\": false) will turn off Distributed Firewall, Identity Firewall, Distributed Intrusion Detection and Prevention Service, Distributed Load Balancer.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param dfwFirewallConfigurationParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -46,10 +46,10 @@ type SecurityClient interface {
 	// @throws NotFound  Not Found
 	Patch(orgIdParam string, projectIdParam string, dfwFirewallConfigurationParam nsx_policyModel.DfwFirewallConfiguration) error
 
-	// Update dfw firewall related configurations.
+	// Update dfw firewall related configurations. Turning off distributed services (\"enable_firewall\": false) will turn off Distributed Firewall, Identity Firewall, Distributed Intrusion Detection and Prevention Service, Distributed Load Balancer.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param dfwFirewallConfigurationParam (required)
 	// @return com.vmware.nsx_policy.model.DfwFirewallConfiguration
 	//

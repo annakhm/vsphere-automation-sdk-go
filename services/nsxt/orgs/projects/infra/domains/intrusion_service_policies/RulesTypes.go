@@ -33,16 +33,16 @@ const Rules_REVISE_OPERATION_BEFORE = "insert_before"
 func rulesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -60,16 +60,16 @@ func rulesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["rule_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["policy_id"] = vapiBindings_.NewStringType()
@@ -83,8 +83,8 @@ func rulesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["policy_id"] = "policyId"
 	pathParams["rule_id"] = "ruleId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -111,16 +111,16 @@ func rulesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 func rulesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -138,16 +138,16 @@ func rulesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["rule_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["policy_id"] = vapiBindings_.NewStringType()
@@ -161,8 +161,8 @@ func rulesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["policy_id"] = "policyId"
 	pathParams["rule_id"] = "ruleId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -189,20 +189,20 @@ func rulesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 func rulesListInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["included_fields"] = "IncludedFields"
@@ -226,20 +226,20 @@ func rulesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["included_fields"] = "IncludedFields"
@@ -262,8 +262,8 @@ func rulesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	paramsTypeMap["policyId"] = vapiBindings_.NewStringType()
 	pathParams["policy_id"] = "policyId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	queryParams["cursor"] = "cursor"
 	queryParams["sort_ascending"] = "sort_ascending"
 	queryParams["included_fields"] = "included_fields"
@@ -296,17 +296,17 @@ func rulesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 func rulesPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["ids_rule"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsRuleBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["ids_rule"] = "IdsRule"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -325,17 +325,17 @@ func rulesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["ids_rule"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsRuleBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["ids_rule"] = "IdsRule"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["rule_id"] = vapiBindings_.NewStringType()
@@ -351,8 +351,8 @@ func rulesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["policy_id"] = "policyId"
 	pathParams["rule_id"] = "ruleId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -474,17 +474,17 @@ func rulesReviseRestMetadata() vapiProtocol_.OperationRestMetadata {
 func rulesUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["ids_rule"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsRuleBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["ids_rule"] = "IdsRule"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -503,17 +503,17 @@ func rulesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["rule_id"] = vapiBindings_.NewStringType()
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["ids_rule"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsRuleBindingType)
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["rule_id"] = "RuleId"
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["ids_rule"] = "IdsRule"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["rule_id"] = vapiBindings_.NewStringType()
@@ -529,8 +529,8 @@ func rulesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["policy_id"] = "policyId"
 	pathParams["rule_id"] = "ruleId"
 	pathParams["project_id"] = "projectId"
-	pathParams["org_id"] = "orgId"
 	pathParams["domain_id"] = "domainId"
+	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

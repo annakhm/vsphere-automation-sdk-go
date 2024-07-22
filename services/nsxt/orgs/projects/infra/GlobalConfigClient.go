@@ -22,8 +22,8 @@ type GlobalConfigClient interface {
 
 	// This rest routine is deprecated. Use /infra/connectivity-global-config for Connectivity global config and /infra/ops-global-config for Operations global config. Read global configuration.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	// @return com.vmware.nsx_policy.model.GlobalConfig
 	//
@@ -39,8 +39,8 @@ type GlobalConfigClient interface {
 	//
 	// Deprecated: This API element is deprecated.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param globalConfigParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	//
@@ -53,8 +53,8 @@ type GlobalConfigClient interface {
 
 	// This rest routine is deprecated. Use /infra/connectivity-global-config for Connectivity global config and /infra/ops-global-config for Operations global config. Update the global configuration.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param globalConfigParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	// @return com.vmware.nsx_policy.model.GlobalConfig
