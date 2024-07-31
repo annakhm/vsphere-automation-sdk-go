@@ -33,6 +33,13 @@ type IpReputationSiteMappingsClient interface {
 	Get(mappingIdParam string) (nsx_policyModel.IPReputationSiteMapping, error)
 
 	// List IP reputation site mapping details.
+	//
+	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
+	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
+	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
+	// @param pageSizeParam Maximum number of results to return in this page (server may return fewer) (optional, default to 1000)
+	// @param sortAscendingParam (optional)
+	// @param sortByParam Field by which records are sorted (optional)
 	// @return com.vmware.nsx_policy.model.IPReputationSiteMappingListResult
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -40,7 +47,7 @@ type IpReputationSiteMappingsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List() (nsx_policyModel.IPReputationSiteMappingListResult, error)
+	List(cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IPReputationSiteMappingListResult, error)
 }
 
 type ipReputationSiteMappingsClient struct {
@@ -101,7 +108,7 @@ func (iIface *ipReputationSiteMappingsClient) Get(mappingIdParam string) (nsx_po
 	}
 }
 
-func (iIface *ipReputationSiteMappingsClient) List() (nsx_policyModel.IPReputationSiteMappingListResult, error) {
+func (iIface *ipReputationSiteMappingsClient) List(cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IPReputationSiteMappingListResult, error) {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := ipReputationSiteMappingsListRestMetadata()
@@ -109,6 +116,12 @@ func (iIface *ipReputationSiteMappingsClient) List() (nsx_policyModel.IPReputati
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(ipReputationSiteMappingsListInputType(), typeConverter)
+	sv.AddStructField("Cursor", cursorParam)
+	sv.AddStructField("IncludeMarkForDeleteObjects", includeMarkForDeleteObjectsParam)
+	sv.AddStructField("IncludedFields", includedFieldsParam)
+	sv.AddStructField("PageSize", pageSizeParam)
+	sv.AddStructField("SortAscending", sortAscendingParam)
+	sv.AddStructField("SortBy", sortByParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.IPReputationSiteMappingListResult

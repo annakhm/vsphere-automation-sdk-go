@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type VpcLbNodeCapacityStatusClient interface {
 
-	// API is used to retrieve available load balancer capacity status for all service clusters. Currently Edge cluster and Service Appliance cluster are supported. If the parameter ?service_cluster_path=<service-cluster-path> exists, then API only shows the available load balancer capacity status for this specific service cluster.
+	// API is used to retrieve available load balancer capacity status for all service clusters shared with VPC. Currently Edge cluster is supported as service cluster. If the parameter ?service_cluster_path=<service-cluster-path> exists, then API only shows the available load balancer capacity status for this specific service cluster.
 	//
 	// @param orgIdParam Org ID (required)
 	// @param projectIdParam Project ID (required)

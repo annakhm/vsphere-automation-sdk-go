@@ -32,17 +32,13 @@ func detailedStatusGetInputType() vapiBindings_.StructType {
 	fields["vpc_id"] = vapiBindings_.NewStringType()
 	fields["vpc_lb_id"] = vapiBindings_.NewStringType()
 	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fields["include_instance_details"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["source"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fields["transport_node_ids"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["vpc_id"] = "VpcId"
 	fieldNameMap["vpc_lb_id"] = "VpcLbId"
 	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
-	fieldNameMap["include_instance_details"] = "IncludeInstanceDetails"
 	fieldNameMap["source"] = "Source"
-	fieldNameMap["transport_node_ids"] = "TransportNodeIds"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -65,19 +61,13 @@ func detailedStatusGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["vpc_id"] = vapiBindings_.NewStringType()
 	fields["vpc_lb_id"] = vapiBindings_.NewStringType()
 	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fields["include_instance_details"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["source"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fields["transport_node_ids"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["vpc_id"] = "VpcId"
 	fieldNameMap["vpc_lb_id"] = "VpcLbId"
 	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
-	fieldNameMap["include_instance_details"] = "IncludeInstanceDetails"
 	fieldNameMap["source"] = "Source"
-	fieldNameMap["transport_node_ids"] = "TransportNodeIds"
-	paramsTypeMap["include_instance_details"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
-	paramsTypeMap["transport_node_ids"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["vpc_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
@@ -92,8 +82,6 @@ func detailedStatusGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["project_id"] = "projectId"
 	pathParams["org_id"] = "orgId"
 	pathParams["vpc_lb_id"] = "vpcLbId"
-	queryParams["include_instance_details"] = "include_instance_details"
-	queryParams["transport_node_ids"] = "transport_node_ids"
 	queryParams["enforcement_point_path"] = "enforcement_point_path"
 	queryParams["source"] = "source"
 	resultHeaders := map[string]string{}

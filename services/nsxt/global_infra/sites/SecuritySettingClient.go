@@ -20,7 +20,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SecuritySettingClient interface {
 
-	// This routine will get site security settings
+	// This routine will get site security setting
 	//
 	// @param siteIdParam (required)
 	// @return com.vmware.nsx_policy.model.SiteSecuritySetting

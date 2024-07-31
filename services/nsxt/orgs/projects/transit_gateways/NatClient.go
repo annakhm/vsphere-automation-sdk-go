@@ -22,8 +22,8 @@ type NatClient interface {
 
 	// Get either of the two supported sections (USER and NAT64) under the given Transit Gateway. The USER section allows IPV4 based NAT rules, while the NAT64 rules allow translating IPV6 packets to IPV4 packets.
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param tgwIdParam (required)
 	// @param natIdParam (required)
 	// @return com.vmware.nsx_policy.model.TransitGatewayNat
@@ -37,8 +37,8 @@ type NatClient interface {
 
 	// List all NAT sections under the given TransitGateway
 	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
+	// @param orgIdParam (required)
+	// @param projectIdParam (required)
 	// @param tgwIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)

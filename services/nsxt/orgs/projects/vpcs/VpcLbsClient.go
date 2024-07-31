@@ -77,13 +77,14 @@ type VpcLbsClient interface {
 	// @param vpcIdParam VPC ID (required)
 	// @param vpcLbIdParam Load Balancer ID (required)
 	// @param lbServiceParam (required)
+	// @param actionParam Load Balancer Operation (optional)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService) error
+	Patch(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService, actionParam *string) error
 
 	// If a load balancer with the vpc-lb-id doesn't exist, create a new Load Balancer. If it has already existed, update the load balancer. This is a full replacement.
 	//
@@ -92,6 +93,7 @@ type VpcLbsClient interface {
 	// @param vpcIdParam VPC ID (required)
 	// @param vpcLbIdParam Load Balancer ID (required)
 	// @param lbServiceParam (required)
+	// @param actionParam Load Balancer Operation (optional)
 	// @return com.vmware.nsx_policy.model.LBService
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -99,7 +101,7 @@ type VpcLbsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService) (nsx_policyModel.LBService, error)
+	Update(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService, actionParam *string) (nsx_policyModel.LBService, error)
 }
 
 type vpcLbsClient struct {
@@ -236,7 +238,7 @@ func (vIface *vpcLbsClient) List(orgIdParam string, projectIdParam string, vpcId
 	}
 }
 
-func (vIface *vpcLbsClient) Patch(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService) error {
+func (vIface *vpcLbsClient) Patch(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService, actionParam *string) error {
 	typeConverter := vIface.connector.TypeConverter()
 	executionContext := vIface.connector.NewExecutionContext()
 	operationRestMetaData := vpcLbsPatchRestMetadata()
@@ -249,6 +251,7 @@ func (vIface *vpcLbsClient) Patch(orgIdParam string, projectIdParam string, vpcI
 	sv.AddStructField("VpcId", vpcIdParam)
 	sv.AddStructField("VpcLbId", vpcLbIdParam)
 	sv.AddStructField("LbService", lbServiceParam)
+	sv.AddStructField("Action", actionParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -266,7 +269,7 @@ func (vIface *vpcLbsClient) Patch(orgIdParam string, projectIdParam string, vpcI
 	}
 }
 
-func (vIface *vpcLbsClient) Update(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService) (nsx_policyModel.LBService, error) {
+func (vIface *vpcLbsClient) Update(orgIdParam string, projectIdParam string, vpcIdParam string, vpcLbIdParam string, lbServiceParam nsx_policyModel.LBService, actionParam *string) (nsx_policyModel.LBService, error) {
 	typeConverter := vIface.connector.TypeConverter()
 	executionContext := vIface.connector.NewExecutionContext()
 	operationRestMetaData := vpcLbsUpdateRestMetadata()
@@ -279,6 +282,7 @@ func (vIface *vpcLbsClient) Update(orgIdParam string, projectIdParam string, vpc
 	sv.AddStructField("VpcId", vpcIdParam)
 	sv.AddStructField("VpcLbId", vpcLbIdParam)
 	sv.AddStructField("LbService", lbServiceParam)
+	sv.AddStructField("Action", actionParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.LBService

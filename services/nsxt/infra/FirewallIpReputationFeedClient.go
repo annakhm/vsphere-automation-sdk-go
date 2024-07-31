@@ -20,9 +20,10 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type FirewallIpReputationFeedClient interface {
 
-	// This API can be used to activate or deactivate auto-download of IP reputation feed, it can also be used to trigger download of IP reputation feed when required. Once auto-download is activated, IP reputation feed will be downloaded at regular intervals of 720 mins(12 hrs). Auto-download of IP reputation feed can be activated using the action 'enable_auto_download', to deactivate use action 'disable_auto_download' and to trigger a download use action 'download'.
+	// This API can be used to activate or deactivate auto-download of IP reputation feed, it can also be used to trigger download of IP reputation feed when required. Once auto-download is activated, IP reputation feed will be downloaded at regular intervals of 720 mins(12 hrs). Auto-download of IP reputation feed can be activated using the action 'enable_auto_download', to deactivate use action 'disable_auto_download' and to trigger a download use action 'download'. For Global Manager, the only action that is supported is action=download. The enforcement_point_path of the site where the feed is to be downloaded should be provided along with the action
 	//
 	// @param operationParam action (required)
+	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	// @return com.vmware.nsx_policy.model.PolicyFirewallIpReputationConfig
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -30,7 +31,7 @@ type FirewallIpReputationFeedClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Create(operationParam string) (nsx_policyModel.PolicyFirewallIpReputationConfig, error)
+	Create(operationParam string, enforcementPointPathParam *string) (nsx_policyModel.PolicyFirewallIpReputationConfig, error)
 
 	// API to retrieve the current IP Reputation feed configuration.
 	// @return com.vmware.nsx_policy.model.PolicyFirewallIpReputationConfig
@@ -69,7 +70,7 @@ func (fIface *firewallIpReputationFeedClient) GetErrorBindingType(errorName stri
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (fIface *firewallIpReputationFeedClient) Create(operationParam string) (nsx_policyModel.PolicyFirewallIpReputationConfig, error) {
+func (fIface *firewallIpReputationFeedClient) Create(operationParam string, enforcementPointPathParam *string) (nsx_policyModel.PolicyFirewallIpReputationConfig, error) {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := firewallIpReputationFeedCreateRestMetadata()
@@ -78,6 +79,7 @@ func (fIface *firewallIpReputationFeedClient) Create(operationParam string) (nsx
 
 	sv := vapiBindings_.NewStructValueBuilder(firewallIpReputationFeedCreateInputType(), typeConverter)
 	sv.AddStructField("Operation", operationParam)
+	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.PolicyFirewallIpReputationConfig

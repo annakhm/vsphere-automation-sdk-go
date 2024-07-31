@@ -18,6 +18,12 @@ import (
 	"reflect"
 )
 
+// Possible value for ``action`` of method VpcLbs#patch.
+const VpcLbs_PATCH_ACTION_RELOCATION = "allow_auto_relocation"
+
+// Possible value for ``action`` of method VpcLbs#update.
+const VpcLbs_UPDATE_ACTION_RELOCATION = "allow_auto_relocation"
+
 func vpcLbsDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
@@ -274,11 +280,13 @@ func vpcLbsPatchInputType() vapiBindings_.StructType {
 	fields["vpc_id"] = vapiBindings_.NewStringType()
 	fields["vpc_lb_id"] = vapiBindings_.NewStringType()
 	fields["lb_service"] = vapiBindings_.NewReferenceType(nsx_policyModel.LBServiceBindingType)
+	fields["action"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["vpc_id"] = "VpcId"
 	fieldNameMap["vpc_lb_id"] = "VpcLbId"
 	fieldNameMap["lb_service"] = "LbService"
+	fieldNameMap["action"] = "Action"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -301,14 +309,17 @@ func vpcLbsPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["vpc_id"] = vapiBindings_.NewStringType()
 	fields["vpc_lb_id"] = vapiBindings_.NewStringType()
 	fields["lb_service"] = vapiBindings_.NewReferenceType(nsx_policyModel.LBServiceBindingType)
+	fields["action"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["vpc_id"] = "VpcId"
 	fieldNameMap["vpc_lb_id"] = "VpcLbId"
 	fieldNameMap["lb_service"] = "LbService"
+	fieldNameMap["action"] = "Action"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["vpc_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["action"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["vpc_lb_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["lb_service"] = vapiBindings_.NewReferenceType(nsx_policyModel.LBServiceBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -319,6 +330,7 @@ func vpcLbsPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["project_id"] = "projectId"
 	pathParams["org_id"] = "orgId"
 	pathParams["vpc_lb_id"] = "vpcLbId"
+	queryParams["action"] = "action"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -350,11 +362,13 @@ func vpcLbsUpdateInputType() vapiBindings_.StructType {
 	fields["vpc_id"] = vapiBindings_.NewStringType()
 	fields["vpc_lb_id"] = vapiBindings_.NewStringType()
 	fields["lb_service"] = vapiBindings_.NewReferenceType(nsx_policyModel.LBServiceBindingType)
+	fields["action"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["vpc_id"] = "VpcId"
 	fieldNameMap["vpc_lb_id"] = "VpcLbId"
 	fieldNameMap["lb_service"] = "LbService"
+	fieldNameMap["action"] = "Action"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -377,14 +391,17 @@ func vpcLbsUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["vpc_id"] = vapiBindings_.NewStringType()
 	fields["vpc_lb_id"] = vapiBindings_.NewStringType()
 	fields["lb_service"] = vapiBindings_.NewReferenceType(nsx_policyModel.LBServiceBindingType)
+	fields["action"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["vpc_id"] = "VpcId"
 	fieldNameMap["vpc_lb_id"] = "VpcLbId"
 	fieldNameMap["lb_service"] = "LbService"
+	fieldNameMap["action"] = "Action"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["vpc_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["action"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["vpc_lb_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["lb_service"] = vapiBindings_.NewReferenceType(nsx_policyModel.LBServiceBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -395,6 +412,7 @@ func vpcLbsUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["project_id"] = "projectId"
 	pathParams["org_id"] = "orgId"
 	pathParams["vpc_lb_id"] = "vpcLbId"
+	queryParams["action"] = "action"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

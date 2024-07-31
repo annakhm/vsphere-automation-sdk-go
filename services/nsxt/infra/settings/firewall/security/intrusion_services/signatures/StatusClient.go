@@ -21,6 +21,8 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 type StatusClient interface {
 
 	// Intrusion detection system signatures status.
+	//
+	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	// @return com.vmware.nsx_policy.model.IdsSignatureStatus
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -28,7 +30,7 @@ type StatusClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get() (nsx_policyModel.IdsSignatureStatus, error)
+	Get(enforcementPointPathParam *string) (nsx_policyModel.IdsSignatureStatus, error)
 }
 
 type statusClient struct {
@@ -56,7 +58,7 @@ func (sIface *statusClient) GetErrorBindingType(errorName string) vapiBindings_.
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *statusClient) Get() (nsx_policyModel.IdsSignatureStatus, error) {
+func (sIface *statusClient) Get(enforcementPointPathParam *string) (nsx_policyModel.IdsSignatureStatus, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := statusGetRestMetadata()
@@ -64,6 +66,7 @@ func (sIface *statusClient) Get() (nsx_policyModel.IdsSignatureStatus, error) {
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(statusGetInputType(), typeConverter)
+	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.IdsSignatureStatus
