@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type ConstraintGlobalConfigClient interface {
 
 	// Read the constraint global configuration
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @return com.vmware.nsx_policy.model.ConstraintGlobalConfig
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -35,8 +36,8 @@ type ConstraintGlobalConfigClient interface {
 
 	// Update the constraint global configuration
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param constraintGlobalConfigParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -48,8 +49,8 @@ type ConstraintGlobalConfigClient interface {
 
 	// Update the constraint global configuration
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param constraintGlobalConfigParam (required)
 	// @return com.vmware.nsx_policy.model.ConstraintGlobalConfig
 	//

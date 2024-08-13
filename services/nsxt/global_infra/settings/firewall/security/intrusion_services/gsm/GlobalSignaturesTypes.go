@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -17,56 +18,6 @@ import (
 	nsx_policyModel "github.com/vmware/vsphere-automation-sdk-go/services/nsxt/model"
 	"reflect"
 )
-
-func globalSignaturesDeleteInputType() vapiBindings_.StructType {
-	fields := make(map[string]vapiBindings_.BindingType)
-	fieldNameMap := make(map[string]string)
-	fields["signature_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["signature_id"] = "SignatureId"
-	var validators = []vapiBindings_.Validator{}
-	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
-}
-
-func GlobalSignaturesDeleteOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewVoidType()
-}
-
-func globalSignaturesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
-	fields := map[string]vapiBindings_.BindingType{}
-	fieldNameMap := map[string]string{}
-	paramsTypeMap := map[string]vapiBindings_.BindingType{}
-	pathParams := map[string]string{}
-	queryParams := map[string]string{}
-	headerParams := map[string]string{}
-	dispatchHeaderParams := map[string]string{}
-	bodyFieldsMap := map[string]string{}
-	fields["signature_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["signature_id"] = "SignatureId"
-	paramsTypeMap["signature_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["signatureId"] = vapiBindings_.NewStringType()
-	pathParams["signature_id"] = "signatureId"
-	resultHeaders := map[string]string{}
-	errorHeaders := map[string]map[string]string{}
-	return vapiProtocol_.NewOperationRestMetadata(
-		fields,
-		fieldNameMap,
-		paramsTypeMap,
-		pathParams,
-		queryParams,
-		headerParams,
-		dispatchHeaderParams,
-		bodyFieldsMap,
-		"",
-		"",
-		"DELETE",
-		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/gsm/global-signatures/{signatureId}",
-		"",
-		resultHeaders,
-		204,
-		"",
-		errorHeaders,
-		map[string]int{"com.vmware.vapi.std.errors.invalid_request": 400, "com.vmware.vapi.std.errors.unauthorized": 403, "com.vmware.vapi.std.errors.service_unavailable": 503, "com.vmware.vapi.std.errors.internal_server_error": 500, "com.vmware.vapi.std.errors.not_found": 404})
-}
 
 func globalSignaturesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
@@ -189,116 +140,6 @@ func globalSignaturesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"",
 		"GET",
 		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/gsm/global-signatures",
-		"",
-		resultHeaders,
-		200,
-		"",
-		errorHeaders,
-		map[string]int{"com.vmware.vapi.std.errors.invalid_request": 400, "com.vmware.vapi.std.errors.unauthorized": 403, "com.vmware.vapi.std.errors.service_unavailable": 503, "com.vmware.vapi.std.errors.internal_server_error": 500, "com.vmware.vapi.std.errors.not_found": 404})
-}
-
-func globalSignaturesPatchInputType() vapiBindings_.StructType {
-	fields := make(map[string]vapiBindings_.BindingType)
-	fieldNameMap := make(map[string]string)
-	fields["signature_id"] = vapiBindings_.NewStringType()
-	fields["global_ids_signature"] = vapiBindings_.NewReferenceType(nsx_policyModel.GlobalIdsSignatureBindingType)
-	fieldNameMap["signature_id"] = "SignatureId"
-	fieldNameMap["global_ids_signature"] = "GlobalIdsSignature"
-	var validators = []vapiBindings_.Validator{}
-	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
-}
-
-func GlobalSignaturesPatchOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewVoidType()
-}
-
-func globalSignaturesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
-	fields := map[string]vapiBindings_.BindingType{}
-	fieldNameMap := map[string]string{}
-	paramsTypeMap := map[string]vapiBindings_.BindingType{}
-	pathParams := map[string]string{}
-	queryParams := map[string]string{}
-	headerParams := map[string]string{}
-	dispatchHeaderParams := map[string]string{}
-	bodyFieldsMap := map[string]string{}
-	fields["signature_id"] = vapiBindings_.NewStringType()
-	fields["global_ids_signature"] = vapiBindings_.NewReferenceType(nsx_policyModel.GlobalIdsSignatureBindingType)
-	fieldNameMap["signature_id"] = "SignatureId"
-	fieldNameMap["global_ids_signature"] = "GlobalIdsSignature"
-	paramsTypeMap["signature_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["global_ids_signature"] = vapiBindings_.NewReferenceType(nsx_policyModel.GlobalIdsSignatureBindingType)
-	paramsTypeMap["signatureId"] = vapiBindings_.NewStringType()
-	pathParams["signature_id"] = "signatureId"
-	resultHeaders := map[string]string{}
-	errorHeaders := map[string]map[string]string{}
-	return vapiProtocol_.NewOperationRestMetadata(
-		fields,
-		fieldNameMap,
-		paramsTypeMap,
-		pathParams,
-		queryParams,
-		headerParams,
-		dispatchHeaderParams,
-		bodyFieldsMap,
-		"",
-		"global_ids_signature",
-		"PATCH",
-		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/gsm/global-signatures/{signatureId}",
-		"",
-		resultHeaders,
-		204,
-		"",
-		errorHeaders,
-		map[string]int{"com.vmware.vapi.std.errors.invalid_request": 400, "com.vmware.vapi.std.errors.unauthorized": 403, "com.vmware.vapi.std.errors.service_unavailable": 503, "com.vmware.vapi.std.errors.internal_server_error": 500, "com.vmware.vapi.std.errors.not_found": 404})
-}
-
-func globalSignaturesUpdateInputType() vapiBindings_.StructType {
-	fields := make(map[string]vapiBindings_.BindingType)
-	fieldNameMap := make(map[string]string)
-	fields["signature_id"] = vapiBindings_.NewStringType()
-	fields["global_ids_signature"] = vapiBindings_.NewReferenceType(nsx_policyModel.GlobalIdsSignatureBindingType)
-	fieldNameMap["signature_id"] = "SignatureId"
-	fieldNameMap["global_ids_signature"] = "GlobalIdsSignature"
-	var validators = []vapiBindings_.Validator{}
-	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
-}
-
-func GlobalSignaturesUpdateOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewReferenceType(nsx_policyModel.GlobalIdsSignatureBindingType)
-}
-
-func globalSignaturesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
-	fields := map[string]vapiBindings_.BindingType{}
-	fieldNameMap := map[string]string{}
-	paramsTypeMap := map[string]vapiBindings_.BindingType{}
-	pathParams := map[string]string{}
-	queryParams := map[string]string{}
-	headerParams := map[string]string{}
-	dispatchHeaderParams := map[string]string{}
-	bodyFieldsMap := map[string]string{}
-	fields["signature_id"] = vapiBindings_.NewStringType()
-	fields["global_ids_signature"] = vapiBindings_.NewReferenceType(nsx_policyModel.GlobalIdsSignatureBindingType)
-	fieldNameMap["signature_id"] = "SignatureId"
-	fieldNameMap["global_ids_signature"] = "GlobalIdsSignature"
-	paramsTypeMap["signature_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["global_ids_signature"] = vapiBindings_.NewReferenceType(nsx_policyModel.GlobalIdsSignatureBindingType)
-	paramsTypeMap["signatureId"] = vapiBindings_.NewStringType()
-	pathParams["signature_id"] = "signatureId"
-	resultHeaders := map[string]string{}
-	errorHeaders := map[string]map[string]string{}
-	return vapiProtocol_.NewOperationRestMetadata(
-		fields,
-		fieldNameMap,
-		paramsTypeMap,
-		pathParams,
-		queryParams,
-		headerParams,
-		dispatchHeaderParams,
-		bodyFieldsMap,
-		"",
-		"global_ids_signature",
-		"PUT",
-		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/gsm/global-signatures/{signatureId}",
 		"",
 		resultHeaders,
 		200,

@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type OpsGlobalConfigClient interface {
 
 	// Read global Operations Configuration
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	// @return com.vmware.nsx_policy.model.OpsGlobalConfig
 	//
@@ -36,8 +37,8 @@ type OpsGlobalConfigClient interface {
 
 	// Update the global Operationconfiguration
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param opsGlobalConfigParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	//
@@ -50,8 +51,8 @@ type OpsGlobalConfigClient interface {
 
 	// Update the global Operations Configuration
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param opsGlobalConfigParam (required)
 	// @param applyLocallyParam Flag to check reaching NSX+ or LM resource (optional, default to false)
 	// @return com.vmware.nsx_policy.model.OpsGlobalConfig

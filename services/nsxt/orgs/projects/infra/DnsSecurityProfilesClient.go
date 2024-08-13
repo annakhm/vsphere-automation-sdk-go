@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type DnsSecurityProfilesClient interface {
 
 	// Delete DNS security profile
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param profileIdParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	//
@@ -36,8 +37,8 @@ type DnsSecurityProfilesClient interface {
 
 	// Read the DNS Forwarder for the given tier-0 instance
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param profileIdParam (required)
 	// @return com.vmware.nsx_policy.model.DnsSecurityProfile
 	//
@@ -50,8 +51,8 @@ type DnsSecurityProfilesClient interface {
 
 	// List all DNS security profiles
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
@@ -69,8 +70,8 @@ type DnsSecurityProfilesClient interface {
 
 	// Create or update DNS security profile
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param profileIdParam (required)
 	// @param dnsSecurityProfileParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
@@ -84,8 +85,8 @@ type DnsSecurityProfilesClient interface {
 
 	// Create or update DNS security profile
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param profileIdParam (required)
 	// @param dnsSecurityProfileParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)

@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -21,14 +22,14 @@ import (
 func contextProfilesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["force"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
-	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["force"] = "Force"
 	fieldNameMap["override"] = "Override"
 	var validators = []vapiBindings_.Validator{}
@@ -48,14 +49,14 @@ func contextProfilesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["context_profile_id"] = vapiBindings_.NewStringType()
 	fields["force"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["override"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
-	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["context_profile_id"] = "ContextProfileId"
 	fieldNameMap["force"] = "Force"
 	fieldNameMap["override"] = "Override"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
@@ -318,7 +319,7 @@ func contextProfilesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"policy_context_profile",
 		"PATCH",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/context-profiles/{contextProfileId}",
-		"",
+		"application/json",
 		resultHeaders,
 		204,
 		"",
@@ -393,7 +394,7 @@ func contextProfilesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"policy_context_profile",
 		"PUT",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/context-profiles/{contextProfileId}",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

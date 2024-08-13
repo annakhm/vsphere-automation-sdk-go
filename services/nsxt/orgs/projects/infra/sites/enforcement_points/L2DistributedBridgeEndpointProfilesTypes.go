@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -356,7 +357,7 @@ func l2DistributedBridgeEndpointProfilesUpdateRestMetadata() vapiProtocol_.Opera
 		"l2_distributed_bridge_endpoint_profile",
 		"PUT",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/sites/{siteId}/enforcement-points/{enforcementPointId}/l2-distributed-bridge-endpoint-profiles/{l2DistributedBridgeEndpointProfileId}",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

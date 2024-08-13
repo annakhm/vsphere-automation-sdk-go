@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,11 +23,11 @@ type StatisticsClient interface {
 
 	// Get statistics of a IDS-IPS rule. - no enforcement point path specified: Stats will be evaluated on each enforcement point. - {enforcement_point_path}: Stats are evaluated only on the given enforcement point.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain id (required)
 	// @param idsPolicyIdParam IDS policy id (required)
 	// @param ruleIdParam Rule id (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param containerClusterPathParam String Path of the Container Cluster entity (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	// @return com.vmware.nsx_policy.model.IdsRuleStatisticsListResult
@@ -36,7 +37,7 @@ type StatisticsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(domainIdParam string, idsPolicyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsRuleStatisticsListResult, error)
+	List(orgIdParam string, projectIdParam string, domainIdParam string, idsPolicyIdParam string, ruleIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsRuleStatisticsListResult, error)
 }
 
 type statisticsClient struct {
@@ -64,7 +65,7 @@ func (sIface *statisticsClient) GetErrorBindingType(errorName string) vapiBindin
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *statisticsClient) List(domainIdParam string, idsPolicyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsRuleStatisticsListResult, error) {
+func (sIface *statisticsClient) List(orgIdParam string, projectIdParam string, domainIdParam string, idsPolicyIdParam string, ruleIdParam string, containerClusterPathParam *string, enforcementPointPathParam *string) (nsx_policyModel.IdsRuleStatisticsListResult, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := statisticsListRestMetadata()
@@ -72,11 +73,11 @@ func (sIface *statisticsClient) List(domainIdParam string, idsPolicyIdParam stri
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(statisticsListInputType(), typeConverter)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("IdsPolicyId", idsPolicyIdParam)
 	sv.AddStructField("RuleId", ruleIdParam)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("ContainerClusterPath", containerClusterPathParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()

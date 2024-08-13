@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,10 +23,10 @@ type MemberTypesClient interface {
 
 	// It retrieves member types for a given group. In case of nested groups, it calculates member types of child groups as well. Considers member type for members added via static members and dynamic membership criteria.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param groupIdParam Group ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.GroupMemberTypeListResult
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -33,7 +34,7 @@ type MemberTypesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(domainIdParam string, groupIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.GroupMemberTypeListResult, error)
+	Get(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string) (nsx_policyModel.GroupMemberTypeListResult, error)
 }
 
 type memberTypesClient struct {
@@ -61,7 +62,7 @@ func (mIface *memberTypesClient) GetErrorBindingType(errorName string) vapiBindi
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (mIface *memberTypesClient) Get(domainIdParam string, groupIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.GroupMemberTypeListResult, error) {
+func (mIface *memberTypesClient) Get(orgIdParam string, projectIdParam string, domainIdParam string, groupIdParam string) (nsx_policyModel.GroupMemberTypeListResult, error) {
 	typeConverter := mIface.connector.TypeConverter()
 	executionContext := mIface.connector.NewExecutionContext()
 	operationRestMetaData := memberTypesGetRestMetadata()
@@ -69,10 +70,10 @@ func (mIface *memberTypesClient) Get(domainIdParam string, groupIdParam string, 
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(memberTypesGetInputType(), typeConverter)
-	sv.AddStructField("DomainId", domainIdParam)
-	sv.AddStructField("GroupId", groupIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("DomainId", domainIdParam)
+	sv.AddStructField("GroupId", groupIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.GroupMemberTypeListResult

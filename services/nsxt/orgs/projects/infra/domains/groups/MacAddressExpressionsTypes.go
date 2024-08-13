@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -105,7 +106,7 @@ func macAddressExpressionsCreateRestMetadata() vapiProtocol_.OperationRestMetada
 		"m_AC_address_list",
 		"POST",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/domains/{domainId}/groups/{groupId}/mac-address-expressions/{expressionId}",
-		"",
+		"application/json",
 		resultHeaders,
 		204,
 		"",
@@ -116,16 +117,16 @@ func macAddressExpressionsCreateRestMetadata() vapiProtocol_.OperationRestMetada
 func macAddressExpressionsDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -143,19 +144,19 @@ func macAddressExpressionsDeleteRestMetadata() vapiProtocol_.OperationRestMetada
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["expression_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -166,8 +167,8 @@ func macAddressExpressionsDeleteRestMetadata() vapiProtocol_.OperationRestMetada
 	pathParams["expression_id"] = "expressionId"
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["domain_id"] = "domainId"
 	pathParams["org_id"] = "orgId"
+	pathParams["domain_id"] = "domainId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -194,17 +195,17 @@ func macAddressExpressionsDeleteRestMetadata() vapiProtocol_.OperationRestMetada
 func macAddressExpressionsPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["m_AC_address_expression"] = vapiBindings_.NewReferenceType(nsx_policyModel.MACAddressExpressionBindingType)
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["m_AC_address_expression"] = "MACAddressExpression"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -223,22 +224,22 @@ func macAddressExpressionsPatchRestMetadata() vapiProtocol_.OperationRestMetadat
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["org_id"] = vapiBindings_.NewStringType()
+	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["group_id"] = vapiBindings_.NewStringType()
 	fields["expression_id"] = vapiBindings_.NewStringType()
-	fields["org_id"] = vapiBindings_.NewStringType()
-	fields["project_id"] = vapiBindings_.NewStringType()
 	fields["m_AC_address_expression"] = vapiBindings_.NewReferenceType(nsx_policyModel.MACAddressExpressionBindingType)
+	fieldNameMap["org_id"] = "OrgId"
+	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["group_id"] = "GroupId"
 	fieldNameMap["expression_id"] = "ExpressionId"
-	fieldNameMap["org_id"] = "OrgId"
-	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["m_AC_address_expression"] = "MACAddressExpression"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["m_AC_address_expression"] = vapiBindings_.NewReferenceType(nsx_policyModel.MACAddressExpressionBindingType)
-	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["group_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["expression_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -249,8 +250,8 @@ func macAddressExpressionsPatchRestMetadata() vapiProtocol_.OperationRestMetadat
 	pathParams["expression_id"] = "expressionId"
 	pathParams["group_id"] = "groupId"
 	pathParams["project_id"] = "projectId"
-	pathParams["domain_id"] = "domainId"
 	pathParams["org_id"] = "orgId"
+	pathParams["domain_id"] = "domainId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -266,7 +267,7 @@ func macAddressExpressionsPatchRestMetadata() vapiProtocol_.OperationRestMetadat
 		"m_AC_address_expression",
 		"PATCH",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/domains/{domainId}/groups/{groupId}/mac-address-expressions/{expressionId}",
-		"",
+		"application/json",
 		resultHeaders,
 		204,
 		"",

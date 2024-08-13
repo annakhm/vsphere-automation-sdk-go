@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type EntriesClient interface {
 
 	// API will delete L7 Access Profile entry
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
 	// @param l7AccessEntryIdParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
@@ -37,8 +38,8 @@ type EntriesClient interface {
 
 	// Read Friewall L7 Access Profile entry
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
 	// @param l7AccessEntryIdParam (required)
 	// @return com.vmware.nsx_policy.model.L7AccessEntry
@@ -52,8 +53,8 @@ type EntriesClient interface {
 
 	// API will list all l7 access profiles entries
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
@@ -72,8 +73,8 @@ type EntriesClient interface {
 
 	// API will create/update L7 Access Profile entry
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
 	// @param l7AccessEntryIdParam (required)
 	// @param l7AccessEntryParam (required)
@@ -88,8 +89,8 @@ type EntriesClient interface {
 
 	// API will create L7 Access Profile entry
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
 	// @param l7AccessEntryIdParam (required)
 	// @param l7AccessEntryParam (required)

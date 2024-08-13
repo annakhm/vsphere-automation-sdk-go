@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -94,7 +95,7 @@ func affectedIpsCreateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"policy_ids_event_data_request",
 		"POST",
 		"/policy/api/v1/infra/settings/firewall/security/intrusion-services/affected-ips",
-		"",
+		"application/json",
 		resultHeaders,
 		201,
 		"",

@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,9 +23,9 @@ type SecurityConfigClient interface {
 
 	// Read Security Feature.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param tier1IdParam tier1 id (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param featureParam Collection of T1 supported security features (optional)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
@@ -38,13 +39,13 @@ type SecurityConfigClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(tier1IdParam string, orgIdParam string, projectIdParam string, cursorParam *string, featureParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.SecurityFeatures, error)
+	Get(orgIdParam string, projectIdParam string, tier1IdParam string, cursorParam *string, featureParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.SecurityFeatures, error)
 
 	// Create a security configuration if it is not already present, otherwise update the security configuration.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param tier1IdParam tier1 id (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param securityFeaturesParam (required)
 	// @return com.vmware.nsx_policy.model.SecurityFeatures
 	//
@@ -53,13 +54,13 @@ type SecurityConfigClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(tier1IdParam string, orgIdParam string, projectIdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error)
+	Patch(orgIdParam string, projectIdParam string, tier1IdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error)
 
 	// Create or update security configuration.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param tier1IdParam tier1 id (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param securityFeaturesParam (required)
 	// @return com.vmware.nsx_policy.model.SecurityFeatures
 	//
@@ -68,7 +69,7 @@ type SecurityConfigClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(tier1IdParam string, orgIdParam string, projectIdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error)
+	Update(orgIdParam string, projectIdParam string, tier1IdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error)
 }
 
 type securityConfigClient struct {
@@ -98,7 +99,7 @@ func (sIface *securityConfigClient) GetErrorBindingType(errorName string) vapiBi
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *securityConfigClient) Get(tier1IdParam string, orgIdParam string, projectIdParam string, cursorParam *string, featureParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.SecurityFeatures, error) {
+func (sIface *securityConfigClient) Get(orgIdParam string, projectIdParam string, tier1IdParam string, cursorParam *string, featureParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.SecurityFeatures, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := securityConfigGetRestMetadata()
@@ -106,9 +107,9 @@ func (sIface *securityConfigClient) Get(tier1IdParam string, orgIdParam string, 
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(securityConfigGetInputType(), typeConverter)
-	sv.AddStructField("Tier1Id", tier1IdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("Tier1Id", tier1IdParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("Feature", featureParam)
 	sv.AddStructField("IncludedFields", includedFieldsParam)
@@ -138,7 +139,7 @@ func (sIface *securityConfigClient) Get(tier1IdParam string, orgIdParam string, 
 	}
 }
 
-func (sIface *securityConfigClient) Patch(tier1IdParam string, orgIdParam string, projectIdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error) {
+func (sIface *securityConfigClient) Patch(orgIdParam string, projectIdParam string, tier1IdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := securityConfigPatchRestMetadata()
@@ -146,9 +147,9 @@ func (sIface *securityConfigClient) Patch(tier1IdParam string, orgIdParam string
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(securityConfigPatchInputType(), typeConverter)
-	sv.AddStructField("Tier1Id", tier1IdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("Tier1Id", tier1IdParam)
 	sv.AddStructField("SecurityFeatures", securityFeaturesParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
@@ -173,7 +174,7 @@ func (sIface *securityConfigClient) Patch(tier1IdParam string, orgIdParam string
 	}
 }
 
-func (sIface *securityConfigClient) Update(tier1IdParam string, orgIdParam string, projectIdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error) {
+func (sIface *securityConfigClient) Update(orgIdParam string, projectIdParam string, tier1IdParam string, securityFeaturesParam nsx_policyModel.SecurityFeatures) (nsx_policyModel.SecurityFeatures, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := securityConfigUpdateRestMetadata()
@@ -181,9 +182,9 @@ func (sIface *securityConfigClient) Update(tier1IdParam string, orgIdParam strin
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(securityConfigUpdateInputType(), typeConverter)
-	sv.AddStructField("Tier1Id", tier1IdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("Tier1Id", tier1IdParam)
 	sv.AddStructField("SecurityFeatures", securityFeaturesParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type CompleteClient interface {
 
 	// Get a preview of a configuration which will be present after publish of a specified draft. The response essentially is a hierarchical payload containing the configuration, which will be in active after a specified draft gets published onto current configuration.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param draftIdParam (required)
 	// @return com.vmware.nsx_policy.model.Infra
 	//

@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type RulesClient interface {
 
 	// Get the list of rules of given parent path of policy/section, filtered based on the given criteria. Parent path is mandatory.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param scopeParam Scope filter criteria (required)
 	// @param enforcementPointPathParam Path of the enforcement point (optional)
 	// @param parentPathParam Path of the parent object of the entities (optional)

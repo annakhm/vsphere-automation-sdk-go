@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -79,7 +80,7 @@ func csrsCreateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"tls_csr",
 		"POST",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/csrs/{csrId}",
-		"",
+		"application/json",
 		resultHeaders,
 		201,
 		"",
@@ -276,7 +277,7 @@ func csrsImportcsrRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"tls_trust_data",
 		"POST",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/csrs/{csrId}",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",
@@ -495,7 +496,7 @@ func csrsSelfsign0RestMetadata() vapiProtocol_.OperationRestMetadata {
 		"tls_csr_with_days_valid",
 		"POST",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/csrs",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

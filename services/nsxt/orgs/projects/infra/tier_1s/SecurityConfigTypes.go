@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -33,21 +34,24 @@ const SecurityConfig_GET_FEATURE_TLS = "TLS"
 // Possible value for ``feature`` of method SecurityConfig#get.
 const SecurityConfig_GET_FEATURE_GFW_MULTICAST = "GFW_MULTICAST"
 
+// Possible value for ``feature`` of method SecurityConfig#get.
+const SecurityConfig_GET_FEATURE_GEOIP_MONITORING = "GEOIP_MONITORING"
+
 func securityConfigGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["feature"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["feature"] = "Feature"
 	fieldNameMap["included_fields"] = "IncludedFields"
@@ -71,18 +75,18 @@ func securityConfigGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["feature"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["feature"] = "Feature"
 	fieldNameMap["included_fields"] = "IncludedFields"
@@ -92,8 +96,8 @@ func securityConfigGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	paramsTypeMap["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["feature"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
-	paramsTypeMap["tier1_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["tier1_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -136,13 +140,13 @@ func securityConfigGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 func securityConfigPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["security_features"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityFeaturesBindingType)
-	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["security_features"] = "SecurityFeatures"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -161,16 +165,16 @@ func securityConfigPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["security_features"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityFeaturesBindingType)
-	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["security_features"] = "SecurityFeatures"
-	paramsTypeMap["tier1_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["tier1_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["security_features"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityFeaturesBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -194,7 +198,7 @@ func securityConfigPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"security_features",
 		"PATCH",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/tier-1s/{tier1Id}/security-config",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",
@@ -205,13 +209,13 @@ func securityConfigPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 func securityConfigUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["security_features"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityFeaturesBindingType)
-	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["security_features"] = "SecurityFeatures"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -230,16 +234,16 @@ func securityConfigUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["tier1_id"] = vapiBindings_.NewStringType()
 	fields["security_features"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityFeaturesBindingType)
-	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["tier1_id"] = "Tier1Id"
 	fieldNameMap["security_features"] = "SecurityFeatures"
-	paramsTypeMap["tier1_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["tier1_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["security_features"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityFeaturesBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
@@ -263,7 +267,7 @@ func securityConfigUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"security_features",
 		"PUT",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/tier-1s/{tier1Id}/security-config",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

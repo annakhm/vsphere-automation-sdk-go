@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,9 +23,9 @@ type PcapsClient interface {
 
 	// Delete IDS Pcap file entry from corfu and from file system.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param idParam ID of IdsPcapFileMetadata (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -32,12 +33,12 @@ type PcapsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(idParam string, orgIdParam string, projectIdParam string, enforcementPointPathParam *string) error
+	Delete(orgIdParam string, projectIdParam string, idParam string, enforcementPointPathParam *string) error
 
 	// List IDS PCAP file metadata.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param enforcementPointPathParam String Path of the enforcement point (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
@@ -81,7 +82,7 @@ func (pIface *pcapsClient) GetErrorBindingType(errorName string) vapiBindings_.B
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (pIface *pcapsClient) Delete(idParam string, orgIdParam string, projectIdParam string, enforcementPointPathParam *string) error {
+func (pIface *pcapsClient) Delete(orgIdParam string, projectIdParam string, idParam string, enforcementPointPathParam *string) error {
 	typeConverter := pIface.connector.TypeConverter()
 	executionContext := pIface.connector.NewExecutionContext()
 	operationRestMetaData := pcapsDeleteRestMetadata()
@@ -89,9 +90,9 @@ func (pIface *pcapsClient) Delete(idParam string, orgIdParam string, projectIdPa
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(pcapsDeleteInputType(), typeConverter)
-	sv.AddStructField("Id", idParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("Id", idParam)
 	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

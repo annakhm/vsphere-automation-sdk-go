@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -21,12 +22,12 @@ import (
 func profilesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["profile_id"] = "ProfileId"
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -44,15 +45,15 @@ func profilesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["profile_id"] = "ProfileId"
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["profileId"] = vapiBindings_.NewStringType()
@@ -85,12 +86,12 @@ func profilesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 func profilesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["profile_id"] = "ProfileId"
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -108,15 +109,15 @@ func profilesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["profile_id"] = "ProfileId"
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["profileId"] = vapiBindings_.NewStringType()
@@ -242,13 +243,13 @@ func profilesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 func profilesPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["ids_profile"] = "IdsProfile"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -267,17 +268,17 @@ func profilesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["ids_profile"] = "IdsProfile"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
@@ -300,7 +301,7 @@ func profilesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"ids_profile",
 		"PATCH",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/settings/firewall/security/intrusion-services/profiles/{profileId}",
-		"",
+		"application/json",
 		resultHeaders,
 		204,
 		"",
@@ -311,13 +312,13 @@ func profilesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 func profilesUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["ids_profile"] = "IdsProfile"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -336,17 +337,17 @@ func profilesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["profile_id"] = vapiBindings_.NewStringType()
 	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["profile_id"] = "ProfileId"
 	fieldNameMap["ids_profile"] = "IdsProfile"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
@@ -369,7 +370,7 @@ func profilesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"ids_profile",
 		"PUT",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/settings/firewall/security/intrusion-services/profiles/{profileId}",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

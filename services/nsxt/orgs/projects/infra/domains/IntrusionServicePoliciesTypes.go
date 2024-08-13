@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -33,14 +34,14 @@ const IntrusionServicePolicies_REVISE_OPERATION_BEFORE = "insert_before"
 func intrusionServicePoliciesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -58,14 +59,14 @@ func intrusionServicePoliciesDeleteRestMetadata() vapiProtocol_.OperationRestMet
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["policy_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
@@ -76,8 +77,8 @@ func intrusionServicePoliciesDeleteRestMetadata() vapiProtocol_.OperationRestMet
 	paramsTypeMap["policyId"] = vapiBindings_.NewStringType()
 	pathParams["policy_id"] = "policyId"
 	pathParams["project_id"] = "projectId"
-	pathParams["domain_id"] = "domainId"
 	pathParams["org_id"] = "orgId"
+	pathParams["domain_id"] = "domainId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -104,14 +105,14 @@ func intrusionServicePoliciesDeleteRestMetadata() vapiProtocol_.OperationRestMet
 func intrusionServicePoliciesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -129,14 +130,14 @@ func intrusionServicePoliciesGetRestMetadata() vapiProtocol_.OperationRestMetada
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["policy_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
@@ -147,8 +148,8 @@ func intrusionServicePoliciesGetRestMetadata() vapiProtocol_.OperationRestMetada
 	paramsTypeMap["policyId"] = vapiBindings_.NewStringType()
 	pathParams["policy_id"] = "policyId"
 	pathParams["project_id"] = "projectId"
-	pathParams["domain_id"] = "domainId"
 	pathParams["org_id"] = "orgId"
+	pathParams["domain_id"] = "domainId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -175,9 +176,9 @@ func intrusionServicePoliciesGetRestMetadata() vapiProtocol_.OperationRestMetada
 func intrusionServicePoliciesListInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["include_rule_count"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
@@ -185,9 +186,9 @@ func intrusionServicePoliciesListInputType() vapiBindings_.StructType {
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["include_rule_count"] = "IncludeRuleCount"
@@ -212,9 +213,9 @@ func intrusionServicePoliciesListRestMetadata() vapiProtocol_.OperationRestMetad
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["domain_id"] = vapiBindings_.NewStringType()
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["include_rule_count"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
@@ -222,9 +223,9 @@ func intrusionServicePoliciesListRestMetadata() vapiProtocol_.OperationRestMetad
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
 	fieldNameMap["cursor"] = "Cursor"
 	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["include_rule_count"] = "IncludeRuleCount"
@@ -246,8 +247,8 @@ func intrusionServicePoliciesListRestMetadata() vapiProtocol_.OperationRestMetad
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["domainId"] = vapiBindings_.NewStringType()
 	pathParams["project_id"] = "projectId"
-	pathParams["domain_id"] = "domainId"
 	pathParams["org_id"] = "orgId"
+	pathParams["domain_id"] = "domainId"
 	queryParams["cursor"] = "cursor"
 	queryParams["include_rule_count"] = "include_rule_count"
 	queryParams["sort_ascending"] = "sort_ascending"
@@ -281,15 +282,15 @@ func intrusionServicePoliciesListRestMetadata() vapiProtocol_.OperationRestMetad
 func intrusionServicePoliciesPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["ids_security_policy"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsSecurityPolicyBindingType)
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["ids_security_policy"] = "IdsSecurityPolicy"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -308,15 +309,15 @@ func intrusionServicePoliciesPatchRestMetadata() vapiProtocol_.OperationRestMeta
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["ids_security_policy"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsSecurityPolicyBindingType)
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["ids_security_policy"] = "IdsSecurityPolicy"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["policy_id"] = vapiBindings_.NewStringType()
@@ -329,8 +330,8 @@ func intrusionServicePoliciesPatchRestMetadata() vapiProtocol_.OperationRestMeta
 	paramsTypeMap["policyId"] = vapiBindings_.NewStringType()
 	pathParams["policy_id"] = "policyId"
 	pathParams["project_id"] = "projectId"
-	pathParams["domain_id"] = "domainId"
 	pathParams["org_id"] = "orgId"
+	pathParams["domain_id"] = "domainId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -346,7 +347,7 @@ func intrusionServicePoliciesPatchRestMetadata() vapiProtocol_.OperationRestMeta
 		"ids_security_policy",
 		"PATCH",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/domains/{domainId}/intrusion-service-policies/{policyId}",
-		"",
+		"application/json",
 		resultHeaders,
 		204,
 		"",
@@ -434,7 +435,7 @@ func intrusionServicePoliciesReviseRestMetadata() vapiProtocol_.OperationRestMet
 		"ids_security_policy",
 		"POST",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/domains/{domainId}/intrusion-service-policies/{policyId}",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",
@@ -445,15 +446,15 @@ func intrusionServicePoliciesReviseRestMetadata() vapiProtocol_.OperationRestMet
 func intrusionServicePoliciesUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["ids_security_policy"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsSecurityPolicyBindingType)
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["ids_security_policy"] = "IdsSecurityPolicy"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
@@ -472,15 +473,15 @@ func intrusionServicePoliciesUpdateRestMetadata() vapiProtocol_.OperationRestMet
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["domain_id"] = vapiBindings_.NewStringType()
-	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
+	fields["domain_id"] = vapiBindings_.NewStringType()
+	fields["policy_id"] = vapiBindings_.NewStringType()
 	fields["ids_security_policy"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsSecurityPolicyBindingType)
-	fieldNameMap["domain_id"] = "DomainId"
-	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
+	fieldNameMap["domain_id"] = "DomainId"
+	fieldNameMap["policy_id"] = "PolicyId"
 	fieldNameMap["ids_security_policy"] = "IdsSecurityPolicy"
 	paramsTypeMap["domain_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["policy_id"] = vapiBindings_.NewStringType()
@@ -493,8 +494,8 @@ func intrusionServicePoliciesUpdateRestMetadata() vapiProtocol_.OperationRestMet
 	paramsTypeMap["policyId"] = vapiBindings_.NewStringType()
 	pathParams["policy_id"] = "policyId"
 	pathParams["project_id"] = "projectId"
-	pathParams["domain_id"] = "domainId"
 	pathParams["org_id"] = "orgId"
+	pathParams["domain_id"] = "domainId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -510,7 +511,7 @@ func intrusionServicePoliciesUpdateRestMetadata() vapiProtocol_.OperationRestMet
 		"ids_security_policy",
 		"PUT",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/infra/domains/{domainId}/intrusion-service-policies/{policyId}",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

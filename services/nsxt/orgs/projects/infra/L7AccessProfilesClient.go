@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,9 +23,9 @@ type L7AccessProfilesClient interface {
 
 	// API will delete L7 Access Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -32,13 +33,13 @@ type L7AccessProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string, overrideParam *bool) error
+	Delete(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string, overrideParam *bool) error
 
 	// API will get L7 Access Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.L7AccessProfile
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -46,12 +47,12 @@ type L7AccessProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.L7AccessProfile, error)
+	Get(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string) (nsx_policyModel.L7AccessProfile, error)
 
 	// API will list all l7 access Profiles
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeEntryCountParam Include the count of entries in L7 Profile (optional, default to false)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
@@ -70,9 +71,9 @@ type L7AccessProfilesClient interface {
 
 	// API will create/update L7 Access Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam L7 Access Profile ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param l7AccessProfileParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	// @return com.vmware.nsx_policy.model.L7AccessProfile
@@ -82,13 +83,13 @@ type L7AccessProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error)
+	Patch(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error)
 
 	// API will update L7 Access Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param l7AccessProfileIdParam (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param l7AccessProfileParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	// @return com.vmware.nsx_policy.model.L7AccessProfile
@@ -98,7 +99,7 @@ type L7AccessProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error)
+	Update(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error)
 }
 
 type l7AccessProfilesClient struct {
@@ -130,7 +131,7 @@ func (lIface *l7AccessProfilesClient) GetErrorBindingType(errorName string) vapi
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (lIface *l7AccessProfilesClient) Delete(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string, overrideParam *bool) error {
+func (lIface *l7AccessProfilesClient) Delete(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string, overrideParam *bool) error {
 	typeConverter := lIface.connector.TypeConverter()
 	executionContext := lIface.connector.NewExecutionContext()
 	operationRestMetaData := l7AccessProfilesDeleteRestMetadata()
@@ -138,9 +139,9 @@ func (lIface *l7AccessProfilesClient) Delete(l7AccessProfileIdParam string, orgI
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(l7AccessProfilesDeleteInputType(), typeConverter)
-	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
@@ -159,7 +160,7 @@ func (lIface *l7AccessProfilesClient) Delete(l7AccessProfileIdParam string, orgI
 	}
 }
 
-func (lIface *l7AccessProfilesClient) Get(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.L7AccessProfile, error) {
+func (lIface *l7AccessProfilesClient) Get(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string) (nsx_policyModel.L7AccessProfile, error) {
 	typeConverter := lIface.connector.TypeConverter()
 	executionContext := lIface.connector.NewExecutionContext()
 	operationRestMetaData := l7AccessProfilesGetRestMetadata()
@@ -167,9 +168,9 @@ func (lIface *l7AccessProfilesClient) Get(l7AccessProfileIdParam string, orgIdPa
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(l7AccessProfilesGetInputType(), typeConverter)
-	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.L7AccessProfile
@@ -233,7 +234,7 @@ func (lIface *l7AccessProfilesClient) List(orgIdParam string, projectIdParam str
 	}
 }
 
-func (lIface *l7AccessProfilesClient) Patch(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error) {
+func (lIface *l7AccessProfilesClient) Patch(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error) {
 	typeConverter := lIface.connector.TypeConverter()
 	executionContext := lIface.connector.NewExecutionContext()
 	operationRestMetaData := l7AccessProfilesPatchRestMetadata()
@@ -241,9 +242,9 @@ func (lIface *l7AccessProfilesClient) Patch(l7AccessProfileIdParam string, orgId
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(l7AccessProfilesPatchInputType(), typeConverter)
-	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	sv.AddStructField("L7AccessProfile", l7AccessProfileParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()
@@ -269,7 +270,7 @@ func (lIface *l7AccessProfilesClient) Patch(l7AccessProfileIdParam string, orgId
 	}
 }
 
-func (lIface *l7AccessProfilesClient) Update(l7AccessProfileIdParam string, orgIdParam string, projectIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error) {
+func (lIface *l7AccessProfilesClient) Update(orgIdParam string, projectIdParam string, l7AccessProfileIdParam string, l7AccessProfileParam nsx_policyModel.L7AccessProfile, overrideParam *bool) (nsx_policyModel.L7AccessProfile, error) {
 	typeConverter := lIface.connector.TypeConverter()
 	executionContext := lIface.connector.NewExecutionContext()
 	operationRestMetaData := l7AccessProfilesUpdateRestMetadata()
@@ -277,9 +278,9 @@ func (lIface *l7AccessProfilesClient) Update(l7AccessProfileIdParam string, orgI
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(l7AccessProfilesUpdateInputType(), typeConverter)
-	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("L7AccessProfileId", l7AccessProfileIdParam)
 	sv.AddStructField("L7AccessProfile", l7AccessProfileParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()

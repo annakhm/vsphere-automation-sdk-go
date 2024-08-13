@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,26 +23,26 @@ type RulesClient interface {
 
 	// Delete intrusion detection rule.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
 	// @param ruleIdParam Rule ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string) error
+	Delete(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string) error
 
 	// Read intrusion detection rule
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
 	// @param ruleIdParam Rule ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.IdsRule
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -49,14 +50,14 @@ type RulesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.IdsRule, error)
+	Get(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string) (nsx_policyModel.IdsRule, error)
 
 	// List intrusion detection rules.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
@@ -70,15 +71,15 @@ type RulesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsRuleListResult, error)
+	List(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsRuleListResult, error)
 
 	// Patch intrusion detection system rule.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
 	// @param ruleIdParam Rule ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param idsRuleParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -86,12 +87,12 @@ type RulesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string, idsRuleParam nsx_policyModel.IdsRule) error
+	Patch(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string, idsRuleParam nsx_policyModel.IdsRule) error
 
 	// This is used to re-order a rule within a security policy.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam (required)
 	// @param policyIdParam (required)
 	// @param ruleIdParam (required)
@@ -109,11 +110,11 @@ type RulesClient interface {
 
 	// Update intrusion detection system rule.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
 	// @param ruleIdParam Rule ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param idsRuleParam (required)
 	// @return com.vmware.nsx_policy.model.IdsRule
 	//
@@ -122,7 +123,7 @@ type RulesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string, idsRuleParam nsx_policyModel.IdsRule) (nsx_policyModel.IdsRule, error)
+	Update(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string, idsRuleParam nsx_policyModel.IdsRule) (nsx_policyModel.IdsRule, error)
 }
 
 type rulesClient struct {
@@ -155,7 +156,7 @@ func (rIface *rulesClient) GetErrorBindingType(errorName string) vapiBindings_.B
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (rIface *rulesClient) Delete(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string) error {
+func (rIface *rulesClient) Delete(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string) error {
 	typeConverter := rIface.connector.TypeConverter()
 	executionContext := rIface.connector.NewExecutionContext()
 	operationRestMetaData := rulesDeleteRestMetadata()
@@ -163,11 +164,11 @@ func (rIface *rulesClient) Delete(domainIdParam string, policyIdParam string, ru
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(rulesDeleteInputType(), typeConverter)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("RuleId", ruleIdParam)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -185,7 +186,7 @@ func (rIface *rulesClient) Delete(domainIdParam string, policyIdParam string, ru
 	}
 }
 
-func (rIface *rulesClient) Get(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.IdsRule, error) {
+func (rIface *rulesClient) Get(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string) (nsx_policyModel.IdsRule, error) {
 	typeConverter := rIface.connector.TypeConverter()
 	executionContext := rIface.connector.NewExecutionContext()
 	operationRestMetaData := rulesGetRestMetadata()
@@ -193,11 +194,11 @@ func (rIface *rulesClient) Get(domainIdParam string, policyIdParam string, ruleI
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(rulesGetInputType(), typeConverter)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("RuleId", ruleIdParam)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.IdsRule
@@ -221,7 +222,7 @@ func (rIface *rulesClient) Get(domainIdParam string, policyIdParam string, ruleI
 	}
 }
 
-func (rIface *rulesClient) List(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsRuleListResult, error) {
+func (rIface *rulesClient) List(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsRuleListResult, error) {
 	typeConverter := rIface.connector.TypeConverter()
 	executionContext := rIface.connector.NewExecutionContext()
 	operationRestMetaData := rulesListRestMetadata()
@@ -229,10 +230,10 @@ func (rIface *rulesClient) List(domainIdParam string, policyIdParam string, orgI
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(rulesListInputType(), typeConverter)
-	sv.AddStructField("DomainId", domainIdParam)
-	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("DomainId", domainIdParam)
+	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("IncludeMarkForDeleteObjects", includeMarkForDeleteObjectsParam)
 	sv.AddStructField("IncludedFields", includedFieldsParam)
@@ -262,7 +263,7 @@ func (rIface *rulesClient) List(domainIdParam string, policyIdParam string, orgI
 	}
 }
 
-func (rIface *rulesClient) Patch(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string, idsRuleParam nsx_policyModel.IdsRule) error {
+func (rIface *rulesClient) Patch(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string, idsRuleParam nsx_policyModel.IdsRule) error {
 	typeConverter := rIface.connector.TypeConverter()
 	executionContext := rIface.connector.NewExecutionContext()
 	operationRestMetaData := rulesPatchRestMetadata()
@@ -270,11 +271,11 @@ func (rIface *rulesClient) Patch(domainIdParam string, policyIdParam string, rul
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(rulesPatchInputType(), typeConverter)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("RuleId", ruleIdParam)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("IdsRule", idsRuleParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
@@ -332,7 +333,7 @@ func (rIface *rulesClient) Revise(orgIdParam string, projectIdParam string, doma
 	}
 }
 
-func (rIface *rulesClient) Update(domainIdParam string, policyIdParam string, ruleIdParam string, orgIdParam string, projectIdParam string, idsRuleParam nsx_policyModel.IdsRule) (nsx_policyModel.IdsRule, error) {
+func (rIface *rulesClient) Update(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, ruleIdParam string, idsRuleParam nsx_policyModel.IdsRule) (nsx_policyModel.IdsRule, error) {
 	typeConverter := rIface.connector.TypeConverter()
 	executionContext := rIface.connector.NewExecutionContext()
 	operationRestMetaData := rulesUpdateRestMetadata()
@@ -340,11 +341,11 @@ func (rIface *rulesClient) Update(domainIdParam string, policyIdParam string, ru
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(rulesUpdateInputType(), typeConverter)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("RuleId", ruleIdParam)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("IdsRule", idsRuleParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

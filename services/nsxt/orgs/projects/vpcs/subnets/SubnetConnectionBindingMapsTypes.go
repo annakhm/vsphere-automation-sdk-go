@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -356,7 +357,7 @@ func subnetConnectionBindingMapsPatchRestMetadata() vapiProtocol_.OperationRestM
 		"subnet_connection_binding_map",
 		"PATCH",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/vpcs/{vpcId}/subnets/{subnetId}/subnet-connection-binding-maps/{mapId}",
-		"",
+		"application/json",
 		resultHeaders,
 		204,
 		"",
@@ -439,7 +440,7 @@ func subnetConnectionBindingMapsUpdateRestMetadata() vapiProtocol_.OperationRest
 		"subnet_connection_binding_map",
 		"PUT",
 		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/vpcs/{vpcId}/subnets/{subnetId}/subnet-connection-binding-maps/{mapId}",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

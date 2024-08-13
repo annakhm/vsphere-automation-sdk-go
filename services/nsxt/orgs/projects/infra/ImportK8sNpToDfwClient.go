@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type ImportK8sNpToDfwClient interface {
 
 	// This is used to import a set of K8s network policies into DFW security policies
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param networkPolicyImportRequestParam (required)
 	// @param onErrorParam Action to take when error occurs (optional, default to ABORT)
 	// @return com.vmware.nsx_policy.model.NetworkPolicyImportResponse

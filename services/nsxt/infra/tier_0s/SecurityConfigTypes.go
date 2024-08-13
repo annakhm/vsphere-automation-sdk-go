@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -27,6 +28,9 @@ const SecurityConfig_DELETE_FEATURE_IDPS = "IDPS"
 // Possible value for ``feature`` of method SecurityConfig#delete.
 const SecurityConfig_DELETE_FEATURE_GFW_MULTICAST = "GFW_MULTICAST"
 
+// Possible value for ``feature`` of method SecurityConfig#delete.
+const SecurityConfig_DELETE_FEATURE_GEOIP_MONITORING = "GEOIP_MONITORING"
+
 // Possible value for ``feature`` of method SecurityConfig#get.
 const SecurityConfig_GET_FEATURE_IDFW = "IDFW"
 
@@ -35,6 +39,9 @@ const SecurityConfig_GET_FEATURE_IDPS = "IDPS"
 
 // Possible value for ``feature`` of method SecurityConfig#get.
 const SecurityConfig_GET_FEATURE_GFW_MULTICAST = "GFW_MULTICAST"
+
+// Possible value for ``feature`` of method SecurityConfig#get.
+const SecurityConfig_GET_FEATURE_GEOIP_MONITORING = "GEOIP_MONITORING"
 
 func securityConfigDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
@@ -255,7 +262,7 @@ func securityConfigPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"tier0_security_features",
 		"PATCH",
 		"/policy/api/v1/infra/tier-0s/{tier0Id}/security-config",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",
@@ -310,7 +317,7 @@ func securityConfigUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"tier0_security_features",
 		"PUT",
 		"/policy/api/v1/infra/tier-0s/{tier0Id}/security-config",
-		"",
+		"application/json",
 		resultHeaders,
 		200,
 		"",

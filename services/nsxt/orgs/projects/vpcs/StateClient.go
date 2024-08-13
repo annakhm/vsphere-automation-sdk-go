@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -25,6 +26,7 @@ type StateClient interface {
 	// @param orgIdParam (required)
 	// @param projectIdParam (required)
 	// @param vpcIdParam (required)
+	// @param sourceParam Data source type. (optional)
 	// @return com.vmware.nsx_policy.model.VpcState
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -32,7 +34,7 @@ type StateClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(orgIdParam string, projectIdParam string, vpcIdParam string) (nsx_policyModel.VpcState, error)
+	Get(orgIdParam string, projectIdParam string, vpcIdParam string, sourceParam *string) (nsx_policyModel.VpcState, error)
 }
 
 type stateClient struct {
@@ -60,7 +62,7 @@ func (sIface *stateClient) GetErrorBindingType(errorName string) vapiBindings_.B
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, vpcIdParam string) (nsx_policyModel.VpcState, error) {
+func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, vpcIdParam string, sourceParam *string) (nsx_policyModel.VpcState, error) {
 	typeConverter := sIface.connector.TypeConverter()
 	executionContext := sIface.connector.NewExecutionContext()
 	operationRestMetaData := stateGetRestMetadata()
@@ -71,6 +73,7 @@ func (sIface *stateClient) Get(orgIdParam string, projectIdParam string, vpcIdPa
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
 	sv.AddStructField("VpcId", vpcIdParam)
+	sv.AddStructField("Source", sourceParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.VpcState

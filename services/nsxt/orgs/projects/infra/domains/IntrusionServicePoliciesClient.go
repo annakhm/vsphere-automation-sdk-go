@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,24 +23,24 @@ type IntrusionServicePoliciesClient interface {
 
 	// Delete intrusion detection system security policy.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string) error
+	Delete(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string) error
 
 	// Read intrusion detection system security policy.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.IdsSecurityPolicy
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -47,13 +48,13 @@ type IntrusionServicePoliciesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.IdsSecurityPolicy, error)
+	Get(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string) (nsx_policyModel.IdsSecurityPolicy, error)
 
 	// List intrusion detection system security policies.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includeRuleCountParam Include the count of rules in policy (optional, default to false)
@@ -68,14 +69,14 @@ type IntrusionServicePoliciesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(domainIdParam string, orgIdParam string, projectIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includeRuleCountParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsSecurityPolicyListResult, error)
+	List(orgIdParam string, projectIdParam string, domainIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includeRuleCountParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsSecurityPolicyListResult, error)
 
 	// Patch intrusion detection system security policy for a domain.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param idsSecurityPolicyParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -83,12 +84,12 @@ type IntrusionServicePoliciesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) error
+	Patch(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) error
 
 	// This is used to set a precedence of a security policy w.r.t others.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam (required)
 	// @param policyIdParam (required)
 	// @param idsSecurityPolicyParam (required)
@@ -105,10 +106,10 @@ type IntrusionServicePoliciesClient interface {
 
 	// Update intrusion detection system security policy for a domain.
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param domainIdParam Domain ID (required)
 	// @param policyIdParam Policy ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param idsSecurityPolicyParam (required)
 	// @return com.vmware.nsx_policy.model.IdsSecurityPolicy
 	//
@@ -117,7 +118,7 @@ type IntrusionServicePoliciesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) (nsx_policyModel.IdsSecurityPolicy, error)
+	Update(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) (nsx_policyModel.IdsSecurityPolicy, error)
 }
 
 type intrusionServicePoliciesClient struct {
@@ -150,7 +151,7 @@ func (iIface *intrusionServicePoliciesClient) GetErrorBindingType(errorName stri
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (iIface *intrusionServicePoliciesClient) Delete(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string) error {
+func (iIface *intrusionServicePoliciesClient) Delete(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string) error {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := intrusionServicePoliciesDeleteRestMetadata()
@@ -158,10 +159,10 @@ func (iIface *intrusionServicePoliciesClient) Delete(domainIdParam string, polic
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(intrusionServicePoliciesDeleteInputType(), typeConverter)
-	sv.AddStructField("DomainId", domainIdParam)
-	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("DomainId", domainIdParam)
+	sv.AddStructField("PolicyId", policyIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -179,7 +180,7 @@ func (iIface *intrusionServicePoliciesClient) Delete(domainIdParam string, polic
 	}
 }
 
-func (iIface *intrusionServicePoliciesClient) Get(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.IdsSecurityPolicy, error) {
+func (iIface *intrusionServicePoliciesClient) Get(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string) (nsx_policyModel.IdsSecurityPolicy, error) {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := intrusionServicePoliciesGetRestMetadata()
@@ -187,10 +188,10 @@ func (iIface *intrusionServicePoliciesClient) Get(domainIdParam string, policyId
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(intrusionServicePoliciesGetInputType(), typeConverter)
-	sv.AddStructField("DomainId", domainIdParam)
-	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("DomainId", domainIdParam)
+	sv.AddStructField("PolicyId", policyIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.IdsSecurityPolicy
@@ -214,7 +215,7 @@ func (iIface *intrusionServicePoliciesClient) Get(domainIdParam string, policyId
 	}
 }
 
-func (iIface *intrusionServicePoliciesClient) List(domainIdParam string, orgIdParam string, projectIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includeRuleCountParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsSecurityPolicyListResult, error) {
+func (iIface *intrusionServicePoliciesClient) List(orgIdParam string, projectIdParam string, domainIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includeRuleCountParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsSecurityPolicyListResult, error) {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := intrusionServicePoliciesListRestMetadata()
@@ -222,9 +223,9 @@ func (iIface *intrusionServicePoliciesClient) List(domainIdParam string, orgIdPa
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(intrusionServicePoliciesListInputType(), typeConverter)
-	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("DomainId", domainIdParam)
 	sv.AddStructField("Cursor", cursorParam)
 	sv.AddStructField("IncludeMarkForDeleteObjects", includeMarkForDeleteObjectsParam)
 	sv.AddStructField("IncludeRuleCount", includeRuleCountParam)
@@ -255,7 +256,7 @@ func (iIface *intrusionServicePoliciesClient) List(domainIdParam string, orgIdPa
 	}
 }
 
-func (iIface *intrusionServicePoliciesClient) Patch(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) error {
+func (iIface *intrusionServicePoliciesClient) Patch(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) error {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := intrusionServicePoliciesPatchRestMetadata()
@@ -263,10 +264,10 @@ func (iIface *intrusionServicePoliciesClient) Patch(domainIdParam string, policy
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(intrusionServicePoliciesPatchInputType(), typeConverter)
-	sv.AddStructField("DomainId", domainIdParam)
-	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("DomainId", domainIdParam)
+	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("IdsSecurityPolicy", idsSecurityPolicyParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
@@ -323,7 +324,7 @@ func (iIface *intrusionServicePoliciesClient) Revise(orgIdParam string, projectI
 	}
 }
 
-func (iIface *intrusionServicePoliciesClient) Update(domainIdParam string, policyIdParam string, orgIdParam string, projectIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) (nsx_policyModel.IdsSecurityPolicy, error) {
+func (iIface *intrusionServicePoliciesClient) Update(orgIdParam string, projectIdParam string, domainIdParam string, policyIdParam string, idsSecurityPolicyParam nsx_policyModel.IdsSecurityPolicy) (nsx_policyModel.IdsSecurityPolicy, error) {
 	typeConverter := iIface.connector.TypeConverter()
 	executionContext := iIface.connector.NewExecutionContext()
 	operationRestMetaData := intrusionServicePoliciesUpdateRestMetadata()
@@ -331,10 +332,10 @@ func (iIface *intrusionServicePoliciesClient) Update(domainIdParam string, polic
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(intrusionServicePoliciesUpdateInputType(), typeConverter)
-	sv.AddStructField("DomainId", domainIdParam)
-	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("DomainId", domainIdParam)
+	sv.AddStructField("PolicyId", policyIdParam)
 	sv.AddStructField("IdsSecurityPolicy", idsSecurityPolicyParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {

@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -86,7 +87,7 @@ func customSignaturesCreateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"custom_signature_validation_payload",
 		"POST",
 		"/policy/api/v1/infra/settings/firewall/security/intrusion-services/custom-signature-versions/{versionId}/custom-signatures",
-		"",
+		"application/json",
 		resultHeaders,
 		204,
 		"",

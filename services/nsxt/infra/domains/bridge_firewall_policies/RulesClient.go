@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -35,7 +36,7 @@ type RulesClient interface {
 	// @throws NotFound  Not Found
 	Create(domainIdParam string, bridgeFirewallPolicyIdParam string, ruleIdParam string, ruleParam nsx_policyModel.Rule) (nsx_policyModel.Rule, error)
 
-	// Delete Bridge Firewall Rule DELETE /infra/domains/default/bridge-firewall-policies/bridge_firewall_policy_test/rules/rule-1
+	// Delete Bridge Firewall Rule DELETE /infra/domains/default/bridge-firewall-policies/bridge_firewall_policy_test/rules/bridge_firewall_rule_test
 	//
 	// @param domainIdParam (required)
 	// @param bridgeFirewallPolicyIdParam (required)
@@ -81,7 +82,7 @@ type RulesClient interface {
 	// @throws NotFound  Not Found
 	List(domainIdParam string, bridgeFirewallPolicyIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.RuleListResult, error)
 
-	// Patch the Bridge Firewall Rule. If a Rule for the given Rule-id is not present, the object will get created and if it is present it will be updated. This is a full replace PATCH /infra/domains/default/bridge-firewall-policies/bridge_firewall_policy_test/rules/rule-1
+	// Patch the Bridge Firewall Rule. If a Rule for the given Rule-id is not present, the object will get created and if it is present it will be updated. This is a full replace PATCH /infra/domains/default/bridge-firewall-policies/bridge_firewall_policy_test/rules/bridge_firewall_rule_test
 	//
 	// @param domainIdParam (required)
 	// @param bridgeFirewallPolicyIdParam (required)
@@ -95,7 +96,7 @@ type RulesClient interface {
 	// @throws NotFound  Not Found
 	Patch(domainIdParam string, bridgeFirewallPolicyIdParam string, ruleIdParam string, ruleParam nsx_policyModel.Rule) error
 
-	// Update the Bridge Firewall Rule. If a Rule with the rule-id is not already present, this API fails with a 404. Creation of Rules is not allowed using this API. PUT /infra/domains/default/bridge-firewall-policies/bridge_firewall_policy_test/rules/rule-1
+	// Update the Bridge Firewall Rule. If a Rule with the rule-id is not already present, this API fails with a 404. Creation of Rules is not allowed using this API. PUT /infra/domains/default/bridge-firewall-policies/bridge_firewall_policy_test/rules/bridge_firewall_rule_test
 	//
 	// @param domainIdParam (required)
 	// @param bridgeFirewallPolicyIdParam (required)

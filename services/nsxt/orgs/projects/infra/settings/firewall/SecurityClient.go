@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,8 +23,8 @@ type SecurityClient interface {
 
 	// Get the current dfw firewall configurations.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @return com.vmware.nsx_policy.model.DfwFirewallConfiguration
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -35,8 +36,8 @@ type SecurityClient interface {
 
 	// Update dfw firewall related configurations. Turning off distributed services (\"enable_firewall\": false) will turn off Distributed Firewall, Identity Firewall, Distributed Intrusion Detection and Prevention Service, Distributed Load Balancer.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param dfwFirewallConfigurationParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -48,8 +49,8 @@ type SecurityClient interface {
 
 	// Update dfw firewall related configurations. Turning off distributed services (\"enable_firewall\": false) will turn off Distributed Firewall, Identity Firewall, Distributed Intrusion Detection and Prevention Service, Distributed Load Balancer.
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param dfwFirewallConfigurationParam (required)
 	// @return com.vmware.nsx_policy.model.DfwFirewallConfiguration
 	//

@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -20,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type DatapathClient interface {
 
-	// This API used to fetch the deadlock detection troubleshoot config at enforcement Point level.
+	// This API used to fetch the control packet drop log config at enforcement Point level.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementPointIdParam (required)
@@ -33,7 +34,7 @@ type DatapathClient interface {
 	// @throws NotFound  Not Found
 	Get(siteIdParam string, enforcementPointIdParam string) (nsx_policyModel.PolicyEdgeTransportNodeDatapathTroubleshooting, error)
 
-	// This API is used to enable/disable the deadlock troubleshoot config in all edge transport nodes at the enforcement Point level. After enabling the deadlock_detection flag, the deadlock detection job will run in the edge transport node and raise the alarm if any deadlock is encountered. If deadlock_correction flag is true and deadlock occurred then the datapath restart operation will be performed.
+	// This API is used to enable/disable the control packet drop log config in all edge transport nodes at the enforcement Point level.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementPointIdParam (required)

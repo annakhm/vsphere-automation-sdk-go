@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -19,17 +20,6 @@ import (
 const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type GlobalSignaturesClient interface {
-
-	// Delete global intrusion detection signature.
-	//
-	// @param signatureIdParam Signature ID (required)
-	//
-	// @throws InvalidRequest  Bad Request, Precondition Failed
-	// @throws Unauthorized  Forbidden
-	// @throws ServiceUnavailable  Service Unavailable
-	// @throws InternalServerError  Internal Server Error
-	// @throws NotFound  Not Found
-	Delete(signatureIdParam string) error
 
 	// Read global intrusion detection signature
 	//
@@ -59,31 +49,6 @@ type GlobalSignaturesClient interface {
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
 	List(cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.GlobalIdsSignatureListResult, error)
-
-	// Patch global intrusion detection system signature.
-	//
-	// @param signatureIdParam Signature ID (required)
-	// @param globalIdsSignatureParam (required)
-	//
-	// @throws InvalidRequest  Bad Request, Precondition Failed
-	// @throws Unauthorized  Forbidden
-	// @throws ServiceUnavailable  Service Unavailable
-	// @throws InternalServerError  Internal Server Error
-	// @throws NotFound  Not Found
-	Patch(signatureIdParam string, globalIdsSignatureParam nsx_policyModel.GlobalIdsSignature) error
-
-	// Update global intrusion detection signature.
-	//
-	// @param signatureIdParam Signature ID (required)
-	// @param globalIdsSignatureParam (required)
-	// @return com.vmware.nsx_policy.model.GlobalIdsSignature
-	//
-	// @throws InvalidRequest  Bad Request, Precondition Failed
-	// @throws Unauthorized  Forbidden
-	// @throws ServiceUnavailable  Service Unavailable
-	// @throws InternalServerError  Internal Server Error
-	// @throws NotFound  Not Found
-	Update(signatureIdParam string, globalIdsSignatureParam nsx_policyModel.GlobalIdsSignature) (nsx_policyModel.GlobalIdsSignature, error)
 }
 
 type globalSignaturesClient struct {
@@ -95,11 +60,8 @@ type globalSignaturesClient struct {
 func NewGlobalSignaturesClient(connector vapiProtocolClient_.Connector) *globalSignaturesClient {
 	interfaceIdentifier := vapiCore_.NewInterfaceIdentifier("com.vmware.nsx_policy.global_infra.settings.firewall.security.intrusion_services.gsm.global_signatures")
 	methodIdentifiers := map[string]vapiCore_.MethodIdentifier{
-		"delete": vapiCore_.NewMethodIdentifier(interfaceIdentifier, "delete"),
-		"get":    vapiCore_.NewMethodIdentifier(interfaceIdentifier, "get"),
-		"list":   vapiCore_.NewMethodIdentifier(interfaceIdentifier, "list"),
-		"patch":  vapiCore_.NewMethodIdentifier(interfaceIdentifier, "patch"),
-		"update": vapiCore_.NewMethodIdentifier(interfaceIdentifier, "update"),
+		"get":  vapiCore_.NewMethodIdentifier(interfaceIdentifier, "get"),
+		"list": vapiCore_.NewMethodIdentifier(interfaceIdentifier, "list"),
 	}
 	interfaceDefinition := vapiCore_.NewInterfaceDefinition(interfaceIdentifier, methodIdentifiers)
 	errorsBindingMap := make(map[string]vapiBindings_.BindingType)
@@ -113,32 +75,6 @@ func (gIface *globalSignaturesClient) GetErrorBindingType(errorName string) vapi
 		return entry
 	}
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
-}
-
-func (gIface *globalSignaturesClient) Delete(signatureIdParam string) error {
-	typeConverter := gIface.connector.TypeConverter()
-	executionContext := gIface.connector.NewExecutionContext()
-	operationRestMetaData := globalSignaturesDeleteRestMetadata()
-	executionContext.SetConnectionMetadata(vapiCore_.RESTMetadataKey, operationRestMetaData)
-	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
-
-	sv := vapiBindings_.NewStructValueBuilder(globalSignaturesDeleteInputType(), typeConverter)
-	sv.AddStructField("SignatureId", signatureIdParam)
-	inputDataValue, inputError := sv.GetStructValue()
-	if inputError != nil {
-		return vapiBindings_.VAPIerrorsToError(inputError)
-	}
-
-	methodResult := gIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.global_infra.settings.firewall.security.intrusion_services.gsm.global_signatures", "delete", inputDataValue, executionContext)
-	if methodResult.IsSuccess() {
-		return nil
-	} else {
-		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), gIface.GetErrorBindingType(methodResult.Error().Name()))
-		if errorInError != nil {
-			return vapiBindings_.VAPIerrorsToError(errorInError)
-		}
-		return methodError.(error)
-	}
 }
 
 func (gIface *globalSignaturesClient) Get(signatureIdParam string) (nsx_policyModel.GlobalIdsSignature, error) {
@@ -201,66 +137,6 @@ func (gIface *globalSignaturesClient) List(cursorParam *string, includeMarkForDe
 			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
 		}
 		return output.(nsx_policyModel.GlobalIdsSignatureListResult), nil
-	} else {
-		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), gIface.GetErrorBindingType(methodResult.Error().Name()))
-		if errorInError != nil {
-			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInError)
-		}
-		return emptyOutput, methodError.(error)
-	}
-}
-
-func (gIface *globalSignaturesClient) Patch(signatureIdParam string, globalIdsSignatureParam nsx_policyModel.GlobalIdsSignature) error {
-	typeConverter := gIface.connector.TypeConverter()
-	executionContext := gIface.connector.NewExecutionContext()
-	operationRestMetaData := globalSignaturesPatchRestMetadata()
-	executionContext.SetConnectionMetadata(vapiCore_.RESTMetadataKey, operationRestMetaData)
-	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
-
-	sv := vapiBindings_.NewStructValueBuilder(globalSignaturesPatchInputType(), typeConverter)
-	sv.AddStructField("SignatureId", signatureIdParam)
-	sv.AddStructField("GlobalIdsSignature", globalIdsSignatureParam)
-	inputDataValue, inputError := sv.GetStructValue()
-	if inputError != nil {
-		return vapiBindings_.VAPIerrorsToError(inputError)
-	}
-
-	methodResult := gIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.global_infra.settings.firewall.security.intrusion_services.gsm.global_signatures", "patch", inputDataValue, executionContext)
-	if methodResult.IsSuccess() {
-		return nil
-	} else {
-		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), gIface.GetErrorBindingType(methodResult.Error().Name()))
-		if errorInError != nil {
-			return vapiBindings_.VAPIerrorsToError(errorInError)
-		}
-		return methodError.(error)
-	}
-}
-
-func (gIface *globalSignaturesClient) Update(signatureIdParam string, globalIdsSignatureParam nsx_policyModel.GlobalIdsSignature) (nsx_policyModel.GlobalIdsSignature, error) {
-	typeConverter := gIface.connector.TypeConverter()
-	executionContext := gIface.connector.NewExecutionContext()
-	operationRestMetaData := globalSignaturesUpdateRestMetadata()
-	executionContext.SetConnectionMetadata(vapiCore_.RESTMetadataKey, operationRestMetaData)
-	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
-
-	sv := vapiBindings_.NewStructValueBuilder(globalSignaturesUpdateInputType(), typeConverter)
-	sv.AddStructField("SignatureId", signatureIdParam)
-	sv.AddStructField("GlobalIdsSignature", globalIdsSignatureParam)
-	inputDataValue, inputError := sv.GetStructValue()
-	if inputError != nil {
-		var emptyOutput nsx_policyModel.GlobalIdsSignature
-		return emptyOutput, vapiBindings_.VAPIerrorsToError(inputError)
-	}
-
-	methodResult := gIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.global_infra.settings.firewall.security.intrusion_services.gsm.global_signatures", "update", inputDataValue, executionContext)
-	var emptyOutput nsx_policyModel.GlobalIdsSignature
-	if methodResult.IsSuccess() {
-		output, errorInOutput := typeConverter.ConvertToGolang(methodResult.Output(), GlobalSignaturesUpdateOutputType())
-		if errorInOutput != nil {
-			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
-		}
-		return output.(nsx_policyModel.GlobalIdsSignature), nil
 	} else {
 		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), gIface.GetErrorBindingType(methodResult.Error().Name()))
 		if errorInError != nil {

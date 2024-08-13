@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -22,9 +23,9 @@ type FirewallSessionTimerProfilesClient interface {
 
 	// API will delete Firewall Session Timer Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param firewallSessionTimerProfileIdParam Firewall Session Timer Profile ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -32,13 +33,13 @@ type FirewallSessionTimerProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string, overrideParam *bool) error
+	Delete(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string, overrideParam *bool) error
 
 	// API will get Firewall Session Timer Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param firewallSessionTimerProfileIdParam Firewall Session Timer Profile ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @return com.vmware.nsx_policy.model.PolicyFirewallSessionTimerProfile
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -46,12 +47,12 @@ type FirewallSessionTimerProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error)
+	Get(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error)
 
 	// API will list all Firewall Session Timer Profiles
 	//
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
 	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
@@ -69,9 +70,9 @@ type FirewallSessionTimerProfilesClient interface {
 
 	// API will create/update Firewall Session Timer Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param firewallSessionTimerProfileIdParam Firewall Session Timer Profile ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param policyFirewallSessionTimerProfileParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	//
@@ -80,13 +81,13 @@ type FirewallSessionTimerProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) error
+	Patch(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) error
 
 	// API will update Firewall Session Timer Profile
 	//
+	// @param orgIdParam The organization ID (required)
+	// @param projectIdParam The project ID (required)
 	// @param firewallSessionTimerProfileIdParam Firewall Session Timer Profile ID (required)
-	// @param orgIdParam (required)
-	// @param projectIdParam (required)
 	// @param policyFirewallSessionTimerProfileParam (required)
 	// @param overrideParam Locally override the global object (optional, default to false)
 	// @return com.vmware.nsx_policy.model.PolicyFirewallSessionTimerProfile
@@ -96,7 +97,7 @@ type FirewallSessionTimerProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error)
+	Update(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error)
 }
 
 type firewallSessionTimerProfilesClient struct {
@@ -128,7 +129,7 @@ func (fIface *firewallSessionTimerProfilesClient) GetErrorBindingType(errorName 
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (fIface *firewallSessionTimerProfilesClient) Delete(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string, overrideParam *bool) error {
+func (fIface *firewallSessionTimerProfilesClient) Delete(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string, overrideParam *bool) error {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := firewallSessionTimerProfilesDeleteRestMetadata()
@@ -136,9 +137,9 @@ func (fIface *firewallSessionTimerProfilesClient) Delete(firewallSessionTimerPro
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(firewallSessionTimerProfilesDeleteInputType(), typeConverter)
-	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
@@ -157,7 +158,7 @@ func (fIface *firewallSessionTimerProfilesClient) Delete(firewallSessionTimerPro
 	}
 }
 
-func (fIface *firewallSessionTimerProfilesClient) Get(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error) {
+func (fIface *firewallSessionTimerProfilesClient) Get(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error) {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := firewallSessionTimerProfilesGetRestMetadata()
@@ -165,9 +166,9 @@ func (fIface *firewallSessionTimerProfilesClient) Get(firewallSessionTimerProfil
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(firewallSessionTimerProfilesGetInputType(), typeConverter)
-	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.PolicyFirewallSessionTimerProfile
@@ -230,7 +231,7 @@ func (fIface *firewallSessionTimerProfilesClient) List(orgIdParam string, projec
 	}
 }
 
-func (fIface *firewallSessionTimerProfilesClient) Patch(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) error {
+func (fIface *firewallSessionTimerProfilesClient) Patch(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) error {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := firewallSessionTimerProfilesPatchRestMetadata()
@@ -238,9 +239,9 @@ func (fIface *firewallSessionTimerProfilesClient) Patch(firewallSessionTimerProf
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(firewallSessionTimerProfilesPatchInputType(), typeConverter)
-	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	sv.AddStructField("PolicyFirewallSessionTimerProfile", policyFirewallSessionTimerProfileParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()
@@ -260,7 +261,7 @@ func (fIface *firewallSessionTimerProfilesClient) Patch(firewallSessionTimerProf
 	}
 }
 
-func (fIface *firewallSessionTimerProfilesClient) Update(firewallSessionTimerProfileIdParam string, orgIdParam string, projectIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error) {
+func (fIface *firewallSessionTimerProfilesClient) Update(orgIdParam string, projectIdParam string, firewallSessionTimerProfileIdParam string, policyFirewallSessionTimerProfileParam nsx_policyModel.PolicyFirewallSessionTimerProfile, overrideParam *bool) (nsx_policyModel.PolicyFirewallSessionTimerProfile, error) {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := firewallSessionTimerProfilesUpdateRestMetadata()
@@ -268,9 +269,9 @@ func (fIface *firewallSessionTimerProfilesClient) Update(firewallSessionTimerPro
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(firewallSessionTimerProfilesUpdateInputType(), typeConverter)
-	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("FirewallSessionTimerProfileId", firewallSessionTimerProfileIdParam)
 	sv.AddStructField("PolicyFirewallSessionTimerProfile", policyFirewallSessionTimerProfileParam)
 	sv.AddStructField("Override", overrideParam)
 	inputDataValue, inputError := sv.GetStructValue()

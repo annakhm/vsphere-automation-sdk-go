@@ -1,4 +1,5 @@
-// Copyright © 2019-2023 VMware, Inc. All Rights Reserved.
+// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
 // Auto generated code. DO NOT EDIT.
@@ -17,56 +18,6 @@ import (
 	nsx_policyModel "github.com/vmware/vsphere-automation-sdk-go/services/nsxt/model"
 	"reflect"
 )
-
-func profilesDeleteInputType() vapiBindings_.StructType {
-	fields := make(map[string]vapiBindings_.BindingType)
-	fieldNameMap := make(map[string]string)
-	fields["profile_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["profile_id"] = "ProfileId"
-	var validators = []vapiBindings_.Validator{}
-	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
-}
-
-func ProfilesDeleteOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewVoidType()
-}
-
-func profilesDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
-	fields := map[string]vapiBindings_.BindingType{}
-	fieldNameMap := map[string]string{}
-	paramsTypeMap := map[string]vapiBindings_.BindingType{}
-	pathParams := map[string]string{}
-	queryParams := map[string]string{}
-	headerParams := map[string]string{}
-	dispatchHeaderParams := map[string]string{}
-	bodyFieldsMap := map[string]string{}
-	fields["profile_id"] = vapiBindings_.NewStringType()
-	fieldNameMap["profile_id"] = "ProfileId"
-	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["profileId"] = vapiBindings_.NewStringType()
-	pathParams["profile_id"] = "profileId"
-	resultHeaders := map[string]string{}
-	errorHeaders := map[string]map[string]string{}
-	return vapiProtocol_.NewOperationRestMetadata(
-		fields,
-		fieldNameMap,
-		paramsTypeMap,
-		pathParams,
-		queryParams,
-		headerParams,
-		dispatchHeaderParams,
-		bodyFieldsMap,
-		"",
-		"",
-		"DELETE",
-		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/profiles/{profileId}",
-		"",
-		resultHeaders,
-		204,
-		"",
-		errorHeaders,
-		map[string]int{"com.vmware.vapi.std.errors.invalid_request": 400, "com.vmware.vapi.std.errors.unauthorized": 403, "com.vmware.vapi.std.errors.service_unavailable": 503, "com.vmware.vapi.std.errors.internal_server_error": 500, "com.vmware.vapi.std.errors.not_found": 404})
-}
 
 func profilesGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
@@ -189,116 +140,6 @@ func profilesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"",
 		"GET",
 		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/profiles",
-		"",
-		resultHeaders,
-		200,
-		"",
-		errorHeaders,
-		map[string]int{"com.vmware.vapi.std.errors.invalid_request": 400, "com.vmware.vapi.std.errors.unauthorized": 403, "com.vmware.vapi.std.errors.service_unavailable": 503, "com.vmware.vapi.std.errors.internal_server_error": 500, "com.vmware.vapi.std.errors.not_found": 404})
-}
-
-func profilesPatchInputType() vapiBindings_.StructType {
-	fields := make(map[string]vapiBindings_.BindingType)
-	fieldNameMap := make(map[string]string)
-	fields["profile_id"] = vapiBindings_.NewStringType()
-	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
-	fieldNameMap["ids_profile"] = "IdsProfile"
-	var validators = []vapiBindings_.Validator{}
-	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
-}
-
-func ProfilesPatchOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewVoidType()
-}
-
-func profilesPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
-	fields := map[string]vapiBindings_.BindingType{}
-	fieldNameMap := map[string]string{}
-	paramsTypeMap := map[string]vapiBindings_.BindingType{}
-	pathParams := map[string]string{}
-	queryParams := map[string]string{}
-	headerParams := map[string]string{}
-	dispatchHeaderParams := map[string]string{}
-	bodyFieldsMap := map[string]string{}
-	fields["profile_id"] = vapiBindings_.NewStringType()
-	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
-	fieldNameMap["ids_profile"] = "IdsProfile"
-	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	paramsTypeMap["profileId"] = vapiBindings_.NewStringType()
-	pathParams["profile_id"] = "profileId"
-	resultHeaders := map[string]string{}
-	errorHeaders := map[string]map[string]string{}
-	return vapiProtocol_.NewOperationRestMetadata(
-		fields,
-		fieldNameMap,
-		paramsTypeMap,
-		pathParams,
-		queryParams,
-		headerParams,
-		dispatchHeaderParams,
-		bodyFieldsMap,
-		"",
-		"ids_profile",
-		"PATCH",
-		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/profiles/{profileId}",
-		"",
-		resultHeaders,
-		204,
-		"",
-		errorHeaders,
-		map[string]int{"com.vmware.vapi.std.errors.invalid_request": 400, "com.vmware.vapi.std.errors.unauthorized": 403, "com.vmware.vapi.std.errors.service_unavailable": 503, "com.vmware.vapi.std.errors.internal_server_error": 500, "com.vmware.vapi.std.errors.not_found": 404})
-}
-
-func profilesUpdateInputType() vapiBindings_.StructType {
-	fields := make(map[string]vapiBindings_.BindingType)
-	fieldNameMap := make(map[string]string)
-	fields["profile_id"] = vapiBindings_.NewStringType()
-	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
-	fieldNameMap["ids_profile"] = "IdsProfile"
-	var validators = []vapiBindings_.Validator{}
-	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
-}
-
-func ProfilesUpdateOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-}
-
-func profilesUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
-	fields := map[string]vapiBindings_.BindingType{}
-	fieldNameMap := map[string]string{}
-	paramsTypeMap := map[string]vapiBindings_.BindingType{}
-	pathParams := map[string]string{}
-	queryParams := map[string]string{}
-	headerParams := map[string]string{}
-	dispatchHeaderParams := map[string]string{}
-	bodyFieldsMap := map[string]string{}
-	fields["profile_id"] = vapiBindings_.NewStringType()
-	fields["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	fieldNameMap["profile_id"] = "ProfileId"
-	fieldNameMap["ids_profile"] = "IdsProfile"
-	paramsTypeMap["profile_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["ids_profile"] = vapiBindings_.NewReferenceType(nsx_policyModel.IdsProfileBindingType)
-	paramsTypeMap["profileId"] = vapiBindings_.NewStringType()
-	pathParams["profile_id"] = "profileId"
-	resultHeaders := map[string]string{}
-	errorHeaders := map[string]map[string]string{}
-	return vapiProtocol_.NewOperationRestMetadata(
-		fields,
-		fieldNameMap,
-		paramsTypeMap,
-		pathParams,
-		queryParams,
-		headerParams,
-		dispatchHeaderParams,
-		bodyFieldsMap,
-		"",
-		"ids_profile",
-		"PUT",
-		"/policy/api/v1/global-infra/settings/firewall/security/intrusion-services/profiles/{profileId}",
 		"",
 		resultHeaders,
 		200,
