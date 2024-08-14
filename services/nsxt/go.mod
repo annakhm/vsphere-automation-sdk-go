@@ -1,10 +1,10 @@
-module gitlab.eng.vmware.com/vapi-sdk/vsphere-automation-sdk-go/services/nsxt
+module github.com/vmware/vsphere-automation-sdk-go/services/nsxt
 
 go 1.17
 
 require (
-	gitlab.eng.vmware.com/vapi-sdk/vsphere-automation-sdk-go/lib v0.7.0
-	gitlab.eng.vmware.com/vapi-sdk/vsphere-automation-sdk-go/runtime v0.7.0
+	github.com/vmware/vsphere-automation-sdk-go/lib v0.7.0
+	github.com/vmware/vsphere-automation-sdk-go/runtime v0.7.0
 )
 
 require (
