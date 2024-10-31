@@ -20,6 +20,7 @@ import (
 const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type AttachmentsClient interface {
+	Delete(orgIdParam string, projectIdParam string, vpcIdParam string, vpcAttachmentIdParam string) error
 
 	// Get VPC Attachment
 	//
@@ -97,6 +98,7 @@ type attachmentsClient struct {
 func NewAttachmentsClient(connector vapiProtocolClient_.Connector) *attachmentsClient {
 	interfaceIdentifier := vapiCore_.NewInterfaceIdentifier("com.vmware.nsx_policy.orgs.projects.vpcs.attachments")
 	methodIdentifiers := map[string]vapiCore_.MethodIdentifier{
+		"delete": vapiCore_.NewMethodIdentifier(interfaceIdentifier, "delete"),
 		"get":    vapiCore_.NewMethodIdentifier(interfaceIdentifier, "get"),
 		"list":   vapiCore_.NewMethodIdentifier(interfaceIdentifier, "list"),
 		"patch":  vapiCore_.NewMethodIdentifier(interfaceIdentifier, "patch"),
@@ -114,6 +116,35 @@ func (aIface *attachmentsClient) GetErrorBindingType(errorName string) vapiBindi
 		return entry
 	}
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
+}
+
+func (gIface *attachmentsClient) Delete(orgIdParam string, projectIdParam string, vpcIdParam string, attachmentIdParam string) error {
+	typeConverter := gIface.connector.TypeConverter()
+	executionContext := gIface.connector.NewExecutionContext()
+	operationRestMetaData := attachmentsDeleteRestMetadata()
+	executionContext.SetConnectionMetadata(vapiCore_.RESTMetadataKey, operationRestMetaData)
+	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
+
+	sv := vapiBindings_.NewStructValueBuilder(attachmentsDeleteInputType(), typeConverter)
+	sv.AddStructField("OrgId", orgIdParam)
+	sv.AddStructField("ProjectId", projectIdParam)
+	sv.AddStructField("VpcId", vpcIdParam)
+	sv.AddStructField("VpcAttachmentId", attachmentIdParam)
+	inputDataValue, inputError := sv.GetStructValue()
+	if inputError != nil {
+		return vapiBindings_.VAPIerrorsToError(inputError)
+	}
+
+	methodResult := gIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.orgs.projects.vpcs.attachments", "delete", inputDataValue, executionContext)
+	if methodResult.IsSuccess() {
+		return nil
+	} else {
+		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), gIface.GetErrorBindingType(methodResult.Error().Name()))
+		if errorInError != nil {
+			return vapiBindings_.VAPIerrorsToError(errorInError)
+		}
+		return methodError.(error)
+	}
 }
 
 func (aIface *attachmentsClient) Get(orgIdParam string, projectIdParam string, vpcIdParam string, vpcAttachmentIdParam string) (nsx_policyModel.VpcAttachment, error) {
