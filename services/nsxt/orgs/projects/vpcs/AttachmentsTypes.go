@@ -29,7 +29,7 @@ func attachmentsDeleteInputType() vapiBindings_.StructType {
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
 	fieldNameMap["vpc_id"] = "VpcId"
-	fieldNameMap["vpc_attachment_id"] = "AttachmentId"
+	fieldNameMap["vpc_attachment_id"] = "VpcAttachmentId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -62,9 +62,9 @@ func attachmentsDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["vpcId"] = vapiBindings_.NewStringType()
-	paramsTypeMap["attachmentId"] = vapiBindings_.NewStringType()
-	pathParams["vpc_id"] = "vpcId"
+	paramsTypeMap["vpcAttachmentId"] = vapiBindings_.NewStringType()
 	pathParams["vpc_attachment_id"] = "vpcAttachmentId"
+	pathParams["vpc_id"] = "vpcId"
 	pathParams["project_id"] = "projectId"
 	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
