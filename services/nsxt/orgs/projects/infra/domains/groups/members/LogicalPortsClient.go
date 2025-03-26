@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -22,6 +22,9 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 type LogicalPortsClient interface {
 
 	// Get logical ports that belong to this Group This API is applicable for Groups containing either VirtualMachine, VIF, Segment or Segment Port member type.For Groups containing other member types,an empty list is returned.
+	//  This rest routine is deprecated. Use /infra/domains/<domain-id>/groups/<group-id>/members/segment-ports instead for effective segment-port members as LogicalPort is not a supported member type .
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param orgIdParam The organization ID (required)
 	// @param projectIdParam The project ID (required)

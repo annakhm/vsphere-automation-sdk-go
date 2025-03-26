@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type ReplaceEdgeTransportNodeClient interface {
 
-	// Replace the PolicyEdgeNode in the specified id of edge-cluster. This is a disruptive action. This will move all the Interfaces(uplink and routerLink) host on the old PolicyEdgeNode to the new PolicyEdgeNode. The same PolicyEdgeNode cannot be present as another member of any edge cluster.
+	// Replace the Policy Edge Node present at the specified member-index in the edge-cluster. This is a disruptive action. This will move all the Interfaces(uplink and routerLink) hosted on the old Policy Edge Node to the new Policy Edge Node. The same Policy Edge Node cannot be present as a member of any edge cluster.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)

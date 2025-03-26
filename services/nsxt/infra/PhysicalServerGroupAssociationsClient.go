@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -22,6 +22,8 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 type PhysicalServerGroupAssociationsClient interface {
 
 	// Get policy groups for which the given Physical Server is a member.
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param physicalServerExternalIdParam Physical external ID (required)
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)

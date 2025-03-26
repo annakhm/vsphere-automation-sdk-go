@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -21,9 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type BgpSummaryClient interface {
 
-	//
-	//
-	// Deprecated: This API element is deprecated.
+	// Get RTEP span and mac address-table.
 	//
 	// @param tier0IdParam (required)
 	// @param localeServicesIdParam (required)

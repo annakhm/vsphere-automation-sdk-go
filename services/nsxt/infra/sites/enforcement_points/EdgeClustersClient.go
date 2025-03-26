@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type EdgeClustersClient interface {
 
-	// Deletes the specified edge cluster.
+	// Delete the specified edge cluster.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)
@@ -34,7 +34,7 @@ type EdgeClustersClient interface {
 	// @throws NotFound  Not Found
 	Delete(siteIdParam string, enforcementpointIdParam string, edgeClusterIdParam string) error
 
-	// Read a Edge Cluster under an Enforcement Point
+	// Read an Edge Cluster under an Enforcement Point
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)

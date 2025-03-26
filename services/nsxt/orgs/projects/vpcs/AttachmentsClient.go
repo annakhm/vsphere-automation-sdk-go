@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -70,7 +70,7 @@ type AttachmentsClient interface {
 	// @throws NotFound  Not Found
 	List(orgIdParam string, projectIdParam string, vpcIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.VpcAttachmentListResult, error)
 
-	// Each VPC has default attachment. This API will update the default VPC attachment.
+	// Each VPC has one attachment. This API will update the VPC attachment.
 	//
 	// @param orgIdParam (required)
 	// @param projectIdParam (required)
@@ -85,7 +85,7 @@ type AttachmentsClient interface {
 	// @throws NotFound  Not Found
 	Patch(orgIdParam string, projectIdParam string, vpcIdParam string, vpcAttachmentIdParam string, vpcAttachmentParam nsx_policyModel.VpcAttachment) error
 
-	// Update the default VPC attachment.
+	// Update the VPC attachment.
 	//
 	// @param orgIdParam (required)
 	// @param projectIdParam (required)

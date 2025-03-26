@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -22,8 +22,10 @@ import (
 func monitorsStatusListInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
-	fields["transport_node_id"] = vapiBindings_.NewStringType()
+	fields["transport_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["ua_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["transport_node_id"] = "TransportNodeId"
+	fieldNameMap["ua_node_id"] = "UaNodeId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -41,9 +43,13 @@ func monitorsStatusListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
-	fields["transport_node_id"] = vapiBindings_.NewStringType()
+	fields["transport_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["ua_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["transport_node_id"] = "TransportNodeId"
-	paramsTypeMap["transport_node_id"] = vapiBindings_.NewStringType()
+	fieldNameMap["ua_node_id"] = "UaNodeId"
+	paramsTypeMap["ua_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["transport_node_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	queryParams["ua_node_id"] = "ua_node_id"
 	queryParams["transport_node_id"] = "transport_node_id"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}

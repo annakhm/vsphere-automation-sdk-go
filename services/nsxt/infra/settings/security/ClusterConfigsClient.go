@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -21,58 +21,62 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type ClusterConfigsClient interface {
 
-	// Read security cluster firewall configuration
+	// Read cluster security configuration
 	//
 	// @param clusterExternalIdParam Cluster ID (required)
-	// @return com.vmware.nsx_policy.model.SecurityClusterConfiguration
+	// @param enforcementPointPathParam String Path of the enforcement point (optional)
+	// @return com.vmware.nsx_policy.model.ClusterSecurityConfiguration
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(clusterExternalIdParam string) (nsx_policyModel.SecurityClusterConfiguration, error)
+	Get(clusterExternalIdParam string, enforcementPointPathParam *string) (nsx_policyModel.ClusterSecurityConfiguration, error)
 
-	// API will list all security cluster wise configuration
+	// API will list all cluster-wise security configuration as per the request parameters.
 	//
 	// @param cursorParam Opaque cursor to be used for getting next page of records (supplied by current result page) (optional)
+	// @param enabledParam Enabled/Disabled status of a feature type (optional)
+	// @param featureTypeParam Enum representing the cluster config supported feature types. (optional)
+	// @param includeMarkForDeleteObjectsParam Include objects that are marked for deletion in results (optional, default to false)
 	// @param includedFieldsParam Comma separated list of fields that should be included in query result (optional)
 	// @param pageSizeParam Maximum number of results to return in this page (server may return fewer) (optional, default to 1000)
 	// @param sortAscendingParam (optional)
 	// @param sortByParam Field by which records are sorted (optional)
-	// @return com.vmware.nsx_policy.model.SecurityClusterConfigurationListResult
+	// @return com.vmware.nsx_policy.model.ClusterSecurityConfigurationListResult
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	List(cursorParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.SecurityClusterConfigurationListResult, error)
+	List(cursorParam *string, enabledParam *bool, featureTypeParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.ClusterSecurityConfigurationListResult, error)
 
-	// Patch security cluster configuration for DFW.
+	// Patch cluster security configuration for DFW.
 	//
 	// @param clusterExternalIdParam Cluster ID (required)
-	// @param securityClusterConfigurationParam (required)
+	// @param clusterSecurityConfigurationParam (required)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Patch(clusterExternalIdParam string, securityClusterConfigurationParam nsx_policyModel.SecurityClusterConfiguration) error
+	Patch(clusterExternalIdParam string, clusterSecurityConfigurationParam nsx_policyModel.ClusterSecurityConfiguration) error
 
-	// Update security cluster configuration for DFW.
+	// Update cluster security configuration for DFW.
 	//
 	// @param clusterExternalIdParam Cluster ID (required)
-	// @param securityClusterConfigurationParam (required)
-	// @return com.vmware.nsx_policy.model.SecurityClusterConfiguration
+	// @param clusterSecurityConfigurationParam (required)
+	// @return com.vmware.nsx_policy.model.ClusterSecurityConfiguration
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Update(clusterExternalIdParam string, securityClusterConfigurationParam nsx_policyModel.SecurityClusterConfiguration) (nsx_policyModel.SecurityClusterConfiguration, error)
+	Update(clusterExternalIdParam string, clusterSecurityConfigurationParam nsx_policyModel.ClusterSecurityConfiguration) (nsx_policyModel.ClusterSecurityConfiguration, error)
 }
 
 type clusterConfigsClient struct {
@@ -103,7 +107,7 @@ func (cIface *clusterConfigsClient) GetErrorBindingType(errorName string) vapiBi
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (cIface *clusterConfigsClient) Get(clusterExternalIdParam string) (nsx_policyModel.SecurityClusterConfiguration, error) {
+func (cIface *clusterConfigsClient) Get(clusterExternalIdParam string, enforcementPointPathParam *string) (nsx_policyModel.ClusterSecurityConfiguration, error) {
 	typeConverter := cIface.connector.TypeConverter()
 	executionContext := cIface.connector.NewExecutionContext()
 	operationRestMetaData := clusterConfigsGetRestMetadata()
@@ -112,20 +116,21 @@ func (cIface *clusterConfigsClient) Get(clusterExternalIdParam string) (nsx_poli
 
 	sv := vapiBindings_.NewStructValueBuilder(clusterConfigsGetInputType(), typeConverter)
 	sv.AddStructField("ClusterExternalId", clusterExternalIdParam)
+	sv.AddStructField("EnforcementPointPath", enforcementPointPathParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
-		var emptyOutput nsx_policyModel.SecurityClusterConfiguration
+		var emptyOutput nsx_policyModel.ClusterSecurityConfiguration
 		return emptyOutput, vapiBindings_.VAPIerrorsToError(inputError)
 	}
 
 	methodResult := cIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.infra.settings.security.cluster_configs", "get", inputDataValue, executionContext)
-	var emptyOutput nsx_policyModel.SecurityClusterConfiguration
+	var emptyOutput nsx_policyModel.ClusterSecurityConfiguration
 	if methodResult.IsSuccess() {
 		output, errorInOutput := typeConverter.ConvertToGolang(methodResult.Output(), ClusterConfigsGetOutputType())
 		if errorInOutput != nil {
 			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
 		}
-		return output.(nsx_policyModel.SecurityClusterConfiguration), nil
+		return output.(nsx_policyModel.ClusterSecurityConfiguration), nil
 	} else {
 		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), cIface.GetErrorBindingType(methodResult.Error().Name()))
 		if errorInError != nil {
@@ -135,7 +140,7 @@ func (cIface *clusterConfigsClient) Get(clusterExternalIdParam string) (nsx_poli
 	}
 }
 
-func (cIface *clusterConfigsClient) List(cursorParam *string, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.SecurityClusterConfigurationListResult, error) {
+func (cIface *clusterConfigsClient) List(cursorParam *string, enabledParam *bool, featureTypeParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.ClusterSecurityConfigurationListResult, error) {
 	typeConverter := cIface.connector.TypeConverter()
 	executionContext := cIface.connector.NewExecutionContext()
 	operationRestMetaData := clusterConfigsListRestMetadata()
@@ -144,24 +149,27 @@ func (cIface *clusterConfigsClient) List(cursorParam *string, includedFieldsPara
 
 	sv := vapiBindings_.NewStructValueBuilder(clusterConfigsListInputType(), typeConverter)
 	sv.AddStructField("Cursor", cursorParam)
+	sv.AddStructField("Enabled", enabledParam)
+	sv.AddStructField("FeatureType", featureTypeParam)
+	sv.AddStructField("IncludeMarkForDeleteObjects", includeMarkForDeleteObjectsParam)
 	sv.AddStructField("IncludedFields", includedFieldsParam)
 	sv.AddStructField("PageSize", pageSizeParam)
 	sv.AddStructField("SortAscending", sortAscendingParam)
 	sv.AddStructField("SortBy", sortByParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
-		var emptyOutput nsx_policyModel.SecurityClusterConfigurationListResult
+		var emptyOutput nsx_policyModel.ClusterSecurityConfigurationListResult
 		return emptyOutput, vapiBindings_.VAPIerrorsToError(inputError)
 	}
 
 	methodResult := cIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.infra.settings.security.cluster_configs", "list", inputDataValue, executionContext)
-	var emptyOutput nsx_policyModel.SecurityClusterConfigurationListResult
+	var emptyOutput nsx_policyModel.ClusterSecurityConfigurationListResult
 	if methodResult.IsSuccess() {
 		output, errorInOutput := typeConverter.ConvertToGolang(methodResult.Output(), ClusterConfigsListOutputType())
 		if errorInOutput != nil {
 			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
 		}
-		return output.(nsx_policyModel.SecurityClusterConfigurationListResult), nil
+		return output.(nsx_policyModel.ClusterSecurityConfigurationListResult), nil
 	} else {
 		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), cIface.GetErrorBindingType(methodResult.Error().Name()))
 		if errorInError != nil {
@@ -171,7 +179,7 @@ func (cIface *clusterConfigsClient) List(cursorParam *string, includedFieldsPara
 	}
 }
 
-func (cIface *clusterConfigsClient) Patch(clusterExternalIdParam string, securityClusterConfigurationParam nsx_policyModel.SecurityClusterConfiguration) error {
+func (cIface *clusterConfigsClient) Patch(clusterExternalIdParam string, clusterSecurityConfigurationParam nsx_policyModel.ClusterSecurityConfiguration) error {
 	typeConverter := cIface.connector.TypeConverter()
 	executionContext := cIface.connector.NewExecutionContext()
 	operationRestMetaData := clusterConfigsPatchRestMetadata()
@@ -180,7 +188,7 @@ func (cIface *clusterConfigsClient) Patch(clusterExternalIdParam string, securit
 
 	sv := vapiBindings_.NewStructValueBuilder(clusterConfigsPatchInputType(), typeConverter)
 	sv.AddStructField("ClusterExternalId", clusterExternalIdParam)
-	sv.AddStructField("SecurityClusterConfiguration", securityClusterConfigurationParam)
+	sv.AddStructField("ClusterSecurityConfiguration", clusterSecurityConfigurationParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)
@@ -198,7 +206,7 @@ func (cIface *clusterConfigsClient) Patch(clusterExternalIdParam string, securit
 	}
 }
 
-func (cIface *clusterConfigsClient) Update(clusterExternalIdParam string, securityClusterConfigurationParam nsx_policyModel.SecurityClusterConfiguration) (nsx_policyModel.SecurityClusterConfiguration, error) {
+func (cIface *clusterConfigsClient) Update(clusterExternalIdParam string, clusterSecurityConfigurationParam nsx_policyModel.ClusterSecurityConfiguration) (nsx_policyModel.ClusterSecurityConfiguration, error) {
 	typeConverter := cIface.connector.TypeConverter()
 	executionContext := cIface.connector.NewExecutionContext()
 	operationRestMetaData := clusterConfigsUpdateRestMetadata()
@@ -207,21 +215,21 @@ func (cIface *clusterConfigsClient) Update(clusterExternalIdParam string, securi
 
 	sv := vapiBindings_.NewStructValueBuilder(clusterConfigsUpdateInputType(), typeConverter)
 	sv.AddStructField("ClusterExternalId", clusterExternalIdParam)
-	sv.AddStructField("SecurityClusterConfiguration", securityClusterConfigurationParam)
+	sv.AddStructField("ClusterSecurityConfiguration", clusterSecurityConfigurationParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
-		var emptyOutput nsx_policyModel.SecurityClusterConfiguration
+		var emptyOutput nsx_policyModel.ClusterSecurityConfiguration
 		return emptyOutput, vapiBindings_.VAPIerrorsToError(inputError)
 	}
 
 	methodResult := cIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.infra.settings.security.cluster_configs", "update", inputDataValue, executionContext)
-	var emptyOutput nsx_policyModel.SecurityClusterConfiguration
+	var emptyOutput nsx_policyModel.ClusterSecurityConfiguration
 	if methodResult.IsSuccess() {
 		output, errorInOutput := typeConverter.ConvertToGolang(methodResult.Output(), ClusterConfigsUpdateOutputType())
 		if errorInOutput != nil {
 			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
 		}
-		return output.(nsx_policyModel.SecurityClusterConfiguration), nil
+		return output.(nsx_policyModel.ClusterSecurityConfiguration), nil
 	} else {
 		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), cIface.GetErrorBindingType(methodResult.Error().Name()))
 		if errorInError != nil {

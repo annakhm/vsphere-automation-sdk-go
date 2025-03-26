@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type EdgeClusterHighAvailabilityProfilesClient interface {
 
-	// Delete a edge cluster high availability profile.
+	// Delete a policy edge cluster high availability profile.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)
@@ -34,7 +34,7 @@ type EdgeClusterHighAvailabilityProfilesClient interface {
 	// @throws NotFound  Not Found
 	Delete(siteIdParam string, enforcementpointIdParam string, edgeClusterHighAvailabilityProfileIdParam string) error
 
-	// Get a edge cluster high availability profile.
+	// Get a policy edge cluster high availability profile.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)
@@ -68,7 +68,7 @@ type EdgeClusterHighAvailabilityProfilesClient interface {
 	// @throws NotFound  Not Found
 	List(siteIdParam string, enforcementpointIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includeSystemOwnedParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.EdgeClusterHighAvailabilityProfileListResult, error)
 
-	// Creates a new edge cluster high availability profile.
+	// Patch a policy edge cluster high availability profile.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)
@@ -82,7 +82,7 @@ type EdgeClusterHighAvailabilityProfilesClient interface {
 	// @throws NotFound  Not Found
 	Patch(siteIdParam string, enforcementpointIdParam string, edgeClusterHighAvailabilityProfileIdParam string, policyEdgeHighAvailabilityProfileParam nsx_policyModel.PolicyEdgeHighAvailabilityProfile) error
 
-	// Create or Update a edge cluster high availability profile.
+	// Create or Update a policy edge cluster high availability profile.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)

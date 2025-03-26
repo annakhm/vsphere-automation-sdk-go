@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type RelocateAndRemoveEdgeTransportNodeClient interface {
 
-	// Relocate auto allocated service contexts from policy edge node at given id. For API to perform relocate and remove action the edge node at given id must only have auto allocated service contexts. If any manually allocated service context is present on the edge cluster member, then the task will not be performed. Also, it is recommended to move edge node for which relocate and remove action is being performed into maintenance mode, before executing the API. If edge is not not moved into maintenance mode, then API will move edge node into maintenance mode before performing the actual relocate and remove task.To maintain high availability, Edge cluster should have at least two healthy edge nodes for relocate and removal. Once relocate action is performed successfully, the policy edge node will be removed from the edge cluster.
+	// Relocate auto allocated service contexts from policy edge node at given id. For API to perform relocate and remove action the edge node at given id must only have auto allocated service contexts. If any manually allocated service context is present on the edge cluster member, then the task will not be performed. Also, it is recommended to move the edge node for which relocate and remove action is being performed into maintenance mode,before executing the API. If edge is not moved into maintenance mode, then API will move edge node into maintenance mode before performing the actual relocate and remove task.To maintain high availability, Edge cluster should have at least two healthy edge nodes for relocation and removal. Once relocate action is performed successfully, the policy edge node will be removed from the edge cluster.
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)

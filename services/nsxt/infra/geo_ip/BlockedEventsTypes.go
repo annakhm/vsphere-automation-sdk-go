@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -19,32 +19,32 @@ import (
 	"reflect"
 )
 
-func blockedEventsListInputType() vapiBindings_.StructType {
+func blockedEventsGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
 	fields["country_code"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["direction"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_all_projects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["ip_address"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
-	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
-	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["rule_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["country_code"] = "CountryCode"
 	fieldNameMap["cursor"] = "Cursor"
-	fieldNameMap["included_fields"] = "IncludedFields"
+	fieldNameMap["direction"] = "Direction"
+	fieldNameMap["include_all_projects"] = "IncludeAllProjects"
 	fieldNameMap["ip_address"] = "IpAddress"
 	fieldNameMap["page_size"] = "PageSize"
-	fieldNameMap["sort_ascending"] = "SortAscending"
-	fieldNameMap["sort_by"] = "SortBy"
+	fieldNameMap["rule_id"] = "RuleId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
 
-func BlockedEventsListOutputType() vapiBindings_.BindingType {
+func BlockedEventsGetOutputType() vapiBindings_.BindingType {
 	return vapiBindings_.NewReferenceType(nsx_policyModel.GeoIpBlockedEventsListBindingType)
 }
 
-func blockedEventsListRestMetadata() vapiProtocol_.OperationRestMetadata {
+func blockedEventsGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields := map[string]vapiBindings_.BindingType{}
 	fieldNameMap := map[string]string{}
 	paramsTypeMap := map[string]vapiBindings_.BindingType{}
@@ -55,31 +55,31 @@ func blockedEventsListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	bodyFieldsMap := map[string]string{}
 	fields["country_code"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["direction"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_all_projects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["ip_address"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
-	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
-	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["rule_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["country_code"] = "CountryCode"
 	fieldNameMap["cursor"] = "Cursor"
-	fieldNameMap["included_fields"] = "IncludedFields"
+	fieldNameMap["direction"] = "Direction"
+	fieldNameMap["include_all_projects"] = "IncludeAllProjects"
 	fieldNameMap["ip_address"] = "IpAddress"
 	fieldNameMap["page_size"] = "PageSize"
-	fieldNameMap["sort_ascending"] = "SortAscending"
-	fieldNameMap["sort_by"] = "SortBy"
+	fieldNameMap["rule_id"] = "RuleId"
 	paramsTypeMap["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["include_all_projects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	paramsTypeMap["rule_id"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["country_code"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	paramsTypeMap["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
-	paramsTypeMap["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["ip_address"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
-	paramsTypeMap["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["direction"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	queryParams["cursor"] = "cursor"
+	queryParams["include_all_projects"] = "include_all_projects"
+	queryParams["rule_id"] = "rule_id"
 	queryParams["country_code"] = "country_code"
-	queryParams["sort_ascending"] = "sort_ascending"
-	queryParams["included_fields"] = "included_fields"
 	queryParams["ip_address"] = "ip_address"
-	queryParams["sort_by"] = "sort_by"
+	queryParams["direction"] = "direction"
 	queryParams["page_size"] = "page_size"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}

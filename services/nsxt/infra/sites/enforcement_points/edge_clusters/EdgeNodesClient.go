@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type EdgeNodesClient interface {
 
-	// Read a Edge Node under an Enforcement Point, Edge Cluster
+	// Read an Edge Node under an Enforcement Point, Edge Cluster
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)

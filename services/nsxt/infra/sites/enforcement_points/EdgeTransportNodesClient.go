@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -34,7 +34,7 @@ type EdgeTransportNodesClient interface {
 	// @throws NotFound  Not Found
 	Delete(siteIdParam string, enforcementpointIdParam string, edgeTransportNodeIdParam string) error
 
-	// Read a Edge Transport Node under an Enforcement Point
+	// Read an Edge Transport Node under an Enforcement Point
 	//
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)

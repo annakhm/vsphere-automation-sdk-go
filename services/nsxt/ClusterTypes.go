@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -18,16 +18,16 @@ import (
 	"reflect"
 )
 
-// Possible value for “frameType“ of method Cluster#backuptoremote.
+// Possible value for ``frameType`` of method Cluster#backuptoremote.
 const Cluster_BACKUPTOREMOTE_FRAME_TYPE_GLOBAL_MANAGER = "GLOBAL_MANAGER"
 
-// Possible value for “frameType“ of method Cluster#backuptoremote.
+// Possible value for ``frameType`` of method Cluster#backuptoremote.
 const Cluster_BACKUPTOREMOTE_FRAME_TYPE_LOCAL_MANAGER = "LOCAL_MANAGER"
 
-// Possible value for “frameType“ of method Cluster#backuptoremote.
+// Possible value for ``frameType`` of method Cluster#backuptoremote.
 const Cluster_BACKUPTOREMOTE_FRAME_TYPE_LOCAL_LOCAL_MANAGER = "LOCAL_LOCAL_MANAGER"
 
-// Possible value for “frameType“ of method Cluster#backuptoremote.
+// Possible value for ``frameType`` of method Cluster#backuptoremote.
 const Cluster_BACKUPTOREMOTE_FRAME_TYPE_NSX_INTELLIGENCE = "NSX_INTELLIGENCE"
 
 func clusterBackuptoremoteInputType() vapiBindings_.StructType {

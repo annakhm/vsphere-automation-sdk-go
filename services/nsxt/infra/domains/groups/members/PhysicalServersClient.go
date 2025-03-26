@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -22,6 +22,8 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 type PhysicalServersClient interface {
 
 	// Returns Effective Physical Server Members that belong to this group. This API is applicable only for Groups containing Physical Server member type. For Groups containing other member types,it returns an empty list.
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param domainIdParam Domain id (required)
 	// @param groupIdParam Group Id (required)

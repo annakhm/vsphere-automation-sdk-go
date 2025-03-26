@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2024 Broadcom. All Rights Reserved.
+// Copyright (c) 2019-2025 Broadcom. All Rights Reserved.
 // The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-2-Clause
 
@@ -19,17 +19,25 @@ import (
 	"reflect"
 )
 
+// Possible value for ``featureType`` of method ClusterConfigs#list.
+const ClusterConfigs_LIST_FEATURE_TYPE_DFW = "DFW"
+
+// Possible value for ``featureType`` of method ClusterConfigs#list.
+const ClusterConfigs_LIST_FEATURE_TYPE_INFRA_SECURITY_DFW = "INFRA_SECURITY_DFW"
+
 func clusterConfigsGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
 	fields["cluster_external_id"] = vapiBindings_.NewStringType()
+	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["cluster_external_id"] = "ClusterExternalId"
+	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
 
 func ClusterConfigsGetOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	return vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 }
 
 func clusterConfigsGetRestMetadata() vapiProtocol_.OperationRestMetadata {
@@ -42,10 +50,14 @@ func clusterConfigsGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
 	fields["cluster_external_id"] = vapiBindings_.NewStringType()
+	fields["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["cluster_external_id"] = "ClusterExternalId"
+	fieldNameMap["enforcement_point_path"] = "EnforcementPointPath"
 	paramsTypeMap["cluster_external_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["enforcement_point_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["clusterExternalId"] = vapiBindings_.NewStringType()
 	pathParams["cluster_external_id"] = "clusterExternalId"
+	queryParams["enforcement_point_path"] = "enforcement_point_path"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(
@@ -73,11 +85,17 @@ func clusterConfigsListInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["enabled"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fields["feature_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["cursor"] = "Cursor"
+	fieldNameMap["enabled"] = "Enabled"
+	fieldNameMap["feature_type"] = "FeatureType"
+	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
@@ -87,7 +105,7 @@ func clusterConfigsListInputType() vapiBindings_.StructType {
 }
 
 func ClusterConfigsListOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationListResultBindingType)
+	return vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationListResultBindingType)
 }
 
 func clusterConfigsListRestMetadata() vapiProtocol_.OperationRestMetadata {
@@ -100,24 +118,36 @@ func clusterConfigsListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
 	fields["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["enabled"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	fields["feature_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fieldNameMap["cursor"] = "Cursor"
+	fieldNameMap["enabled"] = "Enabled"
+	fieldNameMap["feature_type"] = "FeatureType"
+	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
 	fieldNameMap["sort_by"] = "SortBy"
 	paramsTypeMap["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["feature_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	paramsTypeMap["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
+	paramsTypeMap["enabled"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	queryParams["cursor"] = "cursor"
+	queryParams["feature_type"] = "feature_type"
 	queryParams["sort_ascending"] = "sort_ascending"
 	queryParams["included_fields"] = "included_fields"
 	queryParams["sort_by"] = "sort_by"
+	queryParams["include_mark_for_delete_objects"] = "include_mark_for_delete_objects"
+	queryParams["enabled"] = "enabled"
 	queryParams["page_size"] = "page_size"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
@@ -146,9 +176,9 @@ func clusterConfigsPatchInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
 	fields["cluster_external_id"] = vapiBindings_.NewStringType()
-	fields["security_cluster_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	fields["cluster_security_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 	fieldNameMap["cluster_external_id"] = "ClusterExternalId"
-	fieldNameMap["security_cluster_configuration"] = "SecurityClusterConfiguration"
+	fieldNameMap["cluster_security_configuration"] = "ClusterSecurityConfiguration"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -167,11 +197,11 @@ func clusterConfigsPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
 	fields["cluster_external_id"] = vapiBindings_.NewStringType()
-	fields["security_cluster_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	fields["cluster_security_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 	fieldNameMap["cluster_external_id"] = "ClusterExternalId"
-	fieldNameMap["security_cluster_configuration"] = "SecurityClusterConfiguration"
-	paramsTypeMap["security_cluster_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	fieldNameMap["cluster_security_configuration"] = "ClusterSecurityConfiguration"
 	paramsTypeMap["cluster_external_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["cluster_security_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 	paramsTypeMap["clusterExternalId"] = vapiBindings_.NewStringType()
 	pathParams["cluster_external_id"] = "clusterExternalId"
 	resultHeaders := map[string]string{}
@@ -186,7 +216,7 @@ func clusterConfigsPatchRestMetadata() vapiProtocol_.OperationRestMetadata {
 		dispatchHeaderParams,
 		bodyFieldsMap,
 		"",
-		"security_cluster_configuration",
+		"cluster_security_configuration",
 		"PATCH",
 		"/policy/api/v1/infra/settings/security/cluster-configs/{clusterExternalId}",
 		"application/json",
@@ -201,15 +231,15 @@ func clusterConfigsUpdateInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
 	fields["cluster_external_id"] = vapiBindings_.NewStringType()
-	fields["security_cluster_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	fields["cluster_security_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 	fieldNameMap["cluster_external_id"] = "ClusterExternalId"
-	fieldNameMap["security_cluster_configuration"] = "SecurityClusterConfiguration"
+	fieldNameMap["cluster_security_configuration"] = "ClusterSecurityConfiguration"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
 
 func ClusterConfigsUpdateOutputType() vapiBindings_.BindingType {
-	return vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	return vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 }
 
 func clusterConfigsUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
@@ -222,11 +252,11 @@ func clusterConfigsUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
 	fields["cluster_external_id"] = vapiBindings_.NewStringType()
-	fields["security_cluster_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	fields["cluster_security_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 	fieldNameMap["cluster_external_id"] = "ClusterExternalId"
-	fieldNameMap["security_cluster_configuration"] = "SecurityClusterConfiguration"
-	paramsTypeMap["security_cluster_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.SecurityClusterConfigurationBindingType)
+	fieldNameMap["cluster_security_configuration"] = "ClusterSecurityConfiguration"
 	paramsTypeMap["cluster_external_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["cluster_security_configuration"] = vapiBindings_.NewReferenceType(nsx_policyModel.ClusterSecurityConfigurationBindingType)
 	paramsTypeMap["clusterExternalId"] = vapiBindings_.NewStringType()
 	pathParams["cluster_external_id"] = "clusterExternalId"
 	resultHeaders := map[string]string{}
@@ -241,7 +271,7 @@ func clusterConfigsUpdateRestMetadata() vapiProtocol_.OperationRestMetadata {
 		dispatchHeaderParams,
 		bodyFieldsMap,
 		"",
-		"security_cluster_configuration",
+		"cluster_security_configuration",
 		"PUT",
 		"/policy/api/v1/infra/settings/security/cluster-configs/{clusterExternalId}",
 		"application/json",
