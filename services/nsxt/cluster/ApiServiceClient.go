@@ -31,7 +31,7 @@ type ApiServiceClient interface {
 	// @throws NotFound  Not Found
 	Get() (nsx_policyModel.ApiServiceConfig, error)
 
-	// Update the configuration of the NSX API service. Changes are applied to all nodes in the cluster. The API service on each node will restart after it is updated using this API. There may be a delay of up to a minute or so between the time this API call completes and when the new configuration goes into effect.
+	// Update the configuration of the NSX API service. Changes are applied to all nodes in the cluster. The API service on each node will restart after it is updated using this API. There may be a delay of up to a minute or so between the time this API call completes and when the new configuration goes into effect. Note that TLSv1.3 cipher suites are not controlled individually but instead toggle based on the setting of the TLSv1.3 protocol version.
 	//
 	// @param apiServiceConfigParam (required)
 	// @return com.vmware.nsx_policy.model.ApiServiceConfig

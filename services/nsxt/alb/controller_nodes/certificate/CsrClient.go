@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type CsrClient interface {
 
-	// Use this API to create portal certificate CSR for ALB controller.
+	// Use this API to create portal certificate CSR for Avi Load Balancer Controller.
 	//
 	// @param aLBControllerCertificateCsrParam (required)
 	// @return com.vmware.nsx_policy.model.ALBControllerCertificate

@@ -21,9 +21,9 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type ClusterClient interface {
 
-	// Returns information about Advanced Load Balancer controller cluster status
+	// Returns information about Avi Load Balancer Controller cluster status
 	//
-	// @param clusteringIdParam Unique Id for NSX Advanced Load Balancer Controller Cluster used in VCF managed NSX. (optional)
+	// @param clusteringIdParam Unique Id for Avi Load Balancer Controller Cluster used in VCF managed NSX (optional)
 	// @return com.vmware.nsx_policy.model.ALBControllerClusterInfo
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -33,9 +33,9 @@ type ClusterClient interface {
 	// @throws NotFound  Not Found
 	Get(clusteringIdParam *string) (nsx_policyModel.ALBControllerClusterInfo, error)
 
-	// Re-trigger clustering for Advanced Load Balancer Nodes.
+	// Re-trigger clustering for Avi Load Balancer Controller Nodes.
 	//
-	// @param clusteringIdParam Unique Id for NSX Advanced Load Balancer Controller Cluster used in VCF managed NSX. (optional)
+	// @param clusteringIdParam Unique Id for Avi Load Balancer Controller Cluster used in VCF managed NSX (optional)
 	// @return com.vmware.nsx_policy.model.ALBControllerClusterTrigger
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed

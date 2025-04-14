@@ -19,6 +19,12 @@ import (
 	"reflect"
 )
 
+// Possible value for ``nodeType`` of method EdgeTransportNodes#list.
+const EdgeTransportNodes_LIST_NODE_TYPE_NODE = "EDGE_NODE"
+
+// Possible value for ``nodeType`` of method EdgeTransportNodes#list.
+const EdgeTransportNodes_LIST_NODE_TYPE_SERVICE_NODE = "EDGE_SERVICE_NODE"
+
 func edgeTransportNodesDeleteInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
@@ -157,6 +163,7 @@ func edgeTransportNodesListInputType() vapiBindings_.StructType {
 	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["management_ip"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["node_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -168,6 +175,7 @@ func edgeTransportNodesListInputType() vapiBindings_.StructType {
 	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["management_ip"] = "ManagementIp"
+	fieldNameMap["node_type"] = "NodeType"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
 	fieldNameMap["sort_by"] = "SortBy"
@@ -196,6 +204,7 @@ func edgeTransportNodesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["include_mark_for_delete_objects"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["management_ip"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fields["node_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	fields["page_size"] = vapiBindings_.NewOptionalType(vapiBindings_.NewIntegerType())
 	fields["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fields["sort_by"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -207,12 +216,14 @@ func edgeTransportNodesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fieldNameMap["include_mark_for_delete_objects"] = "IncludeMarkForDeleteObjects"
 	fieldNameMap["included_fields"] = "IncludedFields"
 	fieldNameMap["management_ip"] = "ManagementIp"
+	fieldNameMap["node_type"] = "NodeType"
 	fieldNameMap["page_size"] = "PageSize"
 	fieldNameMap["sort_ascending"] = "SortAscending"
 	fieldNameMap["sort_by"] = "SortBy"
 	fieldNameMap["transport_zone_path"] = "TransportZonePath"
 	paramsTypeMap["cursor"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["enforcementpoint_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["node_type"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["transport_zone_path"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
 	paramsTypeMap["sort_ascending"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["included_fields"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
@@ -227,6 +238,7 @@ func edgeTransportNodesListRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["enforcementpoint_id"] = "enforcementpointId"
 	pathParams["site_id"] = "siteId"
 	queryParams["cursor"] = "cursor"
+	queryParams["node_type"] = "node_type"
 	queryParams["transport_zone_path"] = "transport_zone_path"
 	queryParams["sort_ascending"] = "sort_ascending"
 	queryParams["included_fields"] = "included_fields"

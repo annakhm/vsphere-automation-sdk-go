@@ -21,7 +21,9 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SummaryClient interface {
 
-	// Get statistics for downlink router port
+	//
+	//
+	// Deprecated: This API element is deprecated.
 	//
 	// @param orgIdParam (required)
 	// @param projectIdParam (required)

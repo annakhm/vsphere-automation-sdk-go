@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type StatusClient interface {
 
-	// Returns the current deployment or undeployment status for a VM along with any other relevant current information, such as error messages.
+	// Returns the current deployment or undeployment status for a node along with any other relevant current information, such as error messages.
 	//
 	// @param nodeIdParam (required)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeVMDeploymentStatusReport

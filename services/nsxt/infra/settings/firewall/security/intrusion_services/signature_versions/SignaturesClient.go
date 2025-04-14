@@ -21,6 +21,19 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type SignaturesClient interface {
 
+	// Get IDS Signature.
+	//
+	// @param versionIdParam (required)
+	// @param sigIdParam (required)
+	// @return com.vmware.nsx_policy.model.IdsSignature
+	//
+	// @throws InvalidRequest  Bad Request, Precondition Failed
+	// @throws Unauthorized  Forbidden
+	// @throws ServiceUnavailable  Service Unavailable
+	// @throws InternalServerError  Internal Server Error
+	// @throws NotFound  Not Found
+	Get(versionIdParam string, sigIdParam string) (nsx_policyModel.IdsSignature, error)
+
 	// List intrusion detection system signatures.
 	//
 	// @param versionIdParam (required)
@@ -49,6 +62,7 @@ type signaturesClient struct {
 func NewSignaturesClient(connector vapiProtocolClient_.Connector) *signaturesClient {
 	interfaceIdentifier := vapiCore_.NewInterfaceIdentifier("com.vmware.nsx_policy.infra.settings.firewall.security.intrusion_services.signature_versions.signatures")
 	methodIdentifiers := map[string]vapiCore_.MethodIdentifier{
+		"get":  vapiCore_.NewMethodIdentifier(interfaceIdentifier, "get"),
 		"list": vapiCore_.NewMethodIdentifier(interfaceIdentifier, "list"),
 	}
 	interfaceDefinition := vapiCore_.NewInterfaceDefinition(interfaceIdentifier, methodIdentifiers)
@@ -63,6 +77,39 @@ func (sIface *signaturesClient) GetErrorBindingType(errorName string) vapiBindin
 		return entry
 	}
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
+}
+
+func (sIface *signaturesClient) Get(versionIdParam string, sigIdParam string) (nsx_policyModel.IdsSignature, error) {
+	typeConverter := sIface.connector.TypeConverter()
+	executionContext := sIface.connector.NewExecutionContext()
+	operationRestMetaData := signaturesGetRestMetadata()
+	executionContext.SetConnectionMetadata(vapiCore_.RESTMetadataKey, operationRestMetaData)
+	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
+
+	sv := vapiBindings_.NewStructValueBuilder(signaturesGetInputType(), typeConverter)
+	sv.AddStructField("VersionId", versionIdParam)
+	sv.AddStructField("SigId", sigIdParam)
+	inputDataValue, inputError := sv.GetStructValue()
+	if inputError != nil {
+		var emptyOutput nsx_policyModel.IdsSignature
+		return emptyOutput, vapiBindings_.VAPIerrorsToError(inputError)
+	}
+
+	methodResult := sIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.infra.settings.firewall.security.intrusion_services.signature_versions.signatures", "get", inputDataValue, executionContext)
+	var emptyOutput nsx_policyModel.IdsSignature
+	if methodResult.IsSuccess() {
+		output, errorInOutput := typeConverter.ConvertToGolang(methodResult.Output(), SignaturesGetOutputType())
+		if errorInOutput != nil {
+			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
+		}
+		return output.(nsx_policyModel.IdsSignature), nil
+	} else {
+		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), sIface.GetErrorBindingType(methodResult.Error().Name()))
+		if errorInError != nil {
+			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInError)
+		}
+		return emptyOutput, methodError.(error)
+	}
 }
 
 func (sIface *signaturesClient) List(versionIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.IdsSignatureListResult, error) {

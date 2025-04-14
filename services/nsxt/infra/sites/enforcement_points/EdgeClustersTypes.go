@@ -25,9 +25,11 @@ func edgeClustersDeleteInputType() vapiBindings_.StructType {
 	fields["site_id"] = vapiBindings_.NewStringType()
 	fields["enforcementpoint_id"] = vapiBindings_.NewStringType()
 	fields["edge_cluster_id"] = vapiBindings_.NewStringType()
+	fields["delete_member_edge_nodes"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fieldNameMap["site_id"] = "SiteId"
 	fieldNameMap["enforcementpoint_id"] = "EnforcementpointId"
 	fieldNameMap["edge_cluster_id"] = "EdgeClusterId"
+	fieldNameMap["delete_member_edge_nodes"] = "DeleteMemberEdgeNodes"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -48,11 +50,14 @@ func edgeClustersDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	fields["site_id"] = vapiBindings_.NewStringType()
 	fields["enforcementpoint_id"] = vapiBindings_.NewStringType()
 	fields["edge_cluster_id"] = vapiBindings_.NewStringType()
+	fields["delete_member_edge_nodes"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fieldNameMap["site_id"] = "SiteId"
 	fieldNameMap["enforcementpoint_id"] = "EnforcementpointId"
 	fieldNameMap["edge_cluster_id"] = "EdgeClusterId"
+	fieldNameMap["delete_member_edge_nodes"] = "DeleteMemberEdgeNodes"
 	paramsTypeMap["edge_cluster_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["enforcementpoint_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["delete_member_edge_nodes"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["site_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["siteId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["enforcementpointId"] = vapiBindings_.NewStringType()
@@ -60,6 +65,7 @@ func edgeClustersDeleteRestMetadata() vapiProtocol_.OperationRestMetadata {
 	pathParams["enforcementpoint_id"] = "enforcementpointId"
 	pathParams["site_id"] = "siteId"
 	pathParams["edge_cluster_id"] = "edgeClusterId"
+	queryParams["delete_member_edge_nodes"] = "delete_member_edge_nodes"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

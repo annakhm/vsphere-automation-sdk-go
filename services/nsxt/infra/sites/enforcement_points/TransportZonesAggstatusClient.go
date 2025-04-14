@@ -25,6 +25,7 @@ type TransportZonesAggstatusClient interface {
 	//
 	// @param siteIdParam site ID (required)
 	// @param enforcementPointIdParam enforcement point ID (required)
+	// @param includeSystemOwnedParam Include system owned transport zones (optional)
 	// @return com.vmware.nsx_policy.model.HeatMapTransportNodesAggregateStatus
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -32,7 +33,7 @@ type TransportZonesAggstatusClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(siteIdParam string, enforcementPointIdParam string) (nsx_policyModel.HeatMapTransportNodesAggregateStatus, error)
+	Get(siteIdParam string, enforcementPointIdParam string, includeSystemOwnedParam *bool) (nsx_policyModel.HeatMapTransportNodesAggregateStatus, error)
 }
 
 type transportZonesAggstatusClient struct {
@@ -60,7 +61,7 @@ func (tIface *transportZonesAggstatusClient) GetErrorBindingType(errorName strin
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (tIface *transportZonesAggstatusClient) Get(siteIdParam string, enforcementPointIdParam string) (nsx_policyModel.HeatMapTransportNodesAggregateStatus, error) {
+func (tIface *transportZonesAggstatusClient) Get(siteIdParam string, enforcementPointIdParam string, includeSystemOwnedParam *bool) (nsx_policyModel.HeatMapTransportNodesAggregateStatus, error) {
 	typeConverter := tIface.connector.TypeConverter()
 	executionContext := tIface.connector.NewExecutionContext()
 	operationRestMetaData := transportZonesAggstatusGetRestMetadata()
@@ -70,6 +71,7 @@ func (tIface *transportZonesAggstatusClient) Get(siteIdParam string, enforcement
 	sv := vapiBindings_.NewStructValueBuilder(transportZonesAggstatusGetInputType(), typeConverter)
 	sv.AddStructField("SiteId", siteIdParam)
 	sv.AddStructField("EnforcementPointId", enforcementPointIdParam)
+	sv.AddStructField("IncludeSystemOwned", includeSystemOwnedParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.HeatMapTransportNodesAggregateStatus

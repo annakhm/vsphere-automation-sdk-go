@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type UserCredentialClient interface {
 
-	// Use this API to create service user object credential in ALB controller cluster. This API is for VCF deployments only.
+	// Use this API to create service user object credential in Avi Load Balancer Controller cluster. This API is for VCF deployments only.
 	//
 	// @param aLBControllerUserCredentialParam (required)
 	// @return com.vmware.nsx_policy.model.ALBControllerUserCredentialResponse
@@ -33,11 +33,11 @@ type UserCredentialClient interface {
 	// @throws NotFound  Not Found
 	Create(aLBControllerUserCredentialParam nsx_policyModel.ALBControllerUserCredential) (nsx_policyModel.ALBControllerUserCredentialResponse, error)
 
-	// Use this API to delete user credentials in ALB controller cluster. This API is for VCF deployments only.
+	// Use this API to delete user credentials in Avi Load Balancer Controller cluster. This API is for VCF deployments only.
 	//
 	// @param usernameParam Credentials to be deleted. (required)
 	// @param userCredentialTypeParam Type of user credential (required)
-	// @param clusteringIdParam Unique Id for NSX Advanced Load Balancer Controller Cluster used in VCF managed NSX (optional)
+	// @param clusteringIdParam Unique Id for Avi Load Balancer Controller Cluster used in VCF managed NSX (optional)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
@@ -46,10 +46,10 @@ type UserCredentialClient interface {
 	// @throws NotFound  Not Found
 	Delete(usernameParam string, userCredentialTypeParam string, clusteringIdParam *string) error
 
-	// Use this API to update admin user password or service user object password in ALB controller. This API is for VCF deployments only.
+	// Use this API to update admin user password or service user object password in Avi Load Balancer Controller. This API is for VCF deployments only.
 	//
 	// @param aLBControllerUserCredentialParam (required)
-	// @param runningConfigParam Update Advanced Load Balancer Controller runtime config as well (optional)
+	// @param runningConfigParam Update Avi Load Balancer Controller runtime config as well (optional)
 	// @return com.vmware.nsx_policy.model.ALBControllerUserCredentialResponse
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed

@@ -24,8 +24,10 @@ func transportZonesAggstatusGetInputType() vapiBindings_.StructType {
 	fieldNameMap := make(map[string]string)
 	fields["site_id"] = vapiBindings_.NewStringType()
 	fields["enforcement_point_id"] = vapiBindings_.NewStringType()
+	fields["include_system_owned"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fieldNameMap["site_id"] = "SiteId"
 	fieldNameMap["enforcement_point_id"] = "EnforcementPointId"
+	fieldNameMap["include_system_owned"] = "IncludeSystemOwned"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -45,14 +47,18 @@ func transportZonesAggstatusGetRestMetadata() vapiProtocol_.OperationRestMetadat
 	bodyFieldsMap := map[string]string{}
 	fields["site_id"] = vapiBindings_.NewStringType()
 	fields["enforcement_point_id"] = vapiBindings_.NewStringType()
+	fields["include_system_owned"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	fieldNameMap["site_id"] = "SiteId"
 	fieldNameMap["enforcement_point_id"] = "EnforcementPointId"
+	fieldNameMap["include_system_owned"] = "IncludeSystemOwned"
+	paramsTypeMap["include_system_owned"] = vapiBindings_.NewOptionalType(vapiBindings_.NewBooleanType())
 	paramsTypeMap["site_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["enforcement_point_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["siteId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["enforcementPointId"] = vapiBindings_.NewStringType()
 	pathParams["site_id"] = "siteId"
 	pathParams["enforcement_point_id"] = "enforcementPointId"
+	queryParams["include_system_owned"] = "include_system_owned"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

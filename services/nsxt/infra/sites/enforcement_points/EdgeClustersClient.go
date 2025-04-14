@@ -26,13 +26,14 @@ type EdgeClustersClient interface {
 	// @param siteIdParam (required)
 	// @param enforcementpointIdParam (required)
 	// @param edgeClusterIdParam (required)
+	// @param deleteMemberEdgeNodesParam Flag to specify whether to delete edge transport nodes within edge cluster. (optional, default to false)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Delete(siteIdParam string, enforcementpointIdParam string, edgeClusterIdParam string) error
+	Delete(siteIdParam string, enforcementpointIdParam string, edgeClusterIdParam string, deleteMemberEdgeNodesParam *bool) error
 
 	// Read an Edge Cluster under an Enforcement Point
 	//
@@ -126,7 +127,7 @@ func (eIface *edgeClustersClient) GetErrorBindingType(errorName string) vapiBind
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (eIface *edgeClustersClient) Delete(siteIdParam string, enforcementpointIdParam string, edgeClusterIdParam string) error {
+func (eIface *edgeClustersClient) Delete(siteIdParam string, enforcementpointIdParam string, edgeClusterIdParam string, deleteMemberEdgeNodesParam *bool) error {
 	typeConverter := eIface.connector.TypeConverter()
 	executionContext := eIface.connector.NewExecutionContext()
 	operationRestMetaData := edgeClustersDeleteRestMetadata()
@@ -137,6 +138,7 @@ func (eIface *edgeClustersClient) Delete(siteIdParam string, enforcementpointIdP
 	sv.AddStructField("SiteId", siteIdParam)
 	sv.AddStructField("EnforcementpointId", enforcementpointIdParam)
 	sv.AddStructField("EdgeClusterId", edgeClusterIdParam)
+	sv.AddStructField("DeleteMemberEdgeNodes", deleteMemberEdgeNodesParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		return vapiBindings_.VAPIerrorsToError(inputError)

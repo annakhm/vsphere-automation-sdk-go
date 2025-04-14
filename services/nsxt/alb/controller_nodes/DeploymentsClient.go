@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type DeploymentsClient interface {
 
-	// Deploys a Advanced Load Balancer controller node VM as specified by the deployment config.
+	// Deploys a Avi Load Balancer Controller node as specified by the deployment config.
 	//
 	// @param addALBControllerNodeVMInfoParam (required)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeVMDeploymentRequestList
@@ -33,7 +33,7 @@ type DeploymentsClient interface {
 	// @throws NotFound  Not Found
 	Create(addALBControllerNodeVMInfoParam nsx_policyModel.AddALBControllerNodeVMInfo) (nsx_policyModel.ALBControllerNodeVMDeploymentRequestList, error)
 
-	// Attempts to unregister and undeploy a specified auto-deployed cluster node VM. If it is a member of a cluster, then the VM will be automatically detached from the cluster before being unregistered and undeployed. Alternatively, if the original deployment attempt failed or the VM is not found, cleans up the deployment information associated with the deployment attempt. Note: If a VM has been successfully auto-deployed, then the associated deployment information will not be deleted unless and until the VM is successfully deleted.
+	// Attempts to unregister and undeploy a specified auto-deployed cluster node. If it is a member of a cluster, then the node will be automatically detached from the cluster before being unregistered and undeployed. Alternatively, if the original deployment attempt failed or the node is not found, cleans up the deployment information associated with the deployment attempt. Note: If a node has been successfully auto-deployed, then the associated deployment information will not be deleted unless and until the node is successfully deleted.
 	//
 	// @param nodeIdParam (required)
 	// @param forceDeleteParam Delete by force (optional)
@@ -46,7 +46,7 @@ type DeploymentsClient interface {
 	// @throws NotFound  Not Found
 	Delete(nodeIdParam string, forceDeleteParam *bool, inaccessibleParam *string) error
 
-	// Returns deployment request information for a specific attempted deployment of a cluster node VM.
+	// Returns deployment request information for a specific attempted deployment of a cluster node.
 	//
 	// @param nodeIdParam (required)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeVMDeploymentRequest
@@ -58,10 +58,10 @@ type DeploymentsClient interface {
 	// @throws NotFound  Not Found
 	Get(nodeIdParam string) (nsx_policyModel.ALBControllerNodeVMDeploymentRequest, error)
 
-	// Returns request information for every attempted deployment of a cluster node VM.
+	// Returns request information for every attempted deployment of a Avi Load Balancer cluster node.
 	//
-	// @param clusteringIdParam Unique Id for NSX Advanced Load Balancer Controller Cluster used in VCF managed NSX. (optional)
-	// @param stateParam the current state of the Advanced Load Balancer controller VM (optional)
+	// @param clusteringIdParam Unique Id for Avi Load Balancer Controller Cluster used in VCF managed NSX (optional)
+	// @param stateParam The current state of the Avi Load Balancer Controller node deployment (optional)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeVMDeploymentRequestList
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -71,11 +71,11 @@ type DeploymentsClient interface {
 	// @throws NotFound  Not Found
 	List(clusteringIdParam *string, stateParam *string) (nsx_policyModel.ALBControllerNodeVMDeploymentRequestList, error)
 
-	// Update Advanced Load Balancer Controller node VM details
+	// Update Avi Load Balancer Controller node details
 	//
 	// @param nodeIdParam (required)
 	// @param aLBControllerNodeVMDeploymentRequestParam (required)
-	// @param runningConfigParam Update Advanced Load Balancer Controller runtime config as well (optional)
+	// @param runningConfigParam Update Avi Load Balancer Controller runtime config as well (optional)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeVMDeploymentRequest
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed

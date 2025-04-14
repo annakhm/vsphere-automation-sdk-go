@@ -24,10 +24,10 @@ func vpcSecurityProfilesGetInputType() vapiBindings_.StructType {
 	fieldNameMap := make(map[string]string)
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["security_profile_id"] = vapiBindings_.NewStringType()
+	fields["vpc_security_profile_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["security_profile_id"] = "SecurityProfileId"
+	fieldNameMap["vpc_security_profile_id"] = "VpcSecurityProfileId"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -47,18 +47,18 @@ func vpcSecurityProfilesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	bodyFieldsMap := map[string]string{}
 	fields["org_id"] = vapiBindings_.NewStringType()
 	fields["project_id"] = vapiBindings_.NewStringType()
-	fields["security_profile_id"] = vapiBindings_.NewStringType()
+	fields["vpc_security_profile_id"] = vapiBindings_.NewStringType()
 	fieldNameMap["org_id"] = "OrgId"
 	fieldNameMap["project_id"] = "ProjectId"
-	fieldNameMap["security_profile_id"] = "SecurityProfileId"
+	fieldNameMap["vpc_security_profile_id"] = "VpcSecurityProfileId"
 	paramsTypeMap["project_id"] = vapiBindings_.NewStringType()
+	paramsTypeMap["vpc_security_profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["org_id"] = vapiBindings_.NewStringType()
-	paramsTypeMap["security_profile_id"] = vapiBindings_.NewStringType()
 	paramsTypeMap["orgId"] = vapiBindings_.NewStringType()
 	paramsTypeMap["projectId"] = vapiBindings_.NewStringType()
-	paramsTypeMap["securityProfileId"] = vapiBindings_.NewStringType()
-	pathParams["security_profile_id"] = "securityProfileId"
+	paramsTypeMap["vpcSecurityProfileId"] = vapiBindings_.NewStringType()
 	pathParams["project_id"] = "projectId"
+	pathParams["vpc_security_profile_id"] = "vpcSecurityProfileId"
 	pathParams["org_id"] = "orgId"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
@@ -74,7 +74,7 @@ func vpcSecurityProfilesGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 		"",
 		"",
 		"GET",
-		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/vpc-security-profiles/{securityProfileId}",
+		"/policy/api/v1/orgs/{orgId}/projects/{projectId}/vpc-security-profiles/{vpcSecurityProfileId}",
 		"",
 		resultHeaders,
 		200,

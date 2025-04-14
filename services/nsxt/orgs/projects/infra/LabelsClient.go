@@ -66,35 +66,6 @@ type LabelsClient interface {
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
 	List(orgIdParam string, projectIdParam string, cursorParam *string, includeMarkForDeleteObjectsParam *bool, includedFieldsParam *string, pageSizeParam *int64, sortAscendingParam *bool, sortByParam *string) (nsx_policyModel.PolicyLabelListResult, error)
-
-	// Create label if not exists, otherwise take the partial updates. Note, once the label is created type attribute can not be changed.
-	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
-	// @param labelIdParam (required)
-	// @param policyLabelParam (required)
-	//
-	// @throws InvalidRequest  Bad Request, Precondition Failed
-	// @throws Unauthorized  Forbidden
-	// @throws ServiceUnavailable  Service Unavailable
-	// @throws InternalServerError  Internal Server Error
-	// @throws NotFound  Not Found
-	Patch(orgIdParam string, projectIdParam string, labelIdParam string, policyLabelParam nsx_policyModel.PolicyLabel) error
-
-	// Create label if not exists, otherwise replaces the existing label. If label already exists then type attribute cannot be changed.
-	//
-	// @param orgIdParam The organization ID (required)
-	// @param projectIdParam The project ID (required)
-	// @param labelIdParam (required)
-	// @param policyLabelParam (required)
-	// @return com.vmware.nsx_policy.model.PolicyLabel
-	//
-	// @throws InvalidRequest  Bad Request, Precondition Failed
-	// @throws Unauthorized  Forbidden
-	// @throws ServiceUnavailable  Service Unavailable
-	// @throws InternalServerError  Internal Server Error
-	// @throws NotFound  Not Found
-	Update(orgIdParam string, projectIdParam string, labelIdParam string, policyLabelParam nsx_policyModel.PolicyLabel) (nsx_policyModel.PolicyLabel, error)
 }
 
 type labelsClient struct {
@@ -109,8 +80,6 @@ func NewLabelsClient(connector vapiProtocolClient_.Connector) *labelsClient {
 		"delete": vapiCore_.NewMethodIdentifier(interfaceIdentifier, "delete"),
 		"get":    vapiCore_.NewMethodIdentifier(interfaceIdentifier, "get"),
 		"list":   vapiCore_.NewMethodIdentifier(interfaceIdentifier, "list"),
-		"patch":  vapiCore_.NewMethodIdentifier(interfaceIdentifier, "patch"),
-		"update": vapiCore_.NewMethodIdentifier(interfaceIdentifier, "update"),
 	}
 	interfaceDefinition := vapiCore_.NewInterfaceDefinition(interfaceIdentifier, methodIdentifiers)
 	errorsBindingMap := make(map[string]vapiBindings_.BindingType)
@@ -218,70 +187,6 @@ func (lIface *labelsClient) List(orgIdParam string, projectIdParam string, curso
 			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
 		}
 		return output.(nsx_policyModel.PolicyLabelListResult), nil
-	} else {
-		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), lIface.GetErrorBindingType(methodResult.Error().Name()))
-		if errorInError != nil {
-			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInError)
-		}
-		return emptyOutput, methodError.(error)
-	}
-}
-
-func (lIface *labelsClient) Patch(orgIdParam string, projectIdParam string, labelIdParam string, policyLabelParam nsx_policyModel.PolicyLabel) error {
-	typeConverter := lIface.connector.TypeConverter()
-	executionContext := lIface.connector.NewExecutionContext()
-	operationRestMetaData := labelsPatchRestMetadata()
-	executionContext.SetConnectionMetadata(vapiCore_.RESTMetadataKey, operationRestMetaData)
-	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
-
-	sv := vapiBindings_.NewStructValueBuilder(labelsPatchInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("LabelId", labelIdParam)
-	sv.AddStructField("PolicyLabel", policyLabelParam)
-	inputDataValue, inputError := sv.GetStructValue()
-	if inputError != nil {
-		return vapiBindings_.VAPIerrorsToError(inputError)
-	}
-
-	methodResult := lIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.orgs.projects.infra.labels", "patch", inputDataValue, executionContext)
-	if methodResult.IsSuccess() {
-		return nil
-	} else {
-		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), lIface.GetErrorBindingType(methodResult.Error().Name()))
-		if errorInError != nil {
-			return vapiBindings_.VAPIerrorsToError(errorInError)
-		}
-		return methodError.(error)
-	}
-}
-
-func (lIface *labelsClient) Update(orgIdParam string, projectIdParam string, labelIdParam string, policyLabelParam nsx_policyModel.PolicyLabel) (nsx_policyModel.PolicyLabel, error) {
-	typeConverter := lIface.connector.TypeConverter()
-	executionContext := lIface.connector.NewExecutionContext()
-	operationRestMetaData := labelsUpdateRestMetadata()
-	executionContext.SetConnectionMetadata(vapiCore_.RESTMetadataKey, operationRestMetaData)
-	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
-
-	sv := vapiBindings_.NewStructValueBuilder(labelsUpdateInputType(), typeConverter)
-	sv.AddStructField("OrgId", orgIdParam)
-	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("LabelId", labelIdParam)
-	sv.AddStructField("PolicyLabel", policyLabelParam)
-	inputDataValue, inputError := sv.GetStructValue()
-	if inputError != nil {
-		var emptyOutput nsx_policyModel.PolicyLabel
-		return emptyOutput, vapiBindings_.VAPIerrorsToError(inputError)
-	}
-
-	methodResult := lIface.connector.GetApiProvider().Invoke("com.vmware.nsx_policy.orgs.projects.infra.labels", "update", inputDataValue, executionContext)
-	var emptyOutput nsx_policyModel.PolicyLabel
-	if methodResult.IsSuccess() {
-		output, errorInOutput := typeConverter.ConvertToGolang(methodResult.Output(), LabelsUpdateOutputType())
-		if errorInOutput != nil {
-			return emptyOutput, vapiBindings_.VAPIerrorsToError(errorInOutput)
-		}
-		return output.(nsx_policyModel.PolicyLabel), nil
 	} else {
 		methodError, errorInError := typeConverter.ConvertToGolang(methodResult.Error(), lIface.GetErrorBindingType(methodResult.Error().Name()))
 		if errorInError != nil {

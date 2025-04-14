@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type ClusterconfigClient interface {
 
-	// Set the cluster configuration for Advanced Load Balancer controller cluster.
+	// Set the cluster configuration for Avi Load Balancer Controller cluster.
 	//
 	// @param aLBControllerNodeVMClusterConfigParam (required)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeVMClusterConfig
@@ -33,9 +33,9 @@ type ClusterconfigClient interface {
 	// @throws NotFound  Not Found
 	Create(aLBControllerNodeVMClusterConfigParam nsx_policyModel.ALBControllerNodeVMClusterConfig) (nsx_policyModel.ALBControllerNodeVMClusterConfig, error)
 
-	// Delete the cluster configuration for Advanced Load Balancer controller cluster. This API is for VCF deployments only.
+	// Delete the cluster configuration for Avi Load Balancer Controller cluster. This API is for VCF deployments only.
 	//
-	// @param clusteringIdParam Unique Id for NSX Advanced Load Balancer Controller Cluster used in VCF managed NSX. (optional)
+	// @param clusteringIdParam Unique Id for Avi Load Balancer Controller Cluster used in VCF managed NSX (optional)
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
 	// @throws Unauthorized  Forbidden
@@ -44,9 +44,9 @@ type ClusterconfigClient interface {
 	// @throws NotFound  Not Found
 	Delete(clusteringIdParam *string) error
 
-	// Returns cluster configuration for the Advanced Load Balancer controller cluster.
+	// Returns cluster configuration for the Avi Load Balancer Controller cluster.
 	//
-	// @param clusteringIdParam Unique Id for NSX Advanced Load Balancer Controller Cluster used in VCF managed NSX. (optional)
+	// @param clusteringIdParam Unique Id for Avi Load Balancer Controller Cluster used in VCF managed NSX (optional)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeVMClusterConfig
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed

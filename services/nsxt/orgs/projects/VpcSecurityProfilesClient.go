@@ -25,7 +25,7 @@ type VpcSecurityProfilesClient interface {
 	//
 	// @param orgIdParam (required)
 	// @param projectIdParam (required)
-	// @param securityProfileIdParam (required)
+	// @param vpcSecurityProfileIdParam (required)
 	// @return com.vmware.nsx_policy.model.VpcSecurityProfile
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -33,7 +33,7 @@ type VpcSecurityProfilesClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(orgIdParam string, projectIdParam string, securityProfileIdParam string) (nsx_policyModel.VpcSecurityProfile, error)
+	Get(orgIdParam string, projectIdParam string, vpcSecurityProfileIdParam string) (nsx_policyModel.VpcSecurityProfile, error)
 
 	// Paginated list of VpcSecurityProfiles. Note: Currently this API will return only a single default security profile at the project level.
 	//
@@ -112,7 +112,7 @@ func (vIface *vpcSecurityProfilesClient) GetErrorBindingType(errorName string) v
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (vIface *vpcSecurityProfilesClient) Get(orgIdParam string, projectIdParam string, securityProfileIdParam string) (nsx_policyModel.VpcSecurityProfile, error) {
+func (vIface *vpcSecurityProfilesClient) Get(orgIdParam string, projectIdParam string, vpcSecurityProfileIdParam string) (nsx_policyModel.VpcSecurityProfile, error) {
 	typeConverter := vIface.connector.TypeConverter()
 	executionContext := vIface.connector.NewExecutionContext()
 	operationRestMetaData := vpcSecurityProfilesGetRestMetadata()
@@ -122,7 +122,7 @@ func (vIface *vpcSecurityProfilesClient) Get(orgIdParam string, projectIdParam s
 	sv := vapiBindings_.NewStructValueBuilder(vpcSecurityProfilesGetInputType(), typeConverter)
 	sv.AddStructField("OrgId", orgIdParam)
 	sv.AddStructField("ProjectId", projectIdParam)
-	sv.AddStructField("SecurityProfileId", securityProfileIdParam)
+	sv.AddStructField("VpcSecurityProfileId", vpcSecurityProfileIdParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.VpcSecurityProfile

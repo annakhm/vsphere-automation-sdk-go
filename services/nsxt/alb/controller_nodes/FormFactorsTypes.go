@@ -22,6 +22,8 @@ import (
 func formFactorsGetInputType() vapiBindings_.StructType {
 	fields := make(map[string]vapiBindings_.BindingType)
 	fieldNameMap := make(map[string]string)
+	fields["alb_major_version"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fieldNameMap["alb_major_version"] = "AlbMajorVersion"
 	var validators = []vapiBindings_.Validator{}
 	return vapiBindings_.NewStructType("operation-input", fields, reflect.TypeOf(vapiData_.StructValue{}), fieldNameMap, validators)
 }
@@ -39,6 +41,10 @@ func formFactorsGetRestMetadata() vapiProtocol_.OperationRestMetadata {
 	headerParams := map[string]string{}
 	dispatchHeaderParams := map[string]string{}
 	bodyFieldsMap := map[string]string{}
+	fields["alb_major_version"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	fieldNameMap["alb_major_version"] = "AlbMajorVersion"
+	paramsTypeMap["alb_major_version"] = vapiBindings_.NewOptionalType(vapiBindings_.NewStringType())
+	queryParams["alb_major_version"] = "alb_major_version"
 	resultHeaders := map[string]string{}
 	errorHeaders := map[string]map[string]string{}
 	return vapiProtocol_.NewOperationRestMetadata(

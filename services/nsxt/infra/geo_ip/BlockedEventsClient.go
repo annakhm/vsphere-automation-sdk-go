@@ -21,15 +21,17 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type BlockedEventsClient interface {
 
-	// Get Geo IP Blocked Events. User can use optional request parameters like country_code or ip_address to filter the response.
+	// Get Geo IP Blocked Events. The system will return the latest 25k events stored. User can use optional request parameters like source_country_code or source_ip_address to filter the response.
 	//
-	// @param countryCodeParam Comma Separated Country Codes of Geo IP Blocked Event (optional)
 	// @param cursorParam Cursor for getting next page of records (optional)
+	// @param destinationCountryCodeParam Comma Separated Destination Country Codes of Geo IP Blocked Event (optional)
+	// @param destinationIpAddressParam Comma Separated Destination IP Addresses of Geo IP Blocked Event (optional)
 	// @param directionParam Comma Separated Directions of Traffic (optional)
 	// @param includeAllProjectsParam (optional, default to false)
-	// @param ipAddressParam Comma Separated IP Addresses of Geo IP Blocked Event (optional)
 	// @param pageSizeParam Maximum number of results to return in this page (optional, default to 500)
 	// @param ruleIdParam Comma Separated Gateway Firewall Rule Ids of Geo IP Blocked Event (optional)
+	// @param sourceCountryCodeParam Comma Separated Source Country Codes of Geo IP Blocked Event (optional)
+	// @param sourceIpAddressParam Comma Separated Source IP Addresses of Geo IP Blocked Event (optional)
 	// @return com.vmware.nsx_policy.model.GeoIpBlockedEventsList
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -37,7 +39,7 @@ type BlockedEventsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get(countryCodeParam *string, cursorParam *string, directionParam *string, includeAllProjectsParam *bool, ipAddressParam *string, pageSizeParam *int64, ruleIdParam *string) (nsx_policyModel.GeoIpBlockedEventsList, error)
+	Get(cursorParam *string, destinationCountryCodeParam *string, destinationIpAddressParam *string, directionParam *string, includeAllProjectsParam *bool, pageSizeParam *int64, ruleIdParam *string, sourceCountryCodeParam *string, sourceIpAddressParam *string) (nsx_policyModel.GeoIpBlockedEventsList, error)
 }
 
 type blockedEventsClient struct {
@@ -65,7 +67,7 @@ func (bIface *blockedEventsClient) GetErrorBindingType(errorName string) vapiBin
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (bIface *blockedEventsClient) Get(countryCodeParam *string, cursorParam *string, directionParam *string, includeAllProjectsParam *bool, ipAddressParam *string, pageSizeParam *int64, ruleIdParam *string) (nsx_policyModel.GeoIpBlockedEventsList, error) {
+func (bIface *blockedEventsClient) Get(cursorParam *string, destinationCountryCodeParam *string, destinationIpAddressParam *string, directionParam *string, includeAllProjectsParam *bool, pageSizeParam *int64, ruleIdParam *string, sourceCountryCodeParam *string, sourceIpAddressParam *string) (nsx_policyModel.GeoIpBlockedEventsList, error) {
 	typeConverter := bIface.connector.TypeConverter()
 	executionContext := bIface.connector.NewExecutionContext()
 	operationRestMetaData := blockedEventsGetRestMetadata()
@@ -73,13 +75,15 @@ func (bIface *blockedEventsClient) Get(countryCodeParam *string, cursorParam *st
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(blockedEventsGetInputType(), typeConverter)
-	sv.AddStructField("CountryCode", countryCodeParam)
 	sv.AddStructField("Cursor", cursorParam)
+	sv.AddStructField("DestinationCountryCode", destinationCountryCodeParam)
+	sv.AddStructField("DestinationIpAddress", destinationIpAddressParam)
 	sv.AddStructField("Direction", directionParam)
 	sv.AddStructField("IncludeAllProjects", includeAllProjectsParam)
-	sv.AddStructField("IpAddress", ipAddressParam)
 	sv.AddStructField("PageSize", pageSizeParam)
 	sv.AddStructField("RuleId", ruleIdParam)
+	sv.AddStructField("SourceCountryCode", sourceCountryCodeParam)
+	sv.AddStructField("SourceIpAddress", sourceIpAddressParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.GeoIpBlockedEventsList

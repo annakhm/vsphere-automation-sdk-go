@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type AlbOnboardingWorkflowClient interface {
 
-	// Delete the EnforcementPoint along with Infra Admin credentials.
+	// Delete Avi EnforcementPoint along with Infra Admin credentials.
 	//
 	// @param managedByParam On Boarding flow managed by LCM/VCF. (required)
 	//
@@ -32,7 +32,7 @@ type AlbOnboardingWorkflowClient interface {
 	// @throws NotFound  Not Found
 	Delete(managedByParam string) error
 
-	// Set the post deployment cluster configuration for Advanced Load Balancer controller cluster.
+	// Set the post deployment cluster configuration for Avi Load Balancer Controller cluster.
 	//
 	// @param aLBControllerConfigurationParam (required)
 	// @return com.vmware.nsx_policy.model.EnforcementPoint

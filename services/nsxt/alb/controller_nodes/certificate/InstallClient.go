@@ -21,7 +21,7 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type InstallClient interface {
 
-	// Use this API to install and update portal certificate in ALB Controller.
+	// Use this API to install and update portal certificate in Avi Load Balancer Controller.
 	//
 	// @param aLBControllerCertificateParam (required)
 	// @param caOnlyParam Add given CA certificate to NSX Truststore (optional)

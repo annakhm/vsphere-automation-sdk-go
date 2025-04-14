@@ -21,7 +21,9 @@ const _ = vapiCore_.SupportedByRuntimeVersion2
 
 type FormFactorsClient interface {
 
-	// Returns information about all form factors available for Advanced Load Balancer controller nodes.
+	// Returns information about all form factors available for Avi Load Balancer Controller nodes.
+	//
+	// @param albMajorVersionParam Major release version of Avi Load Balancer Controller for which form factor details will be returned. (optional)
 	// @return com.vmware.nsx_policy.model.ALBControllerNodeFormFactors
 	//
 	// @throws InvalidRequest  Bad Request, Precondition Failed
@@ -29,7 +31,7 @@ type FormFactorsClient interface {
 	// @throws ServiceUnavailable  Service Unavailable
 	// @throws InternalServerError  Internal Server Error
 	// @throws NotFound  Not Found
-	Get() (nsx_policyModel.ALBControllerNodeFormFactors, error)
+	Get(albMajorVersionParam *string) (nsx_policyModel.ALBControllerNodeFormFactors, error)
 }
 
 type formFactorsClient struct {
@@ -57,7 +59,7 @@ func (fIface *formFactorsClient) GetErrorBindingType(errorName string) vapiBindi
 	return vapiStdErrors_.ERROR_BINDINGS_MAP[errorName]
 }
 
-func (fIface *formFactorsClient) Get() (nsx_policyModel.ALBControllerNodeFormFactors, error) {
+func (fIface *formFactorsClient) Get(albMajorVersionParam *string) (nsx_policyModel.ALBControllerNodeFormFactors, error) {
 	typeConverter := fIface.connector.TypeConverter()
 	executionContext := fIface.connector.NewExecutionContext()
 	operationRestMetaData := formFactorsGetRestMetadata()
@@ -65,6 +67,7 @@ func (fIface *formFactorsClient) Get() (nsx_policyModel.ALBControllerNodeFormFac
 	executionContext.SetConnectionMetadata(vapiCore_.ResponseTypeKey, vapiCore_.NewResponseType(true, false))
 
 	sv := vapiBindings_.NewStructValueBuilder(formFactorsGetInputType(), typeConverter)
+	sv.AddStructField("AlbMajorVersion", albMajorVersionParam)
 	inputDataValue, inputError := sv.GetStructValue()
 	if inputError != nil {
 		var emptyOutput nsx_policyModel.ALBControllerNodeFormFactors
